@@ -1,0 +1,4 @@
+requests==2.27.1
+sly==0.4
+coloredlogs==15.0.1
+colorama==0.4.4
