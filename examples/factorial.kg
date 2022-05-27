@@ -1,0 +1,17 @@
+func factorial (num) {
+    if num < 0 {
+        write 'error'
+        return ''
+    }elseif num == 0 {
+        return 1
+    }else{
+        var data = 1
+        for #i -> nlist(num, zaro=false) {
+            var data=data * #i;
+        }
+        return data;
+        
+    }
+}
+// print factorial of 10
+write factorial(10)
