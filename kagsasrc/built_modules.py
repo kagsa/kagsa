@@ -1,5 +1,5 @@
 import os,platform,subprocess,base64,sys,re,requests,json,random,time,datetime,keyboard
-from methods import *
+from .methods import *
 
 #
 
