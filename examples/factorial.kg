@@ -6,8 +6,8 @@ func factorial (num) {
         return 1
     }else{
         var data = 1
-        for #i -> nlist(num, zaro=false) {
-            var data=data * #i;
+        for i -> nlist(num, zero=false) {
+            var data=data * i;
         }
         return data;
         

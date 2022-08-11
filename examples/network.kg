@@ -1,0 +1,25 @@
+func getIP (){
+    var session = HTTP()
+    session.method('get')
+    session.URL('https://api.ipify.org')
+    var response = session.send()
+    return response.text;
+}
+
+func isConnectToInternet () {
+    try {
+        var session = HTTP()
+        session.method('get')
+        session.URL('https://www.google.com')
+        session.send()
+        return true
+    }catch{
+        return false
+    }
+}
+
+if isConnectToInternet(){
+    string ip = getIP()
+    write 'You are connected to internet\n'
+    write '[ip] : %{ip}'
+}

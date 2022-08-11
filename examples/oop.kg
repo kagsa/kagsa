@@ -1,0 +1,20 @@
+class App {
+    func @constructor (@this) {
+        write 'Welcome To App\n'
+        var @this.num = 0
+    }
+    func addOne (@this) {
+        @this.num+=1
+    }
+    func takeOne (@this) {
+        @this.num-=1
+    }
+}
+
+var game = App()
+game.addOne()
+game.addOne()
+game.addOne()
+game.takeOne()
+
+write game.num

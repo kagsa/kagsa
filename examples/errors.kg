@@ -1,0 +1,13 @@
+try {
+    write toInt('abc')
+}
+catch {
+    var data = getError()
+    write 'There is a Error in Your Code' , nl
+    write 'Error Text',data.text , nl
+    write 'Error Line',data.line , nl
+    write 'Error LineNo',data.lineno , nl
+    write 'Error Type',data.type , nl
+    write 'Error File',data.file , nl
+
+}
