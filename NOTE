@@ -1,0 +1,15 @@
+Feature of New Version 1.0.0 :
+    1 - Allow symbols in variable name (@$^~?)
+    2 - Variable name can start with number.
+    3 - New way to dealing with JSON/Dict data.
+    4 - Fix problem in run code ( kagsa path\with\backslash )
+    5 - Some shortcut in parser.
+    6 - Dealing with bytes.
+    7 - Continue keyword.
+    8 - not() func in condition words.
+    9 - Fix variable names lexing (var vari = '')
+    10- New keywords for variables (string, int, float, dict, list)
+    11- Add dealing with class.
+    12- Make a new libararies system with (include) keyword. 
+    13- Distribution the parts of KAGSA in many files.
+	14- More speed than 0.1.5 version 
