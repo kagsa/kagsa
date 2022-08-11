@@ -14,4 +14,4 @@ This is all you need to learn **KAGSA**.
 -  [Exceptions](https://github.com/kagsa/kagsa/blob/main/docs/exceptions.md)
 -  [Built Modules](https://github.com/kagsa/kagsa/blob/main/docs/built-modules.md)
 -  [Libraries](https://github.com/kagsa/kagsa/blob/main/docs/libraries.md)
--  [Somethings](https://github.com/kagsa/kagsa/blob/main/docs/somethings.md)
+-  [Somethings](https://github.com/kagsa/kagsa/blob/main/docs/something.md)
