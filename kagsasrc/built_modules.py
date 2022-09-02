@@ -3,6 +3,58 @@ from .methods import *
 
 #
 
+P_A_T_H = sys.path
+
+class W_e_b:
+    class HTMLError (Exception):pass
+    def s_c_r_i_p_t (data):
+        return f'<script>{data}</script>'
+    def b_o_x (data):
+        data = data.replace('"','\\"')
+        print(f'<script>alert("{data}")</script>')
+    class H_T_M_L_E_l_e_m_e_n_t:
+        def __init__ (self,inner,outer):
+            self.i_n_n_e_r_H_T_M_L = C_o_d_e.b_a_s_e_6_4.d_e_c_o_d_e(inner)
+            self.o_u_t_e_r_H_T_M_L = C_o_d_e.b_a_s_e_6_4.d_e_c_o_d_e(outer)
+    class E_l_e_m_e_n_t:
+        def __init__ (self,tagName,n,innerHTML,**attrs):
+            self.t_a_g_N_a_m_e = tagName
+            if not(n in [1,2,'1','2']):
+                raise W_e_b.HTMLError('Element(tagName, n, innerHTML, **attrs) n must be 1 or 2')
+            self.n = n
+            self.a_t_t_r_s = attrs
+            self.i_n_n_e_r_H_T_M_L = innerHTML
+        def __str__ (self):
+            d = ''
+            if self.n == 1:
+                d = f'<{self.t_a_g_N_a_m_e} _DATA_>'
+            else:
+                d = f'<{self.t_a_g_N_a_m_e} _DATA_>{self.i_n_n_e_r_H_T_M_L}</{self.t_a_g_N_a_m_e}>'
+            for i,j in self.a_t_t_r_s.items():
+                j =j.replace('"','\\"')
+                i=i.replace('__','ة').replace('_','').replace('ة','_')
+                d=d.replace('_DATA_',f'{i}="{j}" _DATA_')
+            d=d.replace(' _DATA_','')
+            return d
+    class i_n_p_u_t_s:
+        inp = {}
+        def s_e_t (selector,htmlclass):
+            W_e_b.i_n_p_u_t_s.inp[selector] = htmlclass
+        def g_e_t (selector):
+            if selector in W_e_b.i_n_p_u_t_s.inp.keys():
+                return W_e_b.i_n_p_u_t_s.inp[selector]
+            else:
+                raise W_e_b.HTMLError(f"{selector} is not denfined")
+        def e_d_i_t (selector,**data):
+            o = "<script>_DATA_</script>"
+            for i,j in data.items():
+                i=i.replace('__','ة').replace('_','').replace('ة','_')
+                j = j.replace('"','\\"')
+                o = o.replace('_DATA_', f'document.querySelector("{selector}").{i} = "{j}";_DATA_')
+            o = o.replace('_DATA_','')
+            print(o)
+        
+
 
 class K_e_y_b_o_a_r_d:
     class KeyboardError (Exception) :pass
@@ -384,18 +436,9 @@ class S_y_s_t_e_m:
     def c_m_d (command):
         os.system(command)
         return 0
-    def e_x_e_c (command,s_h_e_l_l=True):
-        DEVNULL = subprocess.DEVNULL
-        try:
-            return subprocess.check_output(command,shell=s_h_e_l_l, stderr = DEVNULL , stdin = DEVNULL ).decode("utf-8",errors='backslashreplace')
-        except Exception as e:
-            class execError (Exception): pass
-            raise execError(str(e))
-            '''def execErrors(er):
-                raise execError(str(er))
-            ss={'execErrors':execErrors}
-            exec(f'ret = lambda: execErrors("{str(e)}")',ss)
-            return ss['ret']'''
+    def e_x_e_c (command):
+        popen = os.popen(command)
+        return o.read()
     def p_a_t_h ():
         return os.getcwd()
     def i_n_f_o_r_m_a_t_i_o_n_s ():
@@ -413,26 +456,39 @@ class S_y_s_t_e_m:
 
 class F_i_l_e:
     class R_e_a_d:
-        def __init__ (self,filename):
-            self.F = open (filename,'r')
+        def __init__ (self,filename,u_t_f___8=0):
+            if u_t_f___8:
+                self.F = open (filename,'r',encoding='utf-8')
+            else:
+                self.F = open (filename,'r')
         def g_e_t_T_e_x_t (self):
             return self.F.read()
         def e_n_d (self):
             self.F.close()
-    class ReadBytes:
+    class R_e_a_d_B_y_t_e_s:
         def __init__ (self,filename):
-            self.g_e_t = open(filename,'rb').read()
+            self.F = open (filename,'rb')
+        def g_e_t (self):
+            return self.F.read()
+        def e_n_d (self):
+            self.F.close()
     class W_r_i_t_e:
-        def __init__ (self,filename):
-            self.F = open(filename,'w')
+        def __init__ (self,filename,u_t_f___8=0):
+            if u_t_f___8:
+                self.F = open (filename,'w',encoding='utf-8')
+            else:
+                self.F = open (filename,'w')
         def w_r_i_t_e (self,*arguments):
             for arg in arguments:
                 self.F.write(arg)
         def e_n_d (self):
             self.F.close()
     class A_d_d:
-        def __init__ (self,filename):
-            self.F = open(filename,'a')
+        def __init__ (self,filename,u_t_f___8=0):
+            if u_t_f___8:
+                self.F = open (filename,'a',encoding='utf-8')
+            else:
+                self.F = open (filename,'a')
         def w_r_i_t_e (self,*arguments):
             for arg in arguments:
                 self.F.write(arg)

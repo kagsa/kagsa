@@ -1,4 +1,21 @@
- 
+class أ_K_A_G_S_A:
+    f_i_l_e = '[KAGSA-FILE]'
+    if f_i_l_e!='[stdin]':
+        x = open(f_i_l_e,'r')
+        c_o_d_e = x.read()
+        x.close()
+    else: c_o_d_e = ''
+    v_e_r_s_i_o_n = '1.1.0'
+    def latest () :
+        try:
+            req = requests.get('https://github.com/kagsa/kagsa/releases/latest').text
+            req = re.findall(r'<title>(.*?)</title>',req)[0]
+            return re.findall(r'\d+\.\d+\.\d+',req)[0]
+        except:
+            return ''
+
+    
+
 class g_e_t_E_r_r_o_r ():
     def __init__ (self) :
         self.t_e_x_t     = ''
@@ -6,6 +23,14 @@ class g_e_t_E_r_r_o_r ():
         self.l_i_n_e     = ''
         self.t_y_p_e     = ''
         self.f_i_l_e     = '[KAGSA-FILE]'
+
+        if self.f_i_l_e == '[stdin]':
+            self.l_i_n_e_n_o = 1
+            E = errors(globals()['ERROR'], get_value_back=True)
+            self.t_e_x_t = E[1]
+            self.t_y_p_e = E[0]
+            self.l_i_n_e = ''
+            return
         the_tb = traceback.extract_tb(sys.exc_info()[2])
         tb_filename, tb_lineno, tb_func, tb_line = the_tb[-1]
         tb_filetype = 'py'
@@ -35,7 +60,7 @@ class g_e_t_E_r_r_o_r ():
         
         try:
             if tb_filetype == 'kg':
-                tb_lineno = data.split('\n')[tb_lineno-1]
+                tb_lineno = FullCodes.split('\n')[tb_lineno-1]
                 tb_lineno = int(re.findall(r'    # line (\d+)',tb_lineno)[-1])
                 x = open(kagsa_file,'r')
                 file_lines = x.read().split('\n')
@@ -118,3 +143,66 @@ def INCLUDE (lib):
             raise IncludeError(f'syntaxes error in "{lib}"')
     except FileNotFoundError:
         raise IncludeError(f'"{lib}" is not defined')
+
+def to_list (data):
+    d = []
+    for i in data:
+        d.append(i)
+    return d
+
+class JumpingError (Exception):
+    pass
+
+def JUMP (lineno):
+    lines = kagsa_lines
+    lines_dict = {}
+    data_founded = 0
+    data = ''
+    
+    # Create a dict with all lines -> {'2','print("hi")    # line 2'}
+    last=''
+    for j in lines.split('\n'):
+        no = re.findall(r'    # line (\d+)',j)[0]
+        if no == last.replace('_',''):
+            lines_dict[last+'_'] = j
+            last = last+'_'
+        else:
+            lines_dict[no] = j
+            last = no
+        #print(last)
+
+    if str(lineno) in lines_dict.keys():
+        k,v = to_list(lines_dict.keys()), to_list(lines_dict.values())
+        data_founded=1
+        data = v[ k.index(str(lineno)) : ]
+    else:
+        up_ = int(lineno)
+        down_ = int(lineno)
+        while True:
+            up_+=1
+            down_-=1
+            if str(up_) in lines_dict:
+                k,v = to_list(lines_dict.keys()), to_list(lines_dict.values())
+                data_founded=1
+                data = v[ k.index(str(up_)) : ]
+                break
+            if down_ > 0:
+                if str(down_) in lines_dict:
+                    k,v = to_list(lines_dict.keys()), to_list(lines_dict.values())
+                    data_founded=1
+                    data = v[ k.index(str(down_))+1 : ]
+                    break
+
+
+    if data[0].startswith('\t'):
+        tabs = re.findall(r'(\t+).*?',data[0])[0].count('\t')
+        x=0
+        for j in range(1, tabs+1):
+            data.insert(x , ("\t" * x) + 'for _jump_ in [1]:')
+            x+=1
+
+    #print('\n'.join(data))
+    #input()
+    exec('\n'.join(data),globals())
+    sys.exit(0)
+

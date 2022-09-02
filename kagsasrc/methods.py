@@ -1,4 +1,10 @@
+import forbiddenfruit,threading
 
+
+
+def SetMethod (datatypes, name, func):
+    for datatype in datatypes:
+        forbiddenfruit.curse(datatype,name,func)
 
 def t_o_I_n_t (value):
     try:    return int(value)
@@ -44,6 +50,29 @@ def n_l_i_s_t (num, z_e_r_o=True):
     else:
         for i in range(1,num+1): d.append(i)
     return d
+
+def d_i_r (data):
+    lst = []
+    #print(dir(data))
+    for value in dir(data):
+        text=value.replace('__','_C')
+        for c in list('1234567890qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNMأبتثج'):
+            text=text.replace(c,'C')
+        text=text[1:]
+        text=text.replace('_C','')
+        #
+        if text == '':
+            value = value.replace('أ','@').replace('ب','$').replace('ت','^').replace('ث','~').replace('ج','?')
+            if (value[0]=='_') and (value[1] in '1234567890') :
+                value = value[1:]
+            value = value.replace('__','ة').replace('_','').replace('ة','_')
+            #
+            lst.append(value)
+        elif value in ['__init__','__str__','__repr__','self']:
+            dct = {'__init__':'@constructor','__str__':'@string','__repr__':'@repr','self':'@this'}
+            lst.append(dct[value])
+    return lst
+
 
 n_l = '\n'
 n_o_n_e = None
@@ -203,6 +232,29 @@ def v_a_l_u_e_s (DATA):
     else:
         raise ValueError('"values(VAR)" function take only (dict) values')
 
+def buildMethods ():
+    SetMethod([str],'r_e_p_l_a_c_e',r_e_p_l_a_c_e)
+    SetMethod([str],'s_p_l_i_t',s_p_l_i_t)
+    SetMethod([str],'e_n_d',e_n_d)
+    SetMethod([str],'s_t_a_r_t',s_t_a_r_t)
+    SetMethod([str],'s_e_a_r_c_h',s_e_a_r_c_h)
+    SetMethod([str],'u_p_c_a_s_e',u_p_c_a_s_e)
+    SetMethod([str],'d_o_w_n_c_a_s_e',d_o_w_n_c_a_s_e)
+    SetMethod([str],'s_t_r_i_p',s_t_r_i_p)
+    SetMethod([str,list,dict],'l_e_n_g_t_h',l_e_n_g_t_h)
+    SetMethod([str,list,dict],'g_e_t',g_e_t)
+    SetMethod([list,dict],'a_p_p_e_n_d',a_p_p_e_n_d)
+    SetMethod([list,dict],'c_l_e_a_r',c_l_e_a_r)
+    SetMethod([list,dict],'d_e_l_e_t_e',d_e_l_e_t_e)
+    SetMethod([list,dict],'a_d_d',a_d_d)
+    SetMethod([list],'i_n_d_e_x',i_n_d_e_x)
+    SetMethod([list],'a_p_p_l_i_s_t',a_p_p_l_i_s_t)
+    SetMethod([list],'j_o_i_n',j_o_i_n)
+    SetMethod([str,list],'c_o_u_n_t',c_o_u_n_t)
+    SetMethod([dict],'k_e_y_s',k_e_y_s)
+    SetMethod([dict],'v_a_l_u_e_s',v_a_l_u_e_s)
+    #SetMethod([str],'',)
+threading.Thread(target=buildMethods).start()
 
 
 def A_s_s_e_r_t_i_o_n_E_R_R (text):

@@ -19,12 +19,13 @@ def __init__ (value,parseMemory,addline=True):
     if ('try' in parseMemory[5]) and not('try :' == parseMemory[5]):
         raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nUnknown error in try sentence')
     if ('break' in parseMemory[5]) and not('break' == parseMemory[5]):
-        raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nUnknown error in try sentence')
+        raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nUnknown error in break')
     if ('continue' in parseMemory[5]) and not('continue' == parseMemory[5]):
-        raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nUnknown error in try sentence')
+        raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nUnknown error in continue')
     if ('|DATA0|' in parseMemory[5]):
-        raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nComplete function sentence')
-    if ('= |DATA1|' in parseMemory[5]) or ('=|DATA1|' in parseMemory[5]):
+        raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nComplete var sentence')
+    if ('= |DATA1|' in parseMemory[5]) or ((parseMemory[6] == False) and ('|DATA1|' in parseMemory[5])):
+        #print(parseMemory)
         raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nComplete var sentence')
     if ('print(|DATA|,end=None)' in parseMemory[5]):
         raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nComplete write sentence')
@@ -37,6 +38,7 @@ def __init__ (value,parseMemory,addline=True):
     if parseMemory[1]:  # if There a Holder Add a new Block
         parseMemory[0]+=1
     parseMemory[1]=False
+    parseMemory[6]=False
     # if There a Keyword Use a Code Block :
     # Add Line items to 'last_under_cmnd'
     if parseMemory[5].startswith('while') or parseMemory[5].startswith('for') or parseMemory[5].startswith('if') or parseMemory[5].startswith('elseif') or parseMemory[5].startswith('else') or parseMemory[5].startswith('def') or parseMemory[5].startswith('class') or parseMemory[5].startswith('try') or parseMemory[5].startswith('except') :

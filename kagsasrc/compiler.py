@@ -2,7 +2,10 @@ from .methods import *
 from .built_modules import *
 from .errors import __init__ as errors
 from .parse_id import __init__ as parse_id
-import re,zipfile,random,os,sys,traceback,pkg_resources
+from .paths import Paths as Paths
+import re,zipfile,random,os,sys,traceback,requests
+
+Paths.init()
 
 def encodeString (string):
     data = ''
@@ -10,13 +13,10 @@ def encodeString (string):
         data += chr(ord(char)+2)
     return data
 
-def main (data,kagsa_file,lib=False,lib_name=None):
+def main (data,kagsa_file,lib=False,lib_name=None,memory=None):
     data = '\n'.join(data)
     # Replace ( Some Symbols Codes ) to ( Backslash + str sybmbols )
     data = data.replace('STR_SYM_TWO','\\"' ).replace('STR_SYM_ONE',"\\'" ).replace('STR_SYM_THREE',"``")
-    
-    kagsa_file = kagsa_file.replace('\\','\\\\')
-    exec_data = pkg_resources.resource_stream(__name__,'exec_data.py').read().decode('utf-8').replace('[KAGSA-FILE]', kagsa_file)
     #print(data)
     MEMORY = {
         'errors':errors,
@@ -25,25 +25,29 @@ def main (data,kagsa_file,lib=False,lib_name=None):
         'zipfile':zipfile,
         'sys':sys,
         'traceback':traceback,
-        'parse_id':parse_id
+        'parse_id':parse_id,
+        'requests':requests
     }
+    KAGSALINES=data
+    kagsa_file = kagsa_file.replace('\\','\\\\')
+    exec_data = Paths.getFile('exec_data.py','r').read().replace('[KAGSA-FILE]', kagsa_file)    
     data = exec_data + data
     if lib:
         d1 =  encodeString('#\n#\n#\n#\n#\n#\n#\n' + data.replace('\\','\\\\').replace('"','\\"').replace("\n","\\n")).replace('"','\\"')
         data = f'import re,zipfile,os,sys,traceback\nfrom __memory__ import *\ndef decodeString (string):\n\tdata = \'\'\n\tfor char in string: data += chr(ord(char)-2)\n\treturn data\nFullCodes = decodeString("{d1}")'  +  data
 
         __memory__ = 'import os,platform,subprocess,base64,sys,re,requests,json,random,time,datetime\n\n'
-        __memory__+= pkg_resources.resource_stream(__name__,'errors.py').read().decode('utf-8').replace(
+        __memory__+= Paths.getFile('errors.py','r').read().replace(
             'def __init__ (theErr,get_value_back=False, lineno=None):',
             'def errors (theErr,get_value_back=False, lineno=None):'
         )+'\n'
 
-        __memory__+= pkg_resources.resource_stream(__name__,'methods.py').read().decode('utf-8')+'\n'
-        __memory__+= pkg_resources.resource_stream(__name__,'parse_id.py').read().decode('utf-8').replace(
+        __memory__+= Paths.getFile('methods.py','r').read()+'\n'
+        __memory__+= Paths.getFile('parse_id.py','r').read().replace(
             'def __init__ (value,parseMemory):',
             'def parse_id (value,parseMemory):'
         )+'\n'
-        __memory__+= '\n'.join(pkg_resources.resource_stream(__name__,'built_modules.py').read().decode('utf-8').split('\n')[3:])
+        __memory__+= '\n'.join(Paths.getFile('built_modules.py','r').read().split('\n')[3:])
 
 
         kgl = zipfile.ZipFile(lib_name,'w')
@@ -56,10 +60,14 @@ def main (data,kagsa_file,lib=False,lib_name=None):
         # Create a Memory for Run Python Codes
         #
         MEMORY = dict(globals() , **locals(), **MEMORY)
+        if memory != None:
+            for i,j in memory.items():
+                MEMORY[i]=j
         MEMORY['FullCodes'] = data
-
+        MEMORY['kagsa_lines'] = KAGSALINES
         try:
             exec(data,MEMORY)
+            return MEMORY
         #
         # The Exception of Compiler Error
         #  How This Work ?

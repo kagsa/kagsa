@@ -16,7 +16,7 @@ def __init__ (value,parseMemory):
     if '|DATA|' in parseMemory[5]:
         parseMemory[5]=parseMemory[5].replace('|DATA|',f'{value}|DATA|')
     #
-    elif ('|DATA1|' in parseMemory[5] and ' = ' in parseMemory[5]):
+    elif ('|DATA1|' in parseMemory[5]) and (parseMemory[6] == False):
         parseMemory[5]=parseMemory[5].replace('|DATA0|',f'{value}|DATA0|')
     # var items bar is opened
     elif ('|DATA1|' in parseMemory[5]):

@@ -13,9 +13,9 @@ def __init__ (value,parseMemory):
     if '|DATA-P|' in parseMemory[5]:
         parseMemory[5]=parseMemory[5].replace('|DATA-P|','')
     # this mean the var is opened with assign
-    if ('|DATA1|' in parseMemory[5]) and (('= |DATA1|' in parseMemory[5]) or ('= str(|DATA1|)' in parseMemory[5]) or ('= int(|DATA1|)' in parseMemory[5]) or ('= float(|DATA1|)' in parseMemory[5]) or ('= list(|DATA1|)' in parseMemory[5]) or ('= json.loads(|DATA1|)' in parseMemory[5])):
-        parseMemory[5]=parseMemory[5].replace(' = ','=').replace('|DATA0|','')
-
+    if ('|DATA1|' in parseMemory[5]) and (parseMemory[6] == False):
+        parseMemory[6] = True
+        parseMemory[5] = parseMemory[5].replace('|DATA0|','')
     # if creat/call function in the line
     elif parseMemory[5].startswith('def ') or len(re.findall(r'[a-zA-Z_][a-zA-Z0-9_]*\(',parseMemory[5]))>0 :
         #print(parseMemory[5])

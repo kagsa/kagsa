@@ -15,7 +15,7 @@ if platform.system() == 'Windows' :
     logger = logging.getLogger(f"Logger")
     coloredlogs.install(logger=logger)
 
-version = '1.0.0'
+version = '1.1.0'
 
 # Colors :
 def Red (t) : return f'\x1b[1;31m{t}\x1b[0m'
@@ -38,7 +38,7 @@ def ArgsParser ():
             return {'do':''}
         data['do'] = 'help'
     elif argv=='':
-        data['do'] = 'help'
+        data['do'] = 'shell'
     elif re.search(r'-l .*? -o .*',argv):
         if re.findall(r'-l .*? -o .*',argv)[0] != argv:
             return {'do':''}
@@ -110,6 +110,48 @@ if (args['do'] == 'run_file'):
 
     if ErrorIn==None:
         Compiler(PARSER,kg_file)
+# Run Kagsa without any Command
+# Start Kagsa Console
+elif (args['do'] == 'shell'):
+    memory= {}
+    first = 0
+    print(f'KAGSA Programming Language {version}\nMIT License: Copyright (c) 2022 Kagsa',end='')
+    while True:
+        try:
+            command = input('\n[KAGSA]->')
+            ErrorIn = None # used to catch the error
+            try:
+                ErrorIn='Lexer'
+                LEXER = Lexer(  command  )
+                ErrorIn='SyntaxChecker'
+                SYNTAX = Syntax_checker(LEXER)
+                ErrorIn='Parser'
+                PARSER = Parser(LEXER)
+                ErrorIn=None
+            except Exception as theErr:
+                line_no = '1'
+                line_text = command
+                tb_type, tb_text, _ = errors(theErr, lineno=str(line_no),get_value_back=1)
+
+                print(f'{Red("error catched [")} {ErrorIn}/[stdin]/{tb_type} {Red("]")}')
+                print(' ' + (' '* len(str(line_no))) + ' |')
+                print(f' {Cyan(line_no)} | {Cyan(line_text)}')
+                print(' ' + (' '* len(str(line_no))) + ' |')
+                if '\n' in tb_text:
+                    print(f'{Red("error")}:', tb_text.split('\n')[0]) # error
+                    print(f'{Yellow("details")}:', '\n'.join(tb_text.split('\n')[1:])) # details
+                else:
+                    print(f'{Red("error")}:', tb_text) # error
+
+
+            if ErrorIn==None:
+                first+=1
+                if first==1:
+                    memory=Compiler(PARSER,'[stdin]')
+                else:
+                    memory=Compiler(PARSER,'[stdin]',memory=memory)
+        except KeyboardInterrupt:
+            sys.exit(1)
 # Compile a Kagsa Library
 # kagsa -l libFile.kg -o newFile.kgl
 elif (args['do'] == 'compile_lib'):

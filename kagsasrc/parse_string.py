@@ -1,4 +1,5 @@
 from .parse_id import __init__ as parse_id
+from .parse_sformat import __init__ as parse_sformat
 import re
 
 def __init__ (value,parseMemory):
@@ -15,11 +16,13 @@ def __init__ (value,parseMemory):
         parseMemory[4]+=value.count('\n')
     
     # Check Formats
-    FORMAT=re.findall(r'(%{([0-9a-zA-Z_@$^~?][0-9a-zA-Z_@$^~?]*|#[0-9a-zA-Z_@$^~?])})',value)
+    FORMAT=re.findall(r'(%{(.*?)})',value)
     if len(FORMAT) > 0:
         value='f'+value
         for d in FORMAT:
-            format_id = parse_id(d[1],[0,False,'',[],1,''])[5].replace('|DATA|','')
+            # d[0] : %{..}
+            # d[1] :   ..
+            format_id = parse_sformat(d[1])
             NEW='{'+format_id+'}'
             value=value.replace(d[0],NEW)
     
@@ -28,7 +31,7 @@ def __init__ (value,parseMemory):
     if ('|DATA0|' in parseMemory[5]):
         #print(parseMemory[5])
         raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nVariable not named yet')
-    elif ('|DATA1|' in parseMemory[5] and ' = ' in parseMemory[5]):
+    elif ('|DATA1|' in parseMemory[5]) and (parseMemory[6] == False):
         raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nVariable opened without assign')
     
     elif '|DATA-P|' in parseMemory[5]:

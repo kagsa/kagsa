@@ -36,7 +36,7 @@ def __init__ (value,parseMemory):
         raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nVariable not named yet')
     # if this is var & is named
     elif '|DATA1|' in parseMemory[5]:
-        if not(' = ' in parseMemory[5]): # if not named ( = in line (var ii (=) data))
+        if parseMemory[6]:
             parseMemory[5]=parseMemory[5].replace('|DATA1|',f'{value}|DATA1|')
         else:
             raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nVariable opened without assign')

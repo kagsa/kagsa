@@ -4,7 +4,17 @@ import re
 
 def __init__ (theErr,get_value_back=False, lineno=None):
     # Get Error Text & Type
-    ErrStr=str(theErr).replace('<string>','<file>').replace('.',' . ').replace('expected an indented block after function definition' , 'empty code block')
+    ErrStr=str(theErr).replace('<string>','<file>').replace('.',' . ')
+    ErrStr=ErrStr.replace('expected an indented block after function definition' , 'empty code block')
+    ErrStr=ErrStr.replace('print()' , 'write')
+    ErrStr=ErrStr.replace('str()' , 'string variable')
+    ErrStr=ErrStr.replace('float()' , 'float variable')
+    ErrStr=ErrStr.replace('int()' , 'int variable')
+    ErrStr=ErrStr.replace('JSONDecoder.__init__()' , 'json variable')
+    ErrStr=ErrStr.replace('list()' , 'list variable')
+    ErrStr=ErrStr.replace('input()' , 'input')
+    ErrStr=ErrStr.replace('INCLUDE()' , 'include')
+    ErrStr=ErrStr.replace('JUMP()' , 'jump')
     ErrType=theErr.__class__.__name__.replace('error','ERR').replace('Error','ERR').replace('compiler.classes.__init__.','').replace('.',' . ')
 
     if lineno!=None:

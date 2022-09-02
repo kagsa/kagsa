@@ -22,6 +22,7 @@ def main (data):
         [],    # parsed_input       : [3] : All The Translated Python Codes (list)
         1,     # line               : [4] : The Current Line (used to print in errors)
         '',    # line_items         : [5] : The Line Items (its will be edit and add it to 'parsed_input')
+        False  # variable close     : [6] : Is The Variable Assign Closed ?
     ]
     for key,value in data:          # Read All The Lexed Data ( [['key','value']..] )
         if    key == 'ENDLINE':

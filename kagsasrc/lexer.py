@@ -41,7 +41,7 @@ def main (context) :
         end=[]
         # Start Lexeing Loop and Get Outout
         for tok in lexer.tokenize(context):
-            if tok.type == 'ID' and tok.value in ['include','input','write','var','if','elseif','else','while','func','break','return','global','for','try','catch','delvar','continue','class']:
+            if tok.type == 'ID' and tok.value in ['jump','include','input','write','var','if','elseif','else','while','func','break','return','global','for','try','catch','delvar','continue','class']:
                 tok.type = 'KEYWORD'
             if (tok.type == 'ID') and (tok.value in ['string','int','float','list','dict']):
                 if len(end) > 1 :
@@ -53,7 +53,7 @@ def main (context) :
             # Write Func     ^
             # Will Be Lexed as ID
             if (tok.type=='KEYWORD') and (len(end) > 2):
-                if (end[-1][0] == 'DOT') and (end[-2][0] == 'ID'):
+                if (end[-1][0] == 'DOT') or (end[-1][0] == 'LPAREN') or (end[-1][0] == 'COMA'):
                     tok.type = 'ID'
             # if true {   write 'ok\n';   } else{   write 'err\n';   }
             if tok.type=='RCPAREN':

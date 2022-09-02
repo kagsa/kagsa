@@ -4,6 +4,8 @@ def __init__ (value,parseMemory):
     # if any keyword (except 'input') did not writted in line start
     if (value!='input') and (parseMemory[5]!=''):
         raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nKeywords must be in the first of line')
+    if value == 'jump':
+        parseMemory[5]='JUMP(|DATA-P|)'
     if value == 'include':
         parseMemory[5]='INCLUDE(|DATA-P|)'
     # Add The Keyword To The Line
