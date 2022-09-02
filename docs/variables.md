@@ -1,9 +1,9 @@
 # Variable in Kagsa
 variables is some names saved in program memory and each of them have a value or elements
 ## Create
-***
-in kagsa we use `var` keyword to **create\edit** variabes, and use this syntax :<br>
-`var VAR_ID = VAR_ELEMENTS`
+
+in kagsa we use `var` keyword as the main way to **create\edit** variabes, and use this syntax :<br>
+`var ID = ELEMENTS`
 
 ### Examples :
 ```
@@ -59,7 +59,7 @@ var i = "ABC"
 ```
 
 ## Global
-***
+
 use `global` keyword to create a new global variable and use `var` to edit it.
 ### Example :
 ```
@@ -70,7 +70,7 @@ var my_var = 'This is Global Varable.'
 ```
 
 ## Delete
-***
+
 use `delvar` keyword to delete any variable
 ### Example :
 ```

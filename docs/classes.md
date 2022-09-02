@@ -1,5 +1,6 @@
 # Classes in Kagsa
 class is something like a function store, often used in libraries or in OOP.
+
 ## Example :
 ```
 class app {

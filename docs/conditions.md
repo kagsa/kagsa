@@ -1,4 +1,5 @@
 # Conditions in Kagsa
+
 We Have 3 conditions word in kagsa : `if`, `elseif`, `else`.
 The conditions sentences help to deal with the data and give programming great ease with decision-making
 conditions writted in this syntax :
@@ -10,11 +11,11 @@ condition-name  statements  {
 ## Example :
 ***
 ```
-var #i = 5;
+var i = 5;
 
-if #i > 7 {
+if i > 7 {
     write 'Number is Big Than 7'
-}elseif #i > 15 {
+}elseif i > 15 {
     write 'Number is Big Than 15';
 }else{
     write 'Number is Small Than 7'
@@ -39,10 +40,10 @@ you can use this separators in the statements :<br>
 `flase` its clear, right? Example `0 == false` = true<br>
 `true` its clear too, Example `1 == true` = true<br>
 and more !!<br>
-You can use a functions as a statements too, example :
+You can use a functions as a statements too, just make your function return `1` or `true` for Yes and `0` or `false` for No, example :
 ```
 var str = "abcdefgh"
-if start(str, 'abc') {
+if str.start('abc') {
     // str is started with 'abc'
     write 'string startrd with "abc"'
 }else{
@@ -55,7 +56,7 @@ some times we have to use a function returns with a separator, example :
 // the length of 'mohammed' is 8
 var str = 'mohammed'
 
-if length(str) < 5 {
+if str.length() < 5 {
     write 'the length of %{str} is less than 5'
 }
 

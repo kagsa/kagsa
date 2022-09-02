@@ -1,6 +1,7 @@
 # KAGSA Programming Language
-This is all you need to learn **KAGSA**.
+This is all you need to learn **KAGSA**. Please read them one by one , to understand everything.
 ## Documentation
+-  [Command Line](https://github.com/kagsa/kagsa/blob/main/docs/command-line.md)
 -  [Variables](https://github.com/kagsa/kagsa/blob/main/docs/variables.md)
 -  [IO](https://github.com/kagsa/kagsa/blob/main/docs/io.md)
 -  [Strings](https://github.com/kagsa/kagsa/blob/main/docs/strings.md)
@@ -14,4 +15,4 @@ This is all you need to learn **KAGSA**.
 -  [Exceptions](https://github.com/kagsa/kagsa/blob/main/docs/exceptions.md)
 -  [Built Modules](https://github.com/kagsa/kagsa/blob/main/docs/built-modules.md)
 -  [Libraries](https://github.com/kagsa/kagsa/blob/main/docs/libraries.md)
--  [Somethings](https://github.com/kagsa/kagsa/blob/main/docs/something.md)
+-  [Somethings](https://github.com/kagsa/kagsa/blob/main/docs/somethings.md)

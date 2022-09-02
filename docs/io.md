@@ -1,7 +1,7 @@
 # IO in Kagsa
 inputs and outputs in Kagsa.
 ## write
-***
+
 `write` keyword let you print any data on **consle\terminal\cmd** , using this Syntax `write ELEMENTS` we can use `,` \ `+` between ELEMENTS.
 ### Examples :
 ```
@@ -20,8 +20,8 @@ write 34+2
 ```
 
 ## input
-***
-`input` keyword let you **get\read** data from user in command line , in `input` we have yo use this syntax `input ELEMENT`, you can't use `,` \ `+` in it.
+
+`input` keyword let you **get\read** data from user in command line , in `input` we have to use this syntax `input ELEMENT`, you can't use `,` \ `+` in it.
 ### Examples :
 ```
 // Example 1

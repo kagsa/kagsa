@@ -2,14 +2,14 @@
 Exceptions is an important in all programming language<br>
 Here we have to keywords : `try`, `catch`
 ## Example :
-***
-this is wrong kagsa code :
+
+this is wrong kagsa code because you can't covert `abc` to an integer :
 ```
 write toInt('abc')
 ```
 if i run it i will get
 ```
-error catched [ test.kg -> ValueERR ]
+error catched [ test.kg/ValueERR ]
    |
  1 | write toInt('abc')
    |
@@ -61,7 +61,6 @@ Error Type ValueERR
 Error File test.kg
 ```
 ## How To Create Your Error ?
-***
 Use `NewERR` function to do it
 ```
 // Create WiFiErr
@@ -72,7 +71,7 @@ WiFiError('NO Internet Connection..!')
 ```
 Output :
 ```
-error catched [ test.kg -> WiFiERR ]
+error catched [ test.kg/WiFiERR ]
    |
  5 | WiFiError('NO Internet Connection..!')
    |
@@ -85,7 +84,7 @@ WiFiError('NO Internet Connection..!\nCheck Your Internet Connection')
 
 Output :
 ```
-error catched [ test.kg -> WiFiERR ]
+error catched [ test.kg/WiFiERR ]
    |
  5 | WiFiError('NO Internet Connection..!\nCheck Your Internet Connection')
    |

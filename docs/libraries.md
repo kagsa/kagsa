@@ -1,7 +1,7 @@
 # Libraries in Kagsa
 library is a file with a group of functions.
-## How To Craete Library ?
-***
+## How To Create Library ?
+
 first we have to write the functions in `.kg` file<br>
 this is sample functions for `ip_lib.kg` :
 ```
@@ -34,7 +34,7 @@ kagsa -l ip_lib.kg -o IPLIB.kgl
 `-o` for output file, should be `.kgl`<br>
 now we have the file `IPLIB.kgl` this file is our new library
 ## How To Import Library ?
-***
+
 now we will use the `include` kewword.
 ```
 include "IPLIB.kgl"

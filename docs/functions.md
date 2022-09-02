@@ -7,7 +7,7 @@ func name (parameters) {
 }
 ```
 ## Example :
-***
+
 ```
 // create function
 func print_cv (name,age,job){
@@ -18,7 +18,7 @@ print_cv('Mohammed', 14, 'student')
 print_cv('Aslooj', 14, 'student')
 ```
 ## Return
-***
+
 return is a keyword that help to return data for fucntions
 ### Example :
 ```
