@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 
 __name__ = "kagsa"
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 __author__ = "Kagsa Programming Language"
 __author_email__ = "kagsa.programming.lang@gmail.com"
-__date__ = "2022-8-11"
+__date__ = "2022-9-3"
 
 
 readme = open("README.md", "r", encoding="utf-8")
@@ -44,13 +44,14 @@ setup(
 
     include_package_data=True,
 
-    package_data={'' : ['built_modules.py','errors.py','methods.py','parse_id.py']},
+    package_data={'' : ['built_modules.py','errors.py','methods.py','parse_id.py','parse_string.py','parser.py']},
 
     install_requires= requirements,
 
     entry_points={
         'console_scripts': [
-                "kagsa=kagsasrc.__main__:main"
+                "kagsa=kagsasrc.__main__:main",
+                "kg=kagsasrc.__main__:main"
         ]
 	}
 )

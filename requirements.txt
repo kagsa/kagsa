@@ -3,3 +3,4 @@ sly==0.4
 coloredlogs==15.0.1
 colorama==0.4.4
 keyboard==0.13.5
+forbiddenfruit==0.1.4
