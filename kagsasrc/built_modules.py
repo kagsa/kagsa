@@ -539,3 +539,11 @@ class T_i_m_e:
                 self.t_o_t_a_l___s_e_c_o_n_d_s = obj.total_seconds()
             else:
                 self.g_e_t = str(datetime.datetime.now() - self.time)
+
+
+class s_t_r:
+    def e_n_c_o_d_i_n_g(sort="utf-8",text=None):
+        try:
+            return text.encode(sort)
+        except Exception as e:
+            return e
