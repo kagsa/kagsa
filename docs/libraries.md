@@ -17,7 +17,7 @@ func isConnectToInternet () {
     try {
         var session = HTTP()
         session.method('get')
-        session.URL('https://www.google.com')
+        session.URL('https://github.com')
         session.send()
         return true
     }catch{

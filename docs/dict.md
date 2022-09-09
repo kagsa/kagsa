@@ -50,7 +50,7 @@ write get(dct, 'name')
 - **append( )** : add data to dict
 
 ```
-dct.append(age,1000)
+dct.append('age',1000)
 // or
 append(dct,'age', 1000)
 // dict will be : {'name':'mohammed', 'age':1000}

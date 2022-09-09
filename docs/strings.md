@@ -86,7 +86,7 @@ write start(example,'kagsa')
 - **search( )** : search for value index
 
 ```
-write example.serarch('is')
+write example.search('is')
 // or
 write search(example,'is')
 // output : 6
