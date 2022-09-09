@@ -68,6 +68,7 @@ KAGSA は、Python に基づく新しい解釈型プログラミング言語で�
 もちろん、KAGSA は最初から KAGSA ではありませんでした。私はそれを `PlusScript` と呼ぶことを考えていました。そのファイル拡張子は `.ps` で、後で `.pscript` に変更しました。Google で `plusscript` を検索すると、この名前の以前のプログラミング言語が 2 つ見つかりました。 KAGSA に変更することにしましたが、最初のバージョンで pip での公開に問題があり、番号が `0.1.5` の最初のバージョンであり、クラスが含まれておらず、いくつかの愚かなものが含まれていたため、削除され、新しいものを取得しました バージョン `1.x.x`.
 
 ## バージョン
+- [kagsa 1.1.1 (Hot Fix)](https://github.com/kagsa/kagsa/tree/1.1.1)
 - [kagsa 1.1.0](https://github.com/kagsa/kagsa/tree/1.1.0)
 - [kagsa 1.0.1](https://github.com/kagsa/kagsa/tree/1.0.1)
 - [kagsa 0.1.5](https://github.com/kagsa/kagsa/tree/0.1.5)

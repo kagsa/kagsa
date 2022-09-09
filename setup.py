@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 
 __name__ = "kagsa"
-__version__ = "1.1.0"
+__version__ = "1.1.1"
 __author__ = "Kagsa Programming Language"
 __author_email__ = "kagsa.programming.lang@gmail.com"
-__date__ = "2022-9-3"
+__date__ = "2022-9-10"
 
 
 readme = open("README.md", "r", encoding="utf-8")

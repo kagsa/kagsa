@@ -1,14 +1,53 @@
-<center><br><img src="https://raw.githubusercontent.com/Zaky202/kagsa/main/Logo.png" width="550"/>
+<p align="center" >
+    <br>
+    <img src="https://raw.githubusercontent.com/Zaky202/kagsa/main/Logo.png" width="550">
+    
+<br>    
+    
+<a href="https://github.com/kagsa/kagsa/blob/main/README.md">
+    English
+</a>-
+<a href="https://github.com/kagsa/kagsa/blob/main/README_AR.md">
+    عربي
+</a>-
+<a href="https://github.com/kagsa/kagsa/blob/main/README_RU.md">
+    русский
+</a>-
+<a href="https://github.com/kagsa/kagsa/blob/main/README_JP.md">
+    日本語
+</a>-
+<a href="https://github.com/kagsa/kagsa/blob/main/README_CH.md">
+    官话
+</a><br>
+<a href="https://github.com/kagsa/kagsa/blob/main/README_SP.md">
+    español
+</a>-
+<a href="https://github.com/kagsa/kagsa/blob/main/README_IN.md">
+    हिंदी
+</a>-
+<a href="https://github.com/kagsa/kagsa/blob/main/README_IT.md">
+    italiano
+</a><br><br>
+    
 
+<a href="https://mit-license.org/" >
+    <img src="https://img.shields.io/github/license/kagsa/kagsa">
+</a>
+<a href="https://github.com/kagsa/kagsa/releases" >
+    <img src="https://img.shields.io/github/v/release/kagsa/kagsa">
+</a>
+<a href="https://pypi.org/project/kagsa">
+    <img src="https://img.shields.io/pypi/dm/kagsa">
+</a>
+<a href="https://www.instagram.com/kagsa.kg">
+    <img src="https://img.shields.io/badge/Instagram-Up-blue">
+</a>
+<a href="https://discord.gg/q6ZmHU6DpM">
+    <img src="https://img.shields.io/badge/Discord-Up-green">
+</a>
 
-
-<a href="https://github.com/kagsa/kagsa/blob/main/README.md">English</a> - <a href="https://github.com/kagsa/kagsa/blob/main/README_AR.md">عربي</a> - <a href="https://github.com/kagsa/kagsa/blob/main/README_RU.md">русский</a> -<a href="https://github.com/kagsa/kagsa/blob/main/README_JP.md">日本語</a>-<a href="https://github.com/kagsa/kagsa/blob/main/README_CH.md">官 话</a><br><a href="https://github.com/kagsa/kagsa/blob/main/README_SP.md">español</a> - <a href="https://github.com/kagsa/kagsa/blob/main/README_IN.md">हिंदी</a> - <a href="https://github.com/kagsa/kagsa/blob/main/README_IT.md">italiano</a><br>
-
- <a href="https://mit-license.org/"><img src="https://img.shields.io/github/license/kagsa/kagsa"/></a> <a href="https://github.com/kagsa/kagsa/releases"><img src="https://img.shields.io/github/v/release/kagsa/kagsa"/></a><a href="https://pypi.org/project/kagsa"><img src="https://img.shields.io/pypi/dm/kagsa"/></a> <a href="https://www.instagram.com/kagsa.kg"><img src="https://img.shields.io/badge/Instagram-Up-blue"/></a> <a href="https://discord.gg/q6ZmHU6DpM"><img src="https://img.shields.io/badge/Discord-Up-green"/></a>
-
-<h1 align="center"> لغة البرمجة KAGSA</h1>
-
-</center>
+</p>
+<h1 align="center" >KAGSA Programming Language</h1>
 
 KAGSA هي لغة برمجة مترجمة جديدة تعتمد على Python ، ستكون اللغة عملية وموثوقة في مشاريعك ، ألق نظرة على مزاياها.
 
@@ -32,10 +71,10 @@ KAGSA هي لغة برمجة مترجمة جديدة تعتمد على Python ،
 بالطبع ، **KAGSA** لم تكن **KAGSA** منذ البداية ، كنت أفكر في تسميتها **PlusScript وامتداد** ملفها كان `.ps` ثم قمت بتغييره لاحقًا إلى `.pscript` ، عندما بحثت عن plusscript في Google وجدت لغتي برمجة سابقتين بهذا الاسم و قررت تغييره إلى **KAGSA** ، ولكن في الإصدار الأول واجهت مشاكل في النشر على Pip ، كانت النسخة الأولى برقم `0.1.5` ولا تحتوي على فئات وتحتوي على بعض الأشياء الغبية لذا تم حذفها وحصلنا على الجديد الإصدار `1.xx`
 
 ## إصدارات
-
-- [كاجسا 1.1.0](https://github.com/kagsa/kagsa/tree/1.1.0)
-- [كاجسا 1.0.1](https://github.com/kagsa/kagsa/tree/1.0.1)
-- [كاجسا 0.1.5](https://github.com/kagsa/kagsa/tree/0.1.5)
+- [kagsa 1.1.1 (Hot Fix)](https://github.com/kagsa/kagsa/tree/1.1.1)
+- [kagsa 1.1.0](https://github.com/kagsa/kagsa/tree/1.1.0)
+- [kagsa 1.0.1](https://github.com/kagsa/kagsa/tree/1.0.1)
+- [kagsa 0.1.5](https://github.com/kagsa/kagsa/tree/0.1.5)
 
 ## كيف تعمل ؟
 

@@ -1,6 +1,9 @@
-<center>
-
-<img src="https://raw.githubusercontent.com/Zaky202/kagsa/main/Logo.png" width="550"><br>
+<p align="center" >
+    <br>
+    <img src="https://raw.githubusercontent.com/Zaky202/kagsa/main/Logo.png" width="550">
+    
+<br>    
+    
 <a href="https://github.com/kagsa/kagsa/blob/main/README.md">
     English
 </a>-
@@ -26,24 +29,25 @@
     italiano
 </a><br><br>
     
-[
-    ](https://mit-license.org/ "")![](https://img.shields.io/github/license/kagsa/kagsa "")[
-](https://mit-license.org/ "")
-[
-    ](https://github.com/kagsa/kagsa/releases "")![](https://img.shields.io/github/v/release/kagsa/kagsa "")[
-](https://github.com/kagsa/kagsa/releases "")
-[
-    ](https://pypi.org/project/kagsa "")![](https://img.shields.io/pypi/dm/kagsa "")[
-](https://pypi.org/project/kagsa "")
-[
-    ](https://www.instagram.com/kagsa.kg "")![](https://img.shields.io/badge/Instagram-Up-blue "")[
-](https://www.instagram.com/kagsa.kg "")
-[
-    ](https://discord.gg/q6ZmHU6DpM "")![](https://img.shields.io/badge/Discord-Up-green "")[
-](https://discord.gg/q6ZmHU6DpM "")
-# KAGSA Programming Language
 
-</center>
+<a href="https://mit-license.org/" >
+    <img src="https://img.shields.io/github/license/kagsa/kagsa">
+</a>
+<a href="https://github.com/kagsa/kagsa/releases" >
+    <img src="https://img.shields.io/github/v/release/kagsa/kagsa">
+</a>
+<a href="https://pypi.org/project/kagsa">
+    <img src="https://img.shields.io/pypi/dm/kagsa">
+</a>
+<a href="https://www.instagram.com/kagsa.kg">
+    <img src="https://img.shields.io/badge/Instagram-Up-blue">
+</a>
+<a href="https://discord.gg/q6ZmHU6DpM">
+    <img src="https://img.shields.io/badge/Discord-Up-green">
+</a>
+
+</p>
+<h1 align="center" >KAGSA Programming Language</h1>
 
 KAGSA является новым интерпретированным программным языком, основанным на языке Python, язык будет практичным и надежным в ваших проектах, с учетом его преимуществ.
 ## преимущества
@@ -83,9 +87,10 @@ KAGSA является новым интерпретированным прог�
 Конечно, KAGSA не была КАГСА с самого начала, я думал назвать его `PlusScript`, а его распространение было продлево.`.ps`и позднее изменила его`.pscript`Когда я искала скидку в Гугле, я нашла два предыдущих языка программирования с этим названием и решила изменить ее до KAGSA, но в первом варианте у меня были проблемы с публикацией на трубопроводе, это первый вариант с номером`0.1.5`и он не содержал классы и содержал несколько глупых вещей, поэтому он был исключен, и мы получили новую версию`1.x.x`.
 ## варианты
 
-- [kagsa 1.1.0](https://github.com/kagsa/kagsa/tree/1.1.0 "")
-- [kagsa 1.0.1](https://github.com/kagsa/kagsa/tree/1.0.1 "")
-- [kagsa 0.1.5](https://github.com/kagsa/kagsa/tree/0.1.5 "")
+- [kagsa 1.1.1 (Hot Fix)](https://github.com/kagsa/kagsa/tree/1.1.1)
+- [kagsa 1.1.0](https://github.com/kagsa/kagsa/tree/1.1.0)
+- [kagsa 1.0.1](https://github.com/kagsa/kagsa/tree/1.0.1)
+- [kagsa 0.1.5](https://github.com/kagsa/kagsa/tree/0.1.5)
 
 ## Как это работает?
 **Он содержит основные части:**

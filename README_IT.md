@@ -47,8 +47,7 @@
 </a>
 
 </p>
-
-<h1 align="center" >linguaggio di programmazione KAGSA</h1>
+<h1 align="center" >KAGSA Programming Language</h1>
 
 KAGSA è un nuovo linguaggio di programmazione interpretato basato su Python, il linguaggio sarà pratico e affidabile nei vostri progetti, date un'occhiata ai suoi vantaggi.
 ## vantaggi
@@ -88,9 +87,10 @@ KAGSA è un nuovo linguaggio di programmazione interpretato basato su Python, il
 Naturalmente, KAGSA non era KAGSA dall'inizio, stavo pensando di chiamarlo PlusScript e la sua estensione file era`.ps`e poi lo cambiò`.pscript`, quando ho cercato plusscript in Google ho trovato due precedenti linguaggi di programmazione con questo nome e ho deciso di cambiare a KAGSA , ma nella prima versione ho avuto problemi di pubblicazione su pip , è stata la prima versione con il numero`0.1.5`e non contiene lezioni e conteneva alcune cose stupide quindi è stato cancellato e abbiamo ottenuto la nuova versione`1.x.x`.
 ## versioni
 
-- [kagsa 1.1.0](https://github.com/kagsa/kagsa/tree/1.1.0 "")
-- [kagsa 1.0.1](https://github.com/kagsa/kagsa/tree/1.0.1 "")
-- [kagsa 0.1.5](https://github.com/kagsa/kagsa/tree/0.1.5 "")
+- [kagsa 1.1.1 (Hot Fix)](https://github.com/kagsa/kagsa/tree/1.1.1)
+- [kagsa 1.1.0](https://github.com/kagsa/kagsa/tree/1.1.0)
+- [kagsa 1.0.1](https://github.com/kagsa/kagsa/tree/1.0.1)
+- [kagsa 0.1.5](https://github.com/kagsa/kagsa/tree/0.1.5)
 
 ## come funziona?
 **Contiene una parte principale :**

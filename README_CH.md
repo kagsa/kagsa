@@ -48,6 +48,7 @@
 
 </p>
 <h1 align="center" >KAGSA Programming Language</h1>
+
 KAGSA 是一种基于Python的新的解释编程语言、这种语言在您的项目中是实用和可靠的、看看它的优点。
 
 ## 优势优势
@@ -87,6 +88,7 @@ KAGSA 是一种基于Python的新的解释编程语言、这种语言在您的�
 当然、KAGSA从一开始就不是KAGSA、我想称之为 `pluscript`、文件扩展是 `.ps` 然后把它变成`.pscript`当我搜索谷歌的⁇语时、我发现两种以前的编程语言有这个名字、并决定将它改为KAGSA、但在第一版中出版。`0.1.5` 它不包含类、它包含一些愚蠢的东西、所以删除它、我们得到了新版本 `1.x.x`.
 ## 版本版本
 
+- [kagsa 1.1.1 (Hot Fix)](https://github.com/kagsa/kagsa/tree/1.1.1)
 - [kagsa 1.1.0](https://github.com/kagsa/kagsa/tree/1.1.0)
 - [kagsa 1.0.1](https://github.com/kagsa/kagsa/tree/1.0.1)
 - [kagsa 0.1.5](https://github.com/kagsa/kagsa/tree/0.1.5)

@@ -1,14 +1,15 @@
-# Feature of New Version 1.1.0 :
+# Problems Fixed in 1.1.1 (Hot Fix) :
 
-- new way to parse string format to take every thing inside `${}`.
-    - OLD : fomat string only take just one variable inside `${}`
-- fix some problem ins parser.
-    - OLD : problems in run this code `var output = '5 = 5'`
-- `PATH` variable.
-- `Web` module\\framework for frontend.
-- `jump` keyword.
-- allow this way `datatype.method()` to deal with methods.
-    - OLD : only this way `method( datatype )`
-- `dir()` function to read all items inside any class.
-- `@KAGSA` class.
-- New KAGSA Console.
+- fix problem in `parse_sformat.py`.
+    - `var name = 'ali' ; write "Name : %{name}";`
+- fix problem in `input` keyword.
+    - `write 'Hi, Welcome',input "Whats Your Name?"`
+- fix problem in lexing the `input` keyword.
+    - `var num1 = toInt(input "Enter a Number :")`
+- fix problem that if you write variable without `var, string, int, float, list, dict`.
+    - `myname = 'KAGSA'`
+- fix libraries compile.
+    - `kagsa -l file.kg -o file.kgl`
+- fix problem in `@KAGSA.latest()` calling.
+    - `write 'Last KAGSA Version :', @KAGSA.latest()`
+- fix some wrong things in documents.

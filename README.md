@@ -68,6 +68,7 @@ KAGSA is a new Interpreted programming language based on Python, the language wi
 Of course, **KAGSA** was not **KAGSA** from the beginning, I was thinking of calling it **PlusScript** and its file extension was `.ps` and later changed it to `.pscript`, when I searched for plusscript in Google I found two previous programming languages with this name and decided to change it to **KAGSA** , but in The first version I had problems publishing on pip, was the first version with the number `0.1.5` and it did not contain classes and it contained some stupid things so it was deleted and we got the new version `1.x.x`.     
 
 ## Versions
+- [kagsa 1.1.1 (Hot Fix)](https://github.com/kagsa/kagsa/tree/1.1.1)
 - [kagsa 1.1.0](https://github.com/kagsa/kagsa/tree/1.1.0)
 - [kagsa 1.0.1](https://github.com/kagsa/kagsa/tree/1.0.1)
 - [kagsa 0.1.5](https://github.com/kagsa/kagsa/tree/0.1.5)
