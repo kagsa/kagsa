@@ -24,7 +24,7 @@ def __init__ (value,parseMemory):
             if parseMemory[5]=='':
                 parseMemory[5]+='|DATA|'
             # if it didn't writted in var : add it and complete after it (|DATA|)
-            if '|DATA|' in parseMemory:
+            if '|DATA|' in parseMemory[5]:
                 parseMemory[5]=parseMemory[5].replace('|DATA|','input(|DATA-P|)|DATA|')
             else:
                 raise ParseError(f'can\'t parsing (<file>, line {parseMemory[4]})')

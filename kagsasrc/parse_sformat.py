@@ -17,7 +17,7 @@ def __init__ (value):
         parse_string=parse_string,
         **globals()
     )
-    parser = Paths.getFile('parser.py','r').read().decode('utf-8').replace('from .parse_string import __init__ as parse_string','')
+    parser = Paths.getFile('parser.py','r').read().replace('from .parse_string import __init__ as parse_string','')
     exec(parser,space)
     lex   = Lexer(value)
     parse = space['main'](lex)

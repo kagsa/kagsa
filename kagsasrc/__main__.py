@@ -15,7 +15,7 @@ if platform.system() == 'Windows' :
     logger = logging.getLogger(f"Logger")
     coloredlogs.install(logger=logger)
 
-version = '1.1.0'
+version = '1.1.1'
 
 # Colors :
 def Red (t) : return f'\x1b[1;31m{t}\x1b[0m'

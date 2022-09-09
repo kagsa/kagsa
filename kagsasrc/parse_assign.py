@@ -17,13 +17,15 @@ def __init__ (value,parseMemory):
         parseMemory[6] = True
         parseMemory[5] = parseMemory[5].replace('|DATA0|','')
     # if creat/call function in the line
-    elif parseMemory[5].startswith('def ') or len(re.findall(r'[a-zA-Z_][a-zA-Z0-9_]*\(',parseMemory[5]))>0 :
+    elif (parseMemory[5].startswith('def ') or len(re.findall(r'[a-zA-Z0-9]* *\(|[a-zA-Z0-9] *\(',parseMemory[5]))>0) and (parseMemory[5].count('(') > parseMemory[5].count(')')) :
         #print(parseMemory[5])
         if '|DATA1|' in parseMemory[5]:
             parseMemory[5]=parseMemory[5].replace('|DATA1|','=|DATA1|')
         else:
             parseMemory[5]=parseMemory[5].replace('|DATA|','=|DATA|')
-
+    elif (parseMemory[5].count('(') == parseMemory[5].count(')')):
+        parseMemory[6] = True
+        parseMemory[5] = parseMemory[5].replace('|DATA|','= |DATA1|')
     else:
         raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nUnknown place of assign')
 

@@ -9,12 +9,12 @@ def __init__ (value,parseMemory):
     
     if '|DATA-P|' in parseMemory[5]:
         parseMemory[5]=parseMemory[5].replace('|DATA-P|','')
+    elif '|DATA|' in parseMemory[5]:
+        parseMemory[5]=parseMemory[5].replace('|DATA|',f'{value}|DATA|')
     elif ('|DATA1|' in parseMemory[5]) and (parseMemory[6] == False):
             raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nVariable opened without assign')
     elif '|DATA1|' in parseMemory[5]:
         parseMemory[5]=parseMemory[5].replace('|DATA1|',f'{value}|DATA1|')
-    elif '|DATA|' in parseMemory[5]:
-        parseMemory[5]=parseMemory[5].replace('|DATA|',f'{value}|DATA|')
     elif parseMemory[5]=='':
         parseMemory[5]+=f'{value}|DATA|'
     else:

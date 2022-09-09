@@ -1,3 +1,5 @@
+#
+
 class أ_K_A_G_S_A:
     f_i_l_e = '[KAGSA-FILE]'
     if f_i_l_e!='[stdin]':
@@ -5,8 +7,8 @@ class أ_K_A_G_S_A:
         c_o_d_e = x.read()
         x.close()
     else: c_o_d_e = ''
-    v_e_r_s_i_o_n = '1.1.0'
-    def latest () :
+    v_e_r_s_i_o_n = '1.1.1'
+    def l_a_t_e_s_t () :
         try:
             req = requests.get('https://github.com/kagsa/kagsa/releases/latest').text
             req = re.findall(r'<title>(.*?)</title>',req)[0]
@@ -139,8 +141,8 @@ def INCLUDE (lib):
             exec(f'import {lib_name}_main',exec_scope)
             exec(f'def send_to_globals () :\n\tglobal {lib_name}\n\t{lib_name} = exec_scope["{lib_name}_main"]',globals())
             send_to_globals()
-        except:
-            raise IncludeError(f'syntaxes error in "{lib}"')
+        except Exception as e:
+            raise IncludeError(str(e))
     except FileNotFoundError:
         raise IncludeError(f'"{lib}" is not defined')
 

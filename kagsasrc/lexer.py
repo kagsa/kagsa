@@ -54,7 +54,8 @@ def main (context) :
             # Will Be Lexed as ID
             if (tok.type=='KEYWORD') and (len(end) > 2):
                 if (end[-1][0] == 'DOT') or (end[-1][0] == 'LPAREN') or (end[-1][0] == 'COMA'):
-                    tok.type = 'ID'
+                    if tok.value != 'input':
+                        tok.type = 'ID'
             # if true {   write 'ok\n';   } else{   write 'err\n';   }
             if tok.type=='RCPAREN':
                 end.append(['ENDLINE',';'])

@@ -28,21 +28,17 @@ def __init__ (value,parseMemory):
     
     value=value.replace('STR_SYM_ONE',"\\'").replace('STR_SYM_TWO','\\"')
 
-    if ('|DATA0|' in parseMemory[5]):
-        #print(parseMemory[5])
-        raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nVariable not named yet')
-    elif ('|DATA1|' in parseMemory[5]) and (parseMemory[6] == False):
-        raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nVariable opened without assign')
-    
-    elif '|DATA-P|' in parseMemory[5]:
+    if '|DATA-P|' in parseMemory[5]:
         parseMemory[5]=parseMemory[5].replace('|DATA-P|',value)
-    elif ('|DATA1|' in parseMemory[5]):
-        parseMemory[5]=parseMemory[5].replace('|DATA1|',f'{value}|DATA1|')
     elif '|DATA|' in parseMemory[5]:
         parseMemory[5]=parseMemory[5].replace('|DATA|',f'{value}|DATA|')
-
+    elif ('|DATA0|' in parseMemory[5]):
+        parseMemory[5]=parseMemory[5].replace('|DATA0|',f'{value}|DATA0|')
+    elif ('|DATA1|' in parseMemory[5]):
+        parseMemory[5]=parseMemory[5].replace('|DATA1|',f'{value}|DATA1|')
     elif parseMemory[5]=='':
         parseMemory[5]+=f'{value}|DATA|'
     else:
         raise ParseError(f'can\'t parsing (<file>, line {parseMemory[4]})')
+    #print(parseMemory[5])
     return parseMemory
