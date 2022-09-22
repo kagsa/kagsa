@@ -414,6 +414,21 @@ write time.total_seconds , nl
 // 502204
 // 1.502204
 ```
+- **Time.DifferenceBetweenTwoTimes(firstTime:int,twoTime:int)** : To calculate the difference between two dates, the dates must be in seconds
+```
+// Time.DifferenceBetweenTwoTimes(firstTime:int,twoTime:int)
+var firstTime=toInt(Time.epoch())+1
+var twoTime=toInt(Time.epoch())
+write Time.DifferenceBetweenTwoTimes(firstTime:int,twoTime:int)
+// 0:00:01
+```
+- **Time.TimeAfter(timeafter:int)** : Calculate time after seconds
+```
+// TimeAfter(timeafter:int)
+write TimeAfter(1000)
+// 0:16:40
+```
+
 ## Math
 
 **Math Functions**

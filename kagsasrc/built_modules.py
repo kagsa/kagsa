@@ -539,3 +539,21 @@ class T_i_m_e:
                 self.t_o_t_a_l___s_e_c_o_n_d_s = obj.total_seconds()
             else:
                 self.g_e_t = str(datetime.datetime.now() - self.time)
+    def D_i_f_f_e_r_e_n_c_e_B_e_t_w_e_e_n_T_w_o_T_i_m_e_s(firstTime,twoTime):
+        try:
+            #times in seconds
+            middle_time = int(firstTime) - int(twoTime)
+            if middle_time <= 0:
+                return str(datetime.timedelta(seconds=middle_time ))
+            else:
+                dt = str(datetime.timedelta(seconds=middle_time))
+                return(dt)
+        except Exception as err:
+            return err
+    def T_i_m_e_A_f_t_e_r(timeafter):
+        try:
+            #times in seconds
+            return(datetime.timedelta(seconds=int(timeafter)))
+        except Exception as err:
+            return err
+
