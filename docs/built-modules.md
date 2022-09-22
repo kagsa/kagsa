@@ -422,7 +422,7 @@ var twoTime=toInt(Time.epoch())
 write Time.DifferenceBetweenTwoTimes(firstTime:int,twoTime:int)
 // 0:00:01
 ```
-- **TimeAfter(timeafter:int)** : Calculate time after seconds
+- **Time.TimeAfter(timeafter:int)** : Calculate time after seconds
 ```
 // TimeAfter(timeafter:int)
 write TimeAfter(1000)
