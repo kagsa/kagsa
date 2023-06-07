@@ -1,14 +1,14 @@
-<center>
+
 <img src="https://www.kagsa.org/download/assets/logo.png" >
 
-# 
-KAGSA is a new Interpreted programming language based on Python.
-
+#
+<p align="center" >
+KAGSA is a new Interpreted programming language based on Python.<br>
 <a href="https://github.com/kagsa/kagsa/tree/main/kagsasrc"><img src="https://img.shields.io/github/languages/code-size/kagsa/kagsa?style=flat-square"></a>
 <a href="https://www.kagsa.org/download/"><img src="https://img.shields.io/github/downloads/kagsa/kagsa/total?style=flat-square"></a>
 <a href="https://github.com/kagsa/kagsa/blob/main/LICENSE"><img src="https://img.shields.io/github/license/kagsa/kagsa?style=flat-square"></a>
 <a href="https://www.kagsa.org"><img src="https://img.shields.io/badge/Web-KAGSA.ORG-blue?style=flat-square"></a>
-</center>
+</p>
 
 it designed to be easy to learn and practical for use in various projects. It has a flexible syntax and allows some things that other languages prohibit, such as using certain symbols in variable names and starting variable names with numbers. KAGSA contains several main components, including a lexer, syntax checker, parser, and compiler. It supports object-oriented programming, iteration, and other features commonly used in programming languages.
 
