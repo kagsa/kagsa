@@ -3,15 +3,10 @@ from .built_modules import *
 from .errors import __init__ as errors
 from .parse_id import __init__ as parse_id
 from .paths import Paths as Paths
-import re,zipfile,random,os,sys,traceback,requests
+import sys,re,zipfile,traceback,os,requests,copy
 
-Paths.init()
 
-def encodeString (string):
-    data = ''
-    for char in string:
-        data += chr(ord(char)+2)
-    return data
+
 
 def main (data,kagsa_file,lib=False,lib_name=None,memory=None):
     data = '\n'.join(data)
@@ -26,33 +21,20 @@ def main (data,kagsa_file,lib=False,lib_name=None,memory=None):
         'sys':sys,
         'traceback':traceback,
         'parse_id':parse_id,
-        'requests':requests
+        'requests':requests,
+        'Paths':Paths,
+        'copy':copy
     }
     KAGSALINES=data
     kagsa_file = kagsa_file.replace('\\','\\\\')
     exec_data = Paths.getFile('exec_data.py','r').read().replace('[KAGSA-FILE]', kagsa_file)    
     data = exec_data + data
     if lib:
-        d1 =  encodeString('#\n#\n#\n#\n#\n#\n#\n' + data.replace('\\','\\\\').replace('"','\\"').replace("\n","\\n")).replace('"','\\"')
-        data = f'import re,zipfile,os,sys,traceback\nfrom __memory__ import *\ndef decodeString (string):\n\tdata = \'\'\n\tfor char in string: data += chr(ord(char)-2)\n\treturn data\nFullCodes = decodeString("{d1}")'  +  data
-
-        __memory__ = 'import os,platform,subprocess,base64,sys,re,requests,json,random,time,datetime\n\n'
-        __memory__+= Paths.getFile('errors.py','r').read().replace(
-            'def __init__ (theErr,get_value_back=False, lineno=None):',
-            'def errors (theErr,get_value_back=False, lineno=None):'
-        )+'\n'
-
-        __memory__+= Paths.getFile('methods.py','r').read()+'\n'
-        __memory__+= Paths.getFile('parse_id.py','r').read().replace(
-            'def __init__ (value,parseMemory):',
-            'def parse_id (value,parseMemory):'
-        )+'\n'
-        __memory__+= '\n'.join(Paths.getFile('built_modules.py','r').read().split('\n')[3:])
-
-
+        nl='\n'
+        kgl_text = Paths.getFile('libtemplate.py','r').read() + '\n' + f'KAGSA_FILE=Paths.__path__() + os.sep + "temp" + os.sep + "{kagsa_file}" \nKAGSA_FILE2 = "{kagsa_file}"\ntry: KAGSA_CODES=open(KAGSA_FILE).read() \nexcept: KAGSA_CODES=open(KAGSA_FILE2).read() \n' + data
         kgl = zipfile.ZipFile(lib_name,'w')
-        kgl.writestr('main.py', data)
-        kgl.writestr('__memory__.py', __memory__)
+        kgl.writestr( kagsa_file , open(kagsa_file).read())
+        kgl.writestr('main.py', kgl_text)
         kgl.close()
     # For Run a Code
     else:
@@ -63,9 +45,10 @@ def main (data,kagsa_file,lib=False,lib_name=None,memory=None):
         if memory != None:
             for i,j in memory.items():
                 MEMORY[i]=j
-        MEMORY['FullCodes'] = data
-        MEMORY['kagsa_lines'] = KAGSALINES
+        MEMORY['KAGSA_CODES'] = KAGSALINES
+        MEMORY['KAGSA_FILE']  = kagsa_file
         try:
+            #print(KAGSALINES)
             exec(data,MEMORY)
             return MEMORY
         #

@@ -2,7 +2,6 @@ from .lexer import main as Lexer
 from .paths import Paths as Paths
 import re
 
-Paths.init()
 
 def __init__ (value):
     parse_string = Paths.getFile('parse_string.py','r').read().replace('from .parse_sformat import __init__ as parse_sformat','')

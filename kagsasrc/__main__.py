@@ -1,11 +1,21 @@
 #!/usr/bin/env python3
+import sys,os
+from .paths import Paths as Paths
+
+Paths.init()
+if not('temp' in os.listdir(Paths.__path__())):
+    os.mkdir(Paths.__path__()+os.sep+'temp')
+if not('libs' in os.listdir(Paths.__path__())):
+    os.mkdir(Paths.__path__()+os.sep+'libs')
+sys.path.insert(0,Paths.__path__() + os.sep + 'libs')
+sys.path.insert(0,Paths.__path__() + os.sep + 'temp')
+
 from .lexer import main as Lexer
 from .syntax_checker import main as Syntax_checker
 from .parser import main as Parser
 from .compiler import main as Compiler
 from .errors import __init__ as errors
-import sys,platform,requests,os,re,logging, coloredlogs,re
-from colorama import Fore as f
+import platform,requests,re,logging,coloredlogs,shutil
 
 
 def main ():
@@ -15,7 +25,7 @@ if platform.system() == 'Windows' :
     logger = logging.getLogger(f"Logger")
     coloredlogs.install(logger=logger)
 
-version = '1.1.1'
+version = '1.2.0'
 
 # Colors :
 def Red (t) : return f'\x1b[1;31m{t}\x1b[0m'
@@ -25,7 +35,19 @@ def Yellow (t) : return f'\x1b[0;33m{t}\x1b[0m'
 def ArgsParser ():
     argv = ' '.join(sys.argv[1:])
     data = {'do':''}
-    if   re.search(r'-v|--version',argv):
+    if re.search(r"(-us *\S+)|(--unsetup *\S+)",argv):
+        if not(argv in re.findall(r"(-us *\S+)|(--unsetup *\S+)",argv)[0]):
+            return {'do':''}
+        data['do'] = 'unsetup_kgl'
+        data['state'] = 'ok'
+        data['message'] = ''
+        if not(sys.argv[2].endswith('.kgl')):
+            data['state'] = 'err'
+            data['message'] = 'error : unsetup_kgl : input file must be .kgl'
+            return data
+        data['input'] = [sys.argv[2]]
+        return data
+    elif   re.search(r'-v|--version',argv):
         if re.findall(r'-v|--version',argv)[0] != argv:
             return {'do':''}
         data['do'] = 'check_version'
@@ -39,8 +61,8 @@ def ArgsParser ():
         data['do'] = 'help'
     elif argv=='':
         data['do'] = 'shell'
-    elif re.search(r'-l .*? -o .*',argv):
-        if re.findall(r'-l .*? -o .*',argv)[0] != argv:
+    elif re.search(r"(-l *\S+ *-o *\S+)|(--lib *\S+ *--out *\S+)",argv):
+        if not(argv in re.findall(r"(-l *\S+ *-o *\S+)|(--lib *\S+ *--out *\S+)",argv)[0]):
             return {'do':''}
         data['do'] = 'compile_lib'
         data['state'] = 'ok'
@@ -51,6 +73,22 @@ def ArgsParser ():
             return data
         data['input'] = [sys.argv[2], sys.argv[4]]
         return data
+    elif re.search(r"(-s *\S+)|(--setup *\S+)",argv):
+        if not(argv in re.findall(r"(-s *\S+)|(--setup *\S+)",argv)[0]):
+            return {'do':''}
+        data['do'] = 'setup_kgl'
+        data['state'] = 'ok'
+        data['message'] = ''
+        if not(sys.argv[2].endswith('.kgl')):
+            data['state'] = 'err'
+            data['message'] = 'error : setup_kgl : input file must be .kgl'
+            return data
+        data['input'] = [sys.argv[2]]
+        return data
+    elif re.search(r'-ct|--cleartmp',argv):
+        if re.findall(r'-ct|--cleartmp',argv)[0] != argv:
+            return {'do':''}
+        data['do'] = 'cleartmp'
     else:
         if argv.endswith('.kg'):
             data['do'] = 'run_file'
@@ -79,25 +117,25 @@ if (args['do'] == 'run_file'):
     except:
         sys.exit(f'error : run_file : "{kg_file}" is not defined')
 
-    ErrorIn = None # used to catch the error
+    error_in = None # used to catch the error
     try:
-        ErrorIn='Lexer'
+        error_in='Lexer'
         LEXER = Lexer(  open(kg_file,'r').read()  )
-        ErrorIn='SyntaxChecker'
+        error_in='SyntaxChecker'
         SYNTAX = Syntax_checker(LEXER)
-        ErrorIn='Parser'
+        error_in='Parser'
         PARSER = Parser(LEXER)
-        ErrorIn=None
-    except Exception as theErr:
-        if ', line' in str(theErr):
-            line_no=int(re.findall(r', line (\d+)',str(theErr))[0])
+        error_in=None
+    except Exception as ee:
+        if ', line' in str(ee):
+            line_no=int(re.findall(r', line (\d+)',str(ee))[0])
             line_text=open(kg_file,'r').read().split('\n')[line_no-1].strip()
         else:
             line_no = '?'
             line_text = '?'
-        tb_type, tb_text, _ = errors(theErr, lineno=str(line_no),get_value_back=1)
+        tb_type, tb_text, _ = errors(ee, lineno=str(line_no),get_value_back=1)
 
-        print(f'{Red("error catched [")} {ErrorIn}/{kg_file}/{tb_type} {Red("]")}')
+        print(f'{Red("error catched [")} {error_in}/{kg_file}/{tb_type} {Red("]")}')
         print(' ' + (' '* len(str(line_no))) + ' |')
         print(f' {Cyan(line_no)} | {Cyan(line_text)}')
         print(' ' + (' '* len(str(line_no))) + ' |')
@@ -108,32 +146,32 @@ if (args['do'] == 'run_file'):
             print(f'{Red("error")}:', tb_text) # error
 
 
-    if ErrorIn==None:
+    if error_in==None:
         Compiler(PARSER,kg_file)
 # Run Kagsa without any Command
 # Start Kagsa Console
 elif (args['do'] == 'shell'):
     memory= {}
-    first = 0
-    print(f'KAGSA Programming Language {version}\nMIT License: Copyright (c) 2022 Kagsa',end='')
+    first_time_run_command = True
+    print(f'KAGSA PROGRAMMING LANGUAGE {version}\nMIT License: Copyright (c) 2022 Kagsa',end='')
     while True:
         try:
-            command = input('\n[KAGSA]->')
-            ErrorIn = None # used to catch the error
+            command = input('\n>>>')
+            error_in = None # used to catch the error
             try:
-                ErrorIn='Lexer'
+                error_in='Lexer'
                 LEXER = Lexer(  command  )
-                ErrorIn='SyntaxChecker'
+                error_in='SyntaxChecker'
                 SYNTAX = Syntax_checker(LEXER)
-                ErrorIn='Parser'
+                error_in='Parser'
                 PARSER = Parser(LEXER)
-                ErrorIn=None
-            except Exception as theErr:
+                error_in=None
+            except Exception as ee:
                 line_no = '1'
                 line_text = command
-                tb_type, tb_text, _ = errors(theErr, lineno=str(line_no),get_value_back=1)
+                tb_type, tb_text, _ = errors(ee, lineno=str(line_no),get_value_back=1)
 
-                print(f'{Red("error catched [")} {ErrorIn}/[stdin]/{tb_type} {Red("]")}')
+                print(f'{Red("error catched [")} {error_in}/[stdin]/{tb_type} {Red("]")}')
                 print(' ' + (' '* len(str(line_no))) + ' |')
                 print(f' {Cyan(line_no)} | {Cyan(line_text)}')
                 print(' ' + (' '* len(str(line_no))) + ' |')
@@ -144,13 +182,15 @@ elif (args['do'] == 'shell'):
                     print(f'{Red("error")}:', tb_text) # error
 
 
-            if ErrorIn==None:
-                first+=1
-                if first==1:
+            if error_in==None:
+                if first_time_run_command:
                     memory=Compiler(PARSER,'[stdin]')
+                    first_time_run_command = False
                 else:
                     memory=Compiler(PARSER,'[stdin]',memory=memory)
         except KeyboardInterrupt:
+            sys.exit(1)
+        except EOFError:
             sys.exit(1)
 # Compile a Kagsa Library
 # kagsa -l libFile.kg -o newFile.kgl
@@ -167,27 +207,27 @@ elif (args['do'] == 'compile_lib'):
     except:
         sys.exit(f'error : compile_lib : "{kg_file}" is not defined')
 
-    ErrorIn = None
+    error_in = None
     try:
-        ErrorIn='Lexer'
+        error_in='Lexer'
         LEXER = Lexer(  open(kg_file,'r').read()  )
-        ErrorIn='SyntaxChecker'
+        error_in='SyntaxChecker'
         SYNTAX = Syntax_checker(LEXER)
-        ErrorIn='Parser'
+        error_in='Parser'
         PARSER = Parser(LEXER)
-        ErrorIn=None
-    except Exception as theErr:
-        print(f'Error Catched in "{kg_file}", Out From {ErrorIn} :')
-        if ', line' in str(theErr):
-            line_no = int(re.findall(r', line (\d+)',str(theErr))[0])
+        error_in=None
+    except Exception as ee:
+        print(f'Error Catched in "{kg_file}", Out From {error_in} :')
+        if ', line' in str(ee):
+            line_no = int(re.findall(r', line (\d+)',str(ee))[0])
             line_text = open(kg_file,'r').read().split('\n')[line_no-1].strip()
         else:
             line_no = '?'
             line_text = '?'
-        tb_type, tb_text, _ = errors(theErr, lineno=str(line_no),get_value_back=1)
+        tb_type, tb_text, _ = errors(ee, lineno=str(line_no),get_value_back=1)
 
         
-        print(f'{Red("error catched [")} {ErrorIn}/{kg_file}/{tb_type} {Red("]")}')
+        print(f'{Red("error catched [")} {error_in}/{kg_file}/{tb_type} {Red("]")}')
         print(' ' + (' '* len(str(line_no))) + ' |')
         print(f' {Cyan(line_no)} | {Cyan(line_text)}')
         print(' ' + (' '* len(str(line_no))) + ' |')
@@ -197,12 +237,33 @@ elif (args['do'] == 'compile_lib'):
         else:
             print(f'{Red("error")}:', tb_text) # error
     
-    if ErrorIn==None:
+    if error_in==None:
         Compiler(PARSER,kg_file,  lib=True,    lib_name=output)
+# Setup a KGL File
+# kagsa --setup file.kgl
+elif (args['do'] == 'setup_kgl'):
+    shutil.copy(args['input'][0],Paths.__path__() + os.sep + 'libs')
+    print(f'COPIED : {args["input"][0]} -> {Paths.__path__() + os.sep + "libs"}')
+# UnSetup a KGL File
+# kagsa --unsetup file.kgl
+elif (args['do'] == 'unsetup_kgl'):
+    try:
+        os.remove(Paths.__path__() + os.sep + 'libs' + os.sep + args['input'][0])
+        print('DELETED : ' + Paths.__path__() + os.sep + 'libs' + os.sep + args['input'][0])
+    except:
+        sys.exit(f'error : unsetup_kgl : "{args["input"][0]}" is not defined')
+# Clear KAGSA Temps
+# kagsa --cleartmp
+elif (args['do'] == 'cleartmp'):
+    for i in os.listdir(Paths.__path__() + os.sep + 'temp'):
+        try:
+            os.remove(Paths.__path__() + os.sep + 'temp' + os.sep + i)
+            print(F'DELETED : {Paths.__path__() + os.sep + "temp" + os.sep + i}')
+        except:None
 # Check Kagsa Version
 # kagsa -v
 elif (args['do'] == 'check_version'):
-    print(f'Kagsa version : {version}')
+    print(f'KAGSA version : {version}')
 # Check for New Updates
 # kagsa -u
 # kagsa --updates
@@ -224,20 +285,16 @@ elif (args['do'] == 'check_updates'):
 # kagsa --help
 elif (args['do'] == 'help'):
     print(f'''
-Kagsa Programming Language
+KAGSA PROGRAMMING LANGUAGE
 
-Usage : kagsa <command>
-Commands :
-   Run file :       kagsa <file.kg>
-   Compile lib :    kagsa -l <file.kg> -o <output.kgl>
-   Check version :  kagsa -v
-                    kagsa --version
-   Help :           kagsa -h
-                    kagsa --help
-   Check updates :  kagsa -u
-                    kagsa --updates
+kagsa [run:<filename>] [library:-l <filename> -o <output>] [version:-v, --version] [updates:-u, --updates] [help:-h, --help]
+options:
+    -l <filename> -o <output>  : build kgl library
+    -v, --version              : check version
+    -u, --updates              : check for new updates
+    -h, --help                 : view this message
 
-Read more at https://github.com/kagsa/kagsa
+Read more at https://www.kagsa.org/docs/
 ''')
 else:
     print('error : unknown command, use "-h"')

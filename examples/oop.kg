@@ -18,3 +18,5 @@ game.addOne()
 game.takeOne()
 
 write game.num
+
+// Here a class called "App" is created, the constructor function is defined, the "takeOne" function to subtract one from the value "@this.num" and the "addOne" function to add one to the value.

@@ -1,0 +1,6 @@
+a = toFloat(input 'Enter the length of side A: ')
+b = toFloat(input 'Enter the length of side B: ')
+c = (a ** 2 + b ** 2) ** 0.5
+write 'The length of the hypotenuse is: ', c
+
+// A program that calculates the length of the hypotenuse of a right triangle with given side lengths entered by the user.

@@ -1,4 +1,3 @@
-import re
 from .parse_endl import __init__ as parse_endl
 from .parse_cmnt import __init__ as parse_cmnt
 from .parse_keyword import __init__ as parse_keyword
@@ -16,13 +15,15 @@ class ParseError (Exception) :pass
 
 def main (data):
     parseMemory = [
-        0,     # under_codes        : [0] : Current Codes Blocks (Tab)
-        False, # under_codes_holder : [1] : Holder to get a New Block ('if' ,'else' ,'while')
-        '',    # last_under_cmnd    : [2] : The Holder Value
-        [],    # parsed_input       : [3] : All The Translated Python Codes (list)
-        1,     # line               : [4] : The Current Line (used to print in errors)
-        '',    # line_items         : [5] : The Line Items (its will be edit and add it to 'parsed_input')
-        False  # variable close     : [6] : Is The Variable Assign Closed ?
+        0,       # under_codes        : [0] : Current Codes Blocks (Tab)
+        False,   # under_codes_holder : [1] : Holder to get a New Block ('if' ,'else' ,'while')
+        '',      # last_under_cmnd    : [2] : The Holder Value
+        [],      # parsed_input       : [3] : All The Translated Python Codes (list)
+        1,       # line               : [4] : The Current Line (used to print in errors)
+        '',      # line_items         : [5] : The Line Items (its will be edit and add it to 'parsed_input')
+        False,   # variable close     : [6] : Is The Variable Assign Writted ?
+        '',      # command type       : [7] : The Type of the Command in The Line (write,var,int,try)
+        []       # strings            : [8] : All The Strings That Used in The Line
     ]
     for key,value in data:          # Read All The Lexed Data ( [['key','value']..] )
         if    key == 'ENDLINE':

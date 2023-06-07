@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 
 __name__ = "kagsa"
-__version__ = "1.1.1"
-__author__ = "Kagsa Programming Language"
-__author_email__ = "kagsa.programming.lang@gmail.com"
-__date__ = "2022-9-10"
+__version__ = "1.2.0"
+__author__ = "KAGSA PROGRAMMING LANGUAGE"
+__author_email__ = "admin@kagsa.org"
+__date__ = "2023-6-6"
 
 
 readme = open("README.md", "r", encoding="utf-8")
@@ -18,10 +18,10 @@ reqFile.close()
 setup(
     name=__name__,
     version=__version__,
-    description='Programming Language',
+    description='PROGRAMMING LANGUAGE',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='http://www.kagsa.org/',
+    url='https://www.kagsa.org/',
     author=__author__,
     author_email=__author_email__,
 
@@ -30,7 +30,7 @@ setup(
       'Report Bugs': 'https://github.com/kagsa/kagsa/issues',
       'Download': 'https://pypi.org/project/kagsa/#files',
       'Documentation': 'https://github.com/kagsa/kagsa/blob/master/README.md',
-      'Website' : 'http://kagsa.org/'
+      'Website' : 'https://www.kagsa.org/'
     },
 
     license='MIT',

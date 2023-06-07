@@ -1,0 +1,13 @@
+func gcd(a, b) {
+    if b == 0 {
+        return a
+    } else {
+        return gcd(b, a % b)
+    }
+}
+num1 = toInt(input 'Enter the first number: ')
+num2 = toInt(input 'Enter the second number: ')
+gcd = gcd(num1, num2)
+write 'The GCD of ', num1, ' and ', num2, ' is: ', gcd
+
+// A program that calculates the greatest common divisor (GCD) of two numbers entered by the user using the Euclidean algorithm.

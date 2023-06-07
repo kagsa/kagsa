@@ -1,5 +1,4 @@
-import forbiddenfruit,threading
-
+import threading,forbiddenfruit
 
 
 def SetMethod (datatypes, name, func):
@@ -44,33 +43,17 @@ def i_s_D_i_c_t (value):
         return 0
 
 def n_l_i_s_t (num, z_e_r_o=True):
-    d = []
     if z_e_r_o:
-        for i in range(0,num+1): d.append(i)
+        return range(0,num+1)
     else:
-        for i in range(1,num+1): d.append(i)
-    return d
+        return range(1,num+1)
 
 def d_i_r (data):
     lst = []
+    dd = ' '.join(dir(data))
     #print(dir(data))
-    for value in dir(data):
-        text=value.replace('__','_C')
-        for c in list('1234567890qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNMأبتثج'):
-            text=text.replace(c,'C')
-        text=text[1:]
-        text=text.replace('_C','')
-        #
-        if text == '':
-            value = value.replace('أ','@').replace('ب','$').replace('ت','^').replace('ث','~').replace('ج','?')
-            if (value[0]=='_') and (value[1] in '1234567890') :
-                value = value[1:]
-            value = value.replace('__','ة').replace('_','').replace('ة','_')
-            #
-            lst.append(value)
-        elif value in ['__init__','__str__','__repr__','self']:
-            dct = {'__init__':'@constructor','__str__':'@string','__repr__':'@repr','self':'@this'}
-            lst.append(dct[value])
+    for word in [word for word in dd.split(' ') if not(word[0].isdigit() or word[0] == '_' and not word[1].isdigit() or any([len(char) > 1 for char in word.split('_')]))]:
+        lst.append( ''.join(word.replace('__','ظ').split('_')).replace('ظ','_') )
     return lst
 
 
@@ -80,37 +63,37 @@ n_o_t = lambda co:not(co)
 
 # Methods Starts from Here...
 def r_e_p_l_a_c_e (DATA,v1,v2):
-    if 'str' in DATA.__class__.__name__:
+    if 'str' == DATA.__class__.__name__:
         return DATA.replace(v1,v2)
     else:
         raise ValueError('"replace()" function take only (str) value')
 def s_p_l_i_t (DATA,value):
-    if ('str' in DATA.__class__.__name__):
+    if ('str' == DATA.__class__.__name__):
         return DATA.split(value)
     else:
         raise ValueError('"split()" function take only (str) value')
 def e_n_d (DATA,value):
-    if ('str' in DATA.__class__.__name__):
+    if ('str' == DATA.__class__.__name__):
         return DATA.endswith(value)
     else:
         raise ValueError('"end()" function take only (str) value')
 def s_t_a_r_t (DATA,value):
-    if ('str' in DATA.__class__.__name__):
+    if ('str' == DATA.__class__.__name__):
         return DATA.startswith(value)
     else:
         raise ValueError('"start()" function take only (str) value')
 def s_e_a_r_c_h (DATA,value):
-    if ('str' in DATA.__class__.__name__):
+    if ('str' == DATA.__class__.__name__):
         return DATA.find(value)
     else:
         raise ValueError('"search()" function take only (str) value')
 def u_p_c_a_s_e (DATA):
-    if ('str' in DATA.__class__.__name__):
+    if ('str' == DATA.__class__.__name__):
         return DATA.upper()
     else:
         raise ValueError('"upcase()" function take only (str) value')
 def d_o_w_n_c_a_s_e (DATA):
-    if ('str' in DATA.__class__.__name__):
+    if ('str' == DATA.__class__.__name__):
         return DATA.lower()
     else:
         raise ValueError('"downcase()" function take only (str) value')
@@ -119,7 +102,11 @@ def s_t_r_i_p (DATA):
         return DATA.strip()
     else:
         raise ValueError('"delspace()" function take only (str) value')
-
+def r_e_v_e_r_s_e (DATA):
+    if ('str' == DATA.__class__.__name__) or ('list' == DATA.__class__.__name__): 
+        return DATA[::-1]
+    else:
+        ValueError('"reverse()" function take only (str,list) value')
 
 
 # List Function
@@ -129,15 +116,15 @@ def l_i_s_t (*arg):
     return d
 # LIST, DICT, STR
 def l_e_n_g_t_h (DATA):
-    if ('dict' in DATA.__class__.__name__) or ('list' in DATA.__class__.__name__) or ('str' in DATA.__class__.__name__):
+    if ('dict' == DATA.__class__.__name__) or ('list' == DATA.__class__.__name__) or ('str' == DATA.__class__.__name__):
         return len(DATA)
     else:
         raise ValueError('"length(DATA)" function take only (dict, list, str) value')
 # LIST, DICT, STR
 def g_e_t (DATA,*value):
-    if (('list' in DATA.__class__.__name__)) or (('dict' in DATA.__class__.__name__)) or ('str' in DATA.__class__.__name__) :
+    if (('list' == DATA.__class__.__name__)) or (('dict' == DATA.__class__.__name__)) or ('str' == DATA.__class__.__name__) :
         if len(value)>1:
-            if 'dict' in DATA.__class__.__name__: raise ValueError('"get(VAR , value)" function take only (list, str) value')
+            if 'dict' == DATA.__class__.__name__: raise ValueError('"get(VAR , value)" function take only (list, str) value')
             return DATA[value[0]:value[1]]
         else:
             return DATA[value[0]]
@@ -145,72 +132,76 @@ def g_e_t (DATA,*value):
         raise ValueError('"get(VAR , *value)" function take only (dict, list, str) value')
 # LIST, DICT
 def a_p_p_e_n_d (DATA,*arguments):
-    if 'list' in DATA.__class__.__name__:
+    if 'list' == DATA.__class__.__name__:
         for i in arguments :
             DATA.append(i)
-    elif 'dict' in DATA.__class__.__name__:
+    elif 'dict' == DATA.__class__.__name__:
         DATA[arguments[0]]=arguments[1]
     else:
         raise ValueError('"append(VAR , value)" function take only (list, dict) value')
 # LIST, DICT
 def c_l_e_a_r (DATA):
-    if (('list' in DATA.__class__.__name__)) or (('dict' in DATA.__class__.__name__)):
+    if (('list' == DATA.__class__.__name__)) or (('dict' in DATA.__class__.__name__)):
         DATA.clear()
         return 1
     else:
         raise ValueError('"clear(VAR)" function take only (list, dict) value')
 # LIST, DICT
 def d_e_l_e_t_e (DATA,value,i_d_x=False):
-    if ('list' in DATA.__class__.__name__):
+    if ('list' == DATA.__class__.__name__):
         if i_d_x and (i_s_I_n_t(value)):
             DATA.pop(value)
         elif i_d_x==False:
             DATA.remove(value)
         else:
             raise ValueError('"dalete(VAR, value, idx=BOOL)" if "idx" = true -> value must be int')
-    elif (('dict' in DATA.__class__.__name__)):
+    elif (('dict' == DATA.__class__.__name__)):
         DATA.pop(value)
     else:
         raise ValueError('"delete(VAR , value, idx=BOOL)" function take only (list, dict) value')
     return 1
 # LIST, DICT
 def a_d_d (DATA,pos,value):
-    if (('list' in DATA.__class__.__name__)):
+    if (('list' == DATA.__class__.__name__)):
         if not(i_s_I_n_t(pos)):
             raise ValueError('"add(VAR, pos, val)" pos must be int')
         DATA.insert(pos,value)
-    elif (('dict' in DATA.__class__.__name__)):
+    elif (('dict' == DATA.__class__.__name__)):
         DATA[pos]=value
     else:
         raise ValueError('"add()" function take only (list, dict) value')
     return 1
 # LIST
 def i_n_d_e_x (DATA,value):
-    if (('list' in DATA.__class__.__name__)):
+    if (('list' == DATA.__class__.__name__)):
         return DATA.index(value)
     else:
         raise ValueError('"index(VAR , value)" function take only (list) value')
 # LIST
 def a_p_p_l_i_s_t (DATA,value):
-    if ('list' in DATA.__class__.__name__) and ('list' in value.__class__.__name__):
+    if ('list' == DATA.__class__.__name__) and ('list' == value.__class__.__name__):
         DATA.extend(value)
     else:
         raise ValueError('"applist(VAR , value)" function take only (list) values')
     return 1
 # LIST, STR
 def c_o_u_n_t (DATA,value):
-    if (('list' in DATA.__class__.__name__)) or (('str' in DATA.__class__.__name__)):
+    if (('list' == DATA.__class__.__name__)) or (('str' == DATA.__class__.__name__)):
         return DATA.count(value)
     else:
         raise ValueError('"count(VAR , value)" function take only (list) value')
 # LIST
 def j_o_i_n (DATA,value):
-    if (('list' in DATA.__class__.__name__)):
+    if (('list' == DATA.__class__.__name__)):
         return value.join(DATA)
     else:
         raise ValueError('"join(VAR , value)" function take only (list) value')
 
-
+def s_o_r_t_e_d (DATA):
+    if ('list' == DATA.__class__.__name__):
+        return sorted(DATA)
+    else:
+        raise ValueError('"join(VAR , value)" function take only (list) value')
 
 # Dict Function
 def d_i_c_t (**arg):
@@ -242,6 +233,7 @@ def buildMethods ():
     SetMethod([str],'d_o_w_n_c_a_s_e',d_o_w_n_c_a_s_e)
     SetMethod([str],'s_t_r_i_p',s_t_r_i_p)
     SetMethod([str,list,dict],'l_e_n_g_t_h',l_e_n_g_t_h)
+    SetMethod([str,list],'r_e_v_e_r_s_e',r_e_v_e_r_s_e)
     SetMethod([str,list,dict],'g_e_t',g_e_t)
     SetMethod([list,dict],'a_p_p_e_n_d',a_p_p_e_n_d)
     SetMethod([list,dict],'c_l_e_a_r',c_l_e_a_r)
@@ -250,6 +242,7 @@ def buildMethods ():
     SetMethod([list],'i_n_d_e_x',i_n_d_e_x)
     SetMethod([list],'a_p_p_l_i_s_t',a_p_p_l_i_s_t)
     SetMethod([list],'j_o_i_n',j_o_i_n)
+    SetMethod([list],'s_o_r_t_e_d',s_o_r_t_e_d)
     SetMethod([str,list],'c_o_u_n_t',c_o_u_n_t)
     SetMethod([dict],'k_e_y_s',k_e_y_s)
     SetMethod([dict],'v_a_l_u_e_s',v_a_l_u_e_s)

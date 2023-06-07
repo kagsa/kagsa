@@ -1,9 +1,13 @@
-import os,platform,subprocess,base64,sys,re,requests,json,random,time,datetime,keyboard
-from .methods import *
+import sys,platform,base64,os,requests,re,json,random,time,datetime,keyboard,math
+try:
+    from .methods import *
+except:
+    from methods import *
 
 #
 
 P_A_T_H = sys.path
+
 
 class W_e_b:
     class HTMLError (Exception):pass
@@ -12,10 +16,6 @@ class W_e_b:
     def b_o_x (data):
         data = data.replace('"','\\"')
         print(f'<script>alert("{data}")</script>')
-    class H_T_M_L_E_l_e_m_e_n_t:
-        def __init__ (self,inner,outer):
-            self.i_n_n_e_r_H_T_M_L = C_o_d_e.b_a_s_e_6_4.d_e_c_o_d_e(inner)
-            self.o_u_t_e_r_H_T_M_L = C_o_d_e.b_a_s_e_6_4.d_e_c_o_d_e(outer)
     class E_l_e_m_e_n_t:
         def __init__ (self,tagName,n,innerHTML,**attrs):
             self.t_a_g_N_a_m_e = tagName
@@ -73,13 +73,16 @@ class K_e_y_b_o_a_r_d:
     class r_e_c_o_r_d:
         def __init__ (self,u_n_t_i_l=''):
             try:
-                self.record = keyboard.record(until= u_n_t_i_l)
                 self.g_e_t = []
-                for i in self.record:
+                self.recorded = []
+                keyboard.hook(self.recorded.append)
+                keyboard.wait(u_n_t_i_l)
+                keyboard.unhook(self.recorded.append)
+                for i in self.recorded:
                     self.g_e_t.append(str(i).replace('KeyboardEvent(','')[0:-1])
             except Exception as ee : raise K_e_y_b_o_a_r_d.KeyboardError(str(ee))
         def p_l_a_y_A_l_l (self,s_p_e_e_d=0.5):
-            keyboard.play(self.record, speed_factor = s_p_e_e_d)
+            keyboard.play(self.recorded, speed_factor = s_p_e_e_d)
     def p_r_e_s_s (text):
         try:
             keyboard.press_and_release(text)
@@ -210,8 +213,8 @@ class R_a_n_d_o_m:
         chars = ''
         if a_b_c:
             chars+='qwertyuioplkjhgfdsazxcvbnm'
-            if c_a_p:
-                chars+='QWERTYUIOPLKJHGFDSAZXCVBNM'
+        if c_a_p:
+            chars+='QWERTYUIOPLKJHGFDSAZXCVBNM'
         if n_u_m:
             chars+='0123456789'
         chars+=a_d_d
@@ -422,7 +425,7 @@ class R_e_g_e_x :
 
 class S_y_s_t_e_m:
     a_r_g_v = sys.argv[1:]
-    def i_n_p_u_t():
+    def r_e_a_d ():
         return sys.stdin.readline()
     class w_r_i_t_e :
         def o_u_t (*text):
@@ -438,7 +441,7 @@ class S_y_s_t_e_m:
         return 0
     def e_x_e_c (command):
         popen = os.popen(command)
-        return o.read()
+        return popen.read()
     def p_a_t_h ():
         return os.getcwd()
     def i_n_f_o_r_m_a_t_i_o_n_s ():

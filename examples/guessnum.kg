@@ -1,0 +1,9 @@
+secret_number = Random.int(1, 10)
+guess = toInt(input 'Guess the secret number (between 1 and 10): ')
+if guess == secret_number {
+    write 'Congratulations, you guessed the secret number!'
+} else {
+    write 'Sorry, the secret number was', secret_number, '.';
+}
+
+// A program that generates a random number between 1 and 10 and asks the user to guess the number.

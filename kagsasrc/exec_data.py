@@ -25,10 +25,12 @@ class g_e_t_E_r_r_o_r ():
         self.l_i_n_e     = ''
         self.t_y_p_e     = ''
         self.f_i_l_e     = '[KAGSA-FILE]'
+        try:    errGet = globals()['ERROR']
+        except: errGet = locals()['ERROR']
 
         if self.f_i_l_e == '[stdin]':
             self.l_i_n_e_n_o = 1
-            E = errors(globals()['ERROR'], get_value_back=True)
+            E = errors(errGet, get_value_back=True)
             self.t_e_x_t = E[1]
             self.t_y_p_e = E[0]
             self.l_i_n_e = ''
@@ -39,7 +41,7 @@ class g_e_t_E_r_r_o_r ():
         # parse the error filename
         # error came from kagsa code
         if tb_filename == '<string>':
-            self.f_i_l_e = kagsa_file
+            self.f_i_l_e = KAGSA_FILE
             tb_filetype = 'kg'
         # form a library
         elif 'kgtmp' in tb_filename:
@@ -56,15 +58,15 @@ class g_e_t_E_r_r_o_r ():
                     data_founded =True
                     break
             if not(data_founded):
-                tb_lineno = int(re.findall(r', line (\d+)',str(globals()['ERROR']))[0])
-            self.f_i_l_e = kagsa_file
+                tb_lineno = int(re.findall(r', line (\d+)',str(errGet))[0])
+            self.f_i_l_e = KAGSA_FILE
             tb_filetype = 'kg'
         
         try:
             if tb_filetype == 'kg':
-                tb_lineno = FullCodes.split('\n')[tb_lineno-1]
+                tb_lineno = KAGSA_CODES.split('\n')[tb_lineno-1]
                 tb_lineno = int(re.findall(r'    # line (\d+)',tb_lineno)[-1])
-                x = open(kagsa_file,'r')
+                x = open(KAGSA_FILE,'r')
                 file_lines = x.read().split('\n')
                 x.close()
                 file_lines_no = len( file_lines )
@@ -87,7 +89,7 @@ class g_e_t_E_r_r_o_r ():
             self.l_i_n_e_n_o   = '?'
         
 
-        E = errors(globals()['ERROR'], get_value_back=True)
+        E = errors(errGet, get_value_back=True)
         self.t_e_x_t = E[1]
         self.t_y_p_e = E[0]
 
@@ -103,7 +105,7 @@ def INCLUDE (lib):
     try:
         # check if input is string
         if not(lib.__class__.__name__ == 'str') :
-            raise IncludeError('libarary must be string')
+            raise IncludeError('library must be string')
         # check if input is .kgl file
         if not(lib.endswith('.kgl')):
             raise IncludeError('libarary must be ".kgl" file')
@@ -112,7 +114,10 @@ def INCLUDE (lib):
         if not(re.findall(r'[a-zA-Z_][a-zA-Z0-9_]*\.kgl|[a-zA-Z_]\.kgl', lib)[0] == lib):
             raise IncludeError('filename must be writted as this syntax "[a-zA-Z_][a-zA-Z0-9_]*\.kgl|[a-zA-Z_]\.kgl"')
         # try open file
-        open(lib,'r')
+        try:
+            open(lib)
+        except:
+            Paths.getFile('libs' + os.sep + lib,'r')
         if os.sep in lib:
             lib_name = lib.split(os.sep)[-1]
         lib_name = lib.replace('.kgl','')
@@ -123,20 +128,38 @@ def INCLUDE (lib):
             lib_name='_'+lib_name
         # end parse
         # read it :
-        # create "kgtmp"
-        try:os.mkdir('kgtmp')
-        except:pass
+
         # get "main.py"
-        archive = zipfile.ZipFile(lib,'r')
-        py_file = open(f'kgtmp{os.sep}{lib_name}_main.py','wb')
-        py_file.write(archive.read('main.py'))
-        py_file.close()
-        # get "__memory__.py"
-        archive.extract('__memory__.py', 'kgtmp')
+        try:
+            archive = zipfile.ZipFile(lib,'r')
+        except:
+            archive = zipfile.ZipFile(Paths.__path__() + os.sep + 'libs' + os.sep + lib,'r')
+        try:
+            KAGSA_TEMP = Paths.__path__() + os.sep + 'temp' + os.sep
+            # write python library
+            py_file = open(f'{KAGSA_TEMP}{lib_name}_main.py','wb')
+            py_file.write(archive.read('main.py'))
+            py_file.close()
+            # write the kg file
+            kg_file_name = [ff for ff in archive.namelist() if ff.endswith('.kg')]
+            kg_file = open(f'{KAGSA_TEMP}{kg_file_name[0]}','wb')
+            kg_file.write(archive.read(kg_file_name[0]))
+            kg_file.close()
+        except:
+            KAGSA_TEMP = Paths.__path__() + os.sep
+            # write python library
+            py_file = open(f'{KAGSA_TEMP}{lib_name}_main.py','wb')
+            py_file.write(archive.read('main.py'))
+            py_file.close()
+            # write the kg file
+            kg_file_name = [ff for ff in archive.namelist() if ff.endswith('.kg')]
+            kg_file = open(f'{KAGSA_TEMP}{kg_file_name[0]}','wb')
+            kg_file.write(archive.read(kg_file_name[0]))
+            kg_file.close()
         # import it
         global exec_scope
         exec_scope = {}
-        sys.path.insert(1, 'kgtmp')
+        #sys.path.insert(1, KAGSA_TEMP[0:-1])
         try:
             exec(f'import {lib_name}_main',exec_scope)
             exec(f'def send_to_globals () :\n\tglobal {lib_name}\n\t{lib_name} = exec_scope["{lib_name}_main"]',globals())
@@ -156,7 +179,7 @@ class JumpingError (Exception):
     pass
 
 def JUMP (lineno):
-    lines = kagsa_lines
+    lines = KAGSA_CODES
     lines_dict = {}
     data_founded = 0
     data = ''

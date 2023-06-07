@@ -23,3 +23,7 @@ if isConnectToInternet(){
     write 'You are connected to internet\n'
     write '[ip] : %{ip}'
 }
+
+// getIP funcrion to read your ip address from "api.ipify.org".
+// isConnectToInternet function to check if program can make http request ( device connected to internet ).
+// if it coonected to internet get ip and write it to console.

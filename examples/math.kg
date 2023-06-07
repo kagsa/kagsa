@@ -1,9 +1,0 @@
-var num1 = toInt(input "Enter a Number :")
-var num2 = toInt(input "Enter Another Number :")
-
-write "Plus :", num1+num2,nl
-write "Minus :", num1-num2,nl
-write "Times :", num1*num2,nl
-write "Divide :", num1/num2,nl
-write "Power :", num1**num2,nl
-write "Remainder of Division :", num1%num2

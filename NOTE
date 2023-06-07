@@ -1,15 +1,70 @@
-# Problems Fixed in 1.1.1 (Hot Fix) :
+# KAGSA 1.2.0 :
 
-- fix problem in `parse_sformat.py`.
-    - `var name = 'ali' ; write "Name : %{name}";`
-- fix problem in `input` keyword.
-    - `write 'Hi, Welcome',input "Whats Your Name?"`
-- fix problem in lexing the `input` keyword.
-    - `var num1 = toInt(input "Enter a Number :")`
-- fix problem that if you write variable without `var, string, int, float, list, dict`.
-    - `myname = 'KAGSA'`
-- fix libraries compile.
-    - `kagsa -l file.kg -o file.kgl`
-- fix problem in `@KAGSA.latest()` calling.
-    - `write 'Last KAGSA Version :', @KAGSA.latest()`
-- fix some wrong things in documents.
+- [x] **Fix `Math` library**
+
+The `Math` module was not working due to some bugs in the Python code.
+
+- [x] **Replace `System.input()` to `System.read()`.**
+
+Now you should use `System.read()`.
+
+- [x] **Fix the illegal char error of Lexer.**
+
+Fix some problems in illegal char errors.
+
+- [x] **Fix `Keyboard.record()` function (now works).**
+
+This function was not working properly, the problem is now resolved
+
+- [x] **Add `reverse()` method for `str` and `list`.**
+
+```
+lst = list(1,2,3);
+str = "hello"
+
+write lst.reverse()
+write reverse(lst)
+// [3,2,1]
+
+write str.reverse();
+write reverse(str)
+// olleh
+```
+
+- [x] **Add `sorted()` method for `list`.**
+
+```
+lst = list(3,25,42,44,66,99,10,4);
+
+write lst.sorted()
+write sorted(lst)
+// [3, 4, 10, 25, 42, 44, 66, 99]
+
+```
+
+- [x] **New way to compile and include libraries.**
+
+External dealings with kgl libraries will not differ, but the defining and including of libraries has been reformulated in order to be smaller. You cannot use the libraries of this version with other versions, and you cannot use the libraries of other versions in this version.
+
+- [x] **New Commands on the Command Line.**
+
+The first :
+```
+kagsa --setup LIB.kgl
+kagsa -s LIB.kgl
+```
+is to setup the library next to the source code of KAGSA `kagsasrc/libs`, so that you do not need to add the library to your project folder, the second:
+```
+kagsa --unsetup LIB.kgl
+kagsa -us LIB.kgl
+```
+is to unsetup a library that you setup before, and the last command is :
+```
+kagsa --cleantmp
+kagsa -ct
+```
+and it is used to delete temporary files Which KAGSA used,  always when you call a KGL library to your project, KAGSA will create temp files to call it, so it is better to delete them every once in a while
+
+- [x] **Fix the Jump command**
+
+There was a bug due to some modifications and now it works

@@ -1,13 +1,14 @@
 class ParseError (Exception):pass
 
 def __init__ (value,parseMemory):
+
     # catch error
-    if 'else :' in parseMemory[5]:
-        raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nCan\'t add any arguments to else command')
-    if 'except Exception as ERROR :' in parseMemory[5]:
-        raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nCan\'t add any arguments to catch command')
-    if 'try :' in parseMemory[5]:
-        raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\nCan\'t add any arguments to try command')
+    if (parseMemory[7] == 'else'):
+        raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\ncan\'t add any arguments to else command')
+    if (parseMemory[7] == 'catch'):
+        raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\ncan\'t add any arguments to catch command')
+    if (parseMemory[7] == 'try'):
+        raise SyntaxError(f'invalid syntax (<file>, line {parseMemory[4]})\ncan\'t add any arguments to try command')
     
     # if |DATA-P| is empty : close it
     if '|DATA-P|' in parseMemory[5]:

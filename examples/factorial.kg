@@ -13,5 +13,7 @@ func factorial (num) {
         
     }
 }
-// print factorial of 10
-write factorial(10)
+
+write factorial(5)
+
+// This program defines a function that calculates the factorial of a given number using recursion. The program then calls the function with the number 5 and prints the result.

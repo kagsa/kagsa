@@ -83,13 +83,16 @@ def main (context) :
         # Return a Illegal Character Error
         if 'Illegal character' in str(err):
             ERR=str(err)
+            # Get the illegal char
             try:
                 char=re.findall(r"'(.*?)'",ERR)[0]
             except:
                 char=re.findall(r'"(.*?)"',ERR)[0]
-            index=ERR[ERR.find('index '):].replace('index ','')
-            line=context.count('\n')+1
+            # Get the index
+            index=int(ERR[ERR.find('index '):].replace('index ',''))
+            # Get the line
+            line=context[0:index].count('\n')+1
             raise SyntaxError(f'illegal char "{char}" in index {index}, line {line}')
         # Return a Unknown Error
         else:
-            raise err
+            raise SyntaxError(str(err))

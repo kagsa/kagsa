@@ -1,0 +1,5 @@
+var radius = toFloat(input 'Enter the radius of the circle: ')
+area = 3.14 * radius ** 2
+write 'The area of the circle is: ', area
+
+// A program that calculates the area of a circle with a given radius entered by the user.
