@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--NEEDEDIT-->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+  <link href="https://www.kagsa.org/favicon.png" rel="icon" />
+  <title>KAGSA Documents | Conditions</title>
+
+
+  <!-- SEO Meta
+  ============================== -->
+  <!--NEEDEDIT-->
+  <meta name="keywords" content="condition, conditions,if sentence, if, else, elseif, Docs, docs, Documents, Documetation, kagsa.org, kagsa org, Kagsa, KAGSA, kagsa, kagsa programming language,kagsa lang, kg lang, Interpreted programming language,  kg, .kg, KG, .KG, kg extention">
+  <meta name="description" content="How can we use conditional commands  in the KAGSA ...and what are their types?">
+  <meta property="og:title" content="KAGSA Documents | Conditions">
+  <meta property="og:image" content="https://www.kagsa.org/social.png">
+  <meta property="og:description" content="How can we use conditional commands  in the KAGSA ...and what are their types?">
+  <!-- Stylesheet
+  ============================== -->
+  <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendor/highlight.js/styles/github.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" />
+</head>
+
+<body data-spy="scroll" data-target=".idocs-navigation" data-offset="125">
+
+<!-- Preloader -->
+<div class="preloader">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+<!-- Preloader End --> 
+
+<!-- Document Wrapper   
+=============================== -->
+<div id="main-wrapper"> 
+  
+  <!-- Header
+  ============================ -->
+  <header id="header" class="sticky-top"> 
+    <!-- Navbar -->
+    <nav class="primary-menu navbar navbar-expand-lg bg-dark navbar-text-light navbar-dropdown-dark border-0">
+      <div class="container-fluid">
+        <!-- Sidebar Toggler -->
+		<button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
+		
+		<!-- Logo -->
+        <a class="logo ml-md-3" href="https://www.kagsa.org/" title="KAGSA Programming Language"> <img src="assets/logo.png" height="60" alt="KAGSA"/> </a> 
+        <!-- Logo End -->
+        
+		<!-- Navbar Toggler -->
+		<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#header-nav"><span></span><span></span><span></span></button>
+        
+		<div id="header-nav" class="collapse navbar-collapse justify-content-end">
+          <ul class="navbar-nav">
+            <li><a target="_blank" href="https://www.kagsa.org/download/">Download</a></li>
+            <li><a target="_blank" href="https://www.kagsa.org/docs/index.html">Documents</a></li>
+			      <link rel="stylesheet" href="file.css">
+            <li id="dropdown" class="nav-item1 nav-item-dropdown">
+              <a class="dropdown-trigger" id="social-text" href="#">Social</a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-menu-item">
+                  <a href="https://www.instagram.com/kagsa_org"><img src="../ig.png" class="sm-ico">&ensp; Instagram</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="https://www.twitter.com/kagsa_org"><img src="../tw.svg" class="sm-ico">&ensp; Twitter</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="https://discord.gg/q6ZmHU6DpM"><img src="../dc.png" class="sm-ico">&ensp; Discord</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="mailto:admin@kagsa.org"><img src="../ml.png" class="sm-ico">&ensp; Email</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="social-icons-twitter"><a data-toggle="tooltip"  href="http://github.com/kagsa/kagsa" target="_blank" title="" data-original-title="GitHub"><i> <img src="https://github.githubassets.com/favicons/favicon-dark.svg" alt="GitHub"> </i></a></li>
+          </ul>
+        </div>
+        <ul class="social-icons social-icons-sm ml-lg-2 mr-2">
+          
+        </ul>
+      </div>
+    </nav>
+    <!-- Navbar End --> 
+  </header>
+  <!-- Header End --> 
+  
+  <!-- Content
+  ============================ -->
+  <div id="content" role="main">
+    
+	<!-- Sidebar Navigation
+	============================ -->
+	<div class="idocs-navigation bg-light">
+      <ul class="nav flex-column "><!--NEEDEDIT-->
+        
+        
+        <li class="nav-item"><a class="nav-link active" href="#conditions-in-kagsa">Conditions in KAGSA</a>
+          <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link" href="#example">Example</a></li>
+            <li class="nav-item"><a class="nav-link" href="#statements">Statements</a></li>
+            <li class="nav-item"><a class="nav-link" href="#how-it-works-">How it Works ?</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Docs Content
+	============================ -->
+    <div class="idocs-content">
+      <div class="container"> 
+        <h1 id="conditions-in-kagsa">Conditions in KAGSA</h1>
+<p>We Have 3 conditions word in kagsa : <code>if</code>, <code>elseif</code>, <code>else</code>.
+The conditions sentences help to deal with the data and give programming great ease with decision-making
+conditions writted in this syntax :</p>
+<pre><code>condition-<span class="hljs-built_in">name</span>  statements  {
+    line <span class="hljs-keyword">of</span> codes..
+}
+</code></pre><h2 id="example">Example</h2>
+<pre><code>var i = <span class="hljs-number">5</span>;
+
+<span class="hljs-keyword">if</span> i &gt; <span class="hljs-number">7</span> {
+    write <span class="hljs-symbol">'Number</span> <span class="hljs-keyword">is</span> Big Than <span class="hljs-number">7</span>'
+}elseif i &gt; <span class="hljs-number">15</span> {
+    write <span class="hljs-symbol">'Number</span> <span class="hljs-keyword">is</span> Big Than <span class="hljs-number">15</span>';
+}<span class="hljs-keyword">else</span>{
+    write <span class="hljs-symbol">'Number</span> <span class="hljs-keyword">is</span> Small Than <span class="hljs-number">7</span>'
+}
+
+// output :
+// <span class="hljs-type">Number</span> <span class="hljs-keyword">is</span> Small Than <span class="hljs-number">7</span>
+</code></pre><h2 id="statements">Statements</h2>
+<p>you can use this separators in the statements :<br>
+<code>==</code> is equal, Example <code>5 == 5</code> = true<br>
+<code>!=</code> is not equal, Example <code>5 != 2</code> = true<br>
+<code>&gt;</code> is big than, Example <code>5 &lt; 2</code> = false<br>
+<code>&lt;</code> is small than, Example <code>2 &lt; 10</code> = true<br>
+<code>-&gt;</code> is in, Example <code>&#39;hi&#39; -&gt; &quot;i am mohammed&quot;</code> =  false<br>
+<code>&gt;=</code> is big than or equal to, Example <code>5 &gt;= 2</code> = true<br>
+<code>&lt;=</code> is small than or equal to, Example <code>3 &lt;= 3</code> = true<br>
+<code>||</code> or, example <code>(4.0 == 5) || (4.0 == 4)</code> = true<br>
+<code>&amp;&amp;</code> and, Example <code>(&#39;h&#39; -&gt; &#39;hi&#39;) &amp;&amp; (&#39;p&#39; -&gt; &#39;mohammed&#39;)</code> = false<br>
+<code>flase</code> its clear, right? Example <code>0 == false</code> = true<br>
+<code>true</code> its clear too, Example <code>1 == true</code> = true<br>
+and more !!<br>
+You can use a functions as a statements too, just make your function return <code>1</code> or <code>true</code> for Yes and <code>0</code> or <code>false</code> for No, example :</p>
+<pre><code>var str = <span class="hljs-string">"abcdefgh"</span>
+<span class="hljs-keyword">if</span> str.start(<span class="hljs-symbol">'abc</span>') {
+    // str <span class="hljs-keyword">is</span> started <span class="hljs-keyword">with</span> <span class="hljs-symbol">'abc</span>'
+    write <span class="hljs-symbol">'string</span> startrd <span class="hljs-keyword">with</span> <span class="hljs-string">"abc"</span>'
+}<span class="hljs-keyword">else</span>{
+    write <span class="hljs-symbol">'string</span> didn\<span class="hljs-symbol">'t</span> started <span class="hljs-keyword">with</span> <span class="hljs-string">"abc"</span>'
+}
+</code></pre><p>some times we have to use a function returns with a separator, example :</p>
+<pre><code><span class="hljs-comment">// i will make a str var wit value : 'mohammed'</span>
+<span class="hljs-comment">// the length of 'mohammed' is 8</span>
+var <span class="hljs-keyword">str</span> = <span class="hljs-symbol">'mohammed</span>'
+
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">str</span>.length() &lt; <span class="hljs-number">5</span> {
+    write <span class="hljs-symbol">'the</span> length of %{<span class="hljs-keyword">str</span>} is less than <span class="hljs-number">5</span>'
+}
+
+<span class="hljs-keyword">else</span>{
+    write <span class="hljs-symbol">'the</span> length of %{<span class="hljs-keyword">str</span>} is more than <span class="hljs-number">5</span>'
+}
+</code></pre><p>in this example we use <code>length(str) &lt; 5</code> as statement, this mean we use (function +separator + int)</p>
+<h2 id="how-it-works-">How it Works ?</h2>
+<p>the condition word will read the statement and if <code>statement = true</code> the lines of code will run , example</p>
+<pre><code><span class="hljs-comment">// the statement is :</span>
+<span class="hljs-comment">// (5 &gt; 3) = (5 is big than 3)</span>
+<span class="hljs-comment">// is 5 big than 3 ??</span>
+<span class="hljs-comment">// YES !!, then the program will print "yes"</span>
+<span class="hljs-built_in">if</span> <span class="hljs-number">5</span> &gt; <span class="hljs-number">3</span> {
+    <span class="hljs-built_in">write</span> <span class="hljs-string">'yes'</span>
+}<span class="hljs-built_in">else</span>{
+    <span class="hljs-built_in">write</span> <span class="hljs-string">'no'</span>
+}
+</code></pre>
+        <center>
+        <br><br>
+        <style>
+          .btns{
+            border: 0;
+            background: none;
+            box-shadow: none;
+            border-radius: 0px;
+            background-color: #e1e3e5;
+            width: 20%;
+          }
+        </style>
+        <br><br>
+        <!--NEEDEDIT-->
+        <a href="numbers.html"><button class="btns">Back</button></a>
+        <a href="loops.html"><button class="btns">Next</button></a>
+        <br>
+        </center>
+    </div>
+  </div>
+  <!-- Content end --> 
+
+  <!-- Footer
+  ============================ -->
+  <footer id="footer" class="section bg-dark footer-text-light">
+    <div class="container">
+      <p class="text-center">KAGSA Programming Language - www.kagsa.org</p>
+      <p class="text-center">Copyright &copy; 2020 <a href="http://www.harnishdesign.net/idocs-one-page-documentation-html-template/">iDocs</a>. All Rights Reserved.</p>
+	  <p class="text-2 text-center mb-0">Template by <a class="btn-link" target="_blank" href="http://www.harnishdesign.net/">HarnishDesign</a>.</p>
+    </div>
+  </footer>
+  <!-- Footer end -->
+  
+</div>
+<!-- Document Wrapper end --> 
+
+<!-- Back To Top --> 
+<a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a> 
+
+<!-- JavaScript
+============================ -->
+<script src="assets/vendor/jquery/jquery.min.js"></script> 
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+<!-- Highlight JS -->
+<script src="assets/vendor/highlight.js/highlight.min.js"></script> 
+<!-- Easing --> 
+<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script> 
+<!-- Magnific Popup --> 
+<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script> 
+<!-- Custom Script -->
+<script src="assets/js/theme.js"></script>
+</body>
+</html>

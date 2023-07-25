@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--NEEDEDIT-->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+  <link href="https://www.kagsa.org/favicon.png" rel="icon" />
+  <title>KAGSA Documents | Built Modules</title>
+
+
+  <!-- SEO Meta
+  ============================== -->
+  <!--NEEDEDIT-->
+  <meta name="keywords" content="random, code, json, system, file, time, http, regex, math, web, keyboard, module, modules, built modules, library, libraries, Docs, docs, Documents, Documetation, kagsa.org, kagsa org, Kagsa, KAGSA, kagsa, kagsa programming language,kagsa lang, kg lang, Interpreted programming language,  kg, .kg, KG, .KG, kg extention">
+  <meta name="description" content="How to deal with the built modules in KAGSA..and what are their functions.">
+  <meta property="og:title" content="KAGSA Documents | Built Modules">
+  <meta property="og:image" content="https://www.kagsa.org/social.png"> 
+  <meta property="og:description" content="How to deal with the built modules in KAGSA..and what are their functions.">
+  <!-- Stylesheet
+  ============================== -->
+  <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendor/highlight.js/styles/github.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" />
+</head>
+
+<body data-spy="scroll" data-target=".idocs-navigation" data-offset="125">
+
+<!-- Preloader -->
+<div class="preloader">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+<!-- Preloader End --> 
+
+<!-- Document Wrapper   
+=============================== -->
+<div id="main-wrapper"> 
+  
+  <!-- Header
+  ============================ -->
+  <header id="header" class="sticky-top"> 
+    <!-- Navbar -->
+    <nav class="primary-menu navbar navbar-expand-lg bg-dark navbar-text-light navbar-dropdown-dark border-0">
+      <div class="container-fluid">
+        <!-- Sidebar Toggler -->
+		<button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
+		
+		<!-- Logo -->
+        <a class="logo ml-md-3" href="https://www.kagsa.org/" title="KAGSA Programming Language"> <img src="assets/logo.png" height="60" alt="KAGSA"/> </a> 
+        <!-- Logo End -->
+        
+		<!-- Navbar Toggler -->
+		<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#header-nav"><span></span><span></span><span></span></button>
+        
+		<div id="header-nav" class="collapse navbar-collapse justify-content-end">
+          <ul class="navbar-nav">
+            <li><a target="_blank" href="https://www.kagsa.org/download/">Download</a></li>
+            <li><a target="_blank" href="https://www.kagsa.org/docs/index.html">Documents</a></li>
+			      <link rel="stylesheet" href="file.css">
+            <li id="dropdown" class="nav-item1 nav-item-dropdown">
+              <a class="dropdown-trigger" id="social-text" href="#">Social</a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-menu-item">
+                  <a href="https://www.instagram.com/kagsa_org"><img src="../ig.png" class="sm-ico">&ensp; Instagram</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="https://www.twitter.com/kagsa_org"><img src="../tw.svg" class="sm-ico">&ensp; Twitter</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="https://discord.gg/q6ZmHU6DpM"><img src="../dc.png" class="sm-ico">&ensp; Discord</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="mailto:admin@kagsa.org"><img src="../ml.png" class="sm-ico">&ensp; Email</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="social-icons-twitter"><a data-toggle="tooltip"  href="http://github.com/kagsa/kagsa" target="_blank" title="" data-original-title="GitHub"><i> <img src="https://github.githubassets.com/favicons/favicon-dark.svg" alt="GitHub"> </i></a></li>
+          </ul>
+        </div>
+        <ul class="social-icons social-icons-sm ml-lg-2 mr-2">
+          
+        </ul>
+      </div>
+    </nav>
+    <!-- Navbar End --> 
+  </header>
+  <!-- Header End --> 
+  
+  <!-- Content
+  ============================ -->
+  <div id="content" role="main">
+    
+	<!-- Sidebar Navigation
+	============================ -->
+	<div class="idocs-navigation bg-light">
+      <ul class="nav flex-column "><!--NEEDEDIT-->
+        
+        
+        <li class="nav-item"><a class="nav-link active" href="#built-modules-in-kagsa">Built Modules in KAGSA</a>
+          <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link" href="#random">Random</a></li>
+            <li class="nav-item"><a class="nav-link" href="#code">Code</a></li>
+            <li class="nav-item"><a class="nav-link" href="#json">JSON</a></li>
+            <li class="nav-item"><a class="nav-link" href="#http">HTTP</a></li>
+            <li class="nav-item"><a class="nav-link" href="#regex">Regex</a></li>
+            <li class="nav-item"><a class="nav-link" href="#system">System</a></li>
+            <li class="nav-item"><a class="nav-link" href="#file">File</a></li>
+			<li class="nav-item"><a class="nav-link" href="#time">Time</a></li>
+            <li class="nav-item"><a class="nav-link" href="#math">Math</a></li>
+            <li class="nav-item"><a class="nav-link" href="#keyboard">Keyboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="#web">Web</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Docs Content
+	============================ -->
+    <div class="idocs-content">
+      <div class="container"> 
+        <h1 id="built-modules-in-kagsa">Built Modules in KAGSA</h1>
+<p>we have some classes that help us to do many things in kagsa :</p>
+<h2 id="random">Random</h2>
+<p><strong>Randoming Module.<br><br></strong></p>
+<ul>
+<li><strong>Random.oneOf( )</strong> : choice one of items in a list :</li>
+</ul>
+<pre><code><span class="hljs-comment">// Random.oneOf( data:list )</span>
+<span class="hljs-built_in">Random</span>.oneOf( <span class="hljs-built_in">list</span>(<span class="hljs-string">'pizza'</span>,<span class="hljs-string">'salad'</span>,<span class="hljs-string">'rise'</span>) )
+</code></pre><ul>
+<li><strong>Random.str( )</strong> : random string :</li>
+</ul>
+<pre><code>// Random.str(<span class="hljs-built_in">length</span>, abc=bool, cap=bool, <span class="hljs-built_in">num</span>=bool, <span class="hljs-built_in">add</span>=<span class="hljs-keyword">string</span>)
+Random.str(<span class="hljs-number">10</span>, abc=<span class="hljs-literal">true</span>, cap=<span class="hljs-literal">true</span>, <span class="hljs-built_in">num</span>=<span class="hljs-literal">true</span>, <span class="hljs-built_in">add</span>=<span class="hljs-string">'!@#$'</span>)
+</code></pre><ul>
+<li><strong>Random.int( )</strong> : random integer :</li>
+</ul>
+<pre><code>// <span class="hljs-built_in">Random</span>.<span class="hljs-built_in">int</span>( min:<span class="hljs-built_in">int</span>, max:<span class="hljs-built_in">int</span> )
+<span class="hljs-built_in">Random</span>.<span class="hljs-built_in">int</span>( <span class="hljs-number">5</span>, <span class="hljs-number">10</span> )
+</code></pre><h2 id="code">Code</h2>
+<p><strong>Encode\Decode Module.</strong></p>
+<ul>
+<li><h3 id="base64-">Base64 :</h3>
+</li>
+</ul>
+<pre><code><span class="hljs-comment">// Code.base64.encode( data:string )</span>
+<span class="hljs-comment">// Code.base64.decode( data:string )</span>
+
+Code<span class="hljs-selector-class">.base64</span><span class="hljs-selector-class">.encode</span>(<span class="hljs-string">'some data'</span>)
+Code<span class="hljs-selector-class">.base64</span><span class="hljs-selector-class">.decode</span>(<span class="hljs-string">'base64 data'</span>)
+</code></pre><ul>
+<li><h3 id="hex-">Hex :</h3>
+</li>
+</ul>
+<pre><code><span class="hljs-comment">// Code.hex.encode( data:string )</span>
+<span class="hljs-comment">// Code.hex.decode( data:string )</span>
+
+Code<span class="hljs-selector-class">.hex</span><span class="hljs-selector-class">.encode</span>(<span class="hljs-string">'some data'</span>)
+Code<span class="hljs-selector-class">.hex</span><span class="hljs-selector-class">.decode</span>(<span class="hljs-string">'hex data'</span>)
+</code></pre><ul>
+<li><h3 id="binary-">Binary :</h3>
+</li>
+</ul>
+<pre><code><span class="hljs-comment">// Code.binary.encode( data:string )</span>
+<span class="hljs-comment">// Code.binary.decode( data:string )</span>
+
+Code<span class="hljs-selector-class">.binary</span><span class="hljs-selector-class">.encode</span>(<span class="hljs-string">'some data'</span>)
+Code<span class="hljs-selector-class">.binary</span><span class="hljs-selector-class">.decode</span>(<span class="hljs-string">'binary data'</span>)
+</code></pre><ul>
+<li><h3 id="bytes-">Bytes :</h3>
+</li>
+</ul>
+<pre><code><span class="hljs-comment">// Code.utf_8.encode( data:string )</span>
+<span class="hljs-comment">// Code.utf_8.decode( data:string )</span>
+
+Code<span class="hljs-selector-class">.utf_8</span><span class="hljs-selector-class">.encode</span>(<span class="hljs-string">'some data'</span>)
+Code<span class="hljs-selector-class">.utf_8</span><span class="hljs-selector-class">.decode</span>(bytes_data_string)
+</code></pre><h2 id="json">JSON</h2>
+<p><strong>Dealing With Json Data</strong></p>
+<ul>
+<li><strong>JSON.toJson( )</strong> : dict to JsonStr</li>
+</ul>
+<pre><code><span class="hljs-comment">// JSON.toJson( data:dict )</span>
+<span class="hljs-keyword">var</span> my_dict = dict(<span class="hljs-keyword">name</span>=<span class="hljs-string">'mohammed'</span>, age=<span class="hljs-number">14</span>)
+<span class="hljs-keyword">write</span> JSON.toJson(my_dict)
+</code></pre><ul>
+<li><strong>JSON.toDict( )</strong> : JsonStr to dict</li>
+</ul>
+<pre><code><span class="hljs-comment">// JSON.toDict( data:string )</span>
+var my_json = '{<span class="hljs-string">"name"</span>:<span class="hljs-string">"mohammed"</span>, <span class="hljs-string">"age"</span>:<span class="hljs-number">14</span>}'
+<span class="hljs-keyword">write</span> JSON.toDict(my_json)
+</code></pre><ul>
+<li><strong>JSON.parse( )</strong> : parse a Json/Dict</li>
+</ul>
+<pre><code><span class="hljs-comment">// JSON.parse( data:(string/json) )</span>
+<span class="hljs-selector-tag">var</span> json_str = <span class="hljs-string">'{"user_data": {"id": 123, "name": "mohammed"}}'</span>
+<span class="hljs-selector-tag">var</span> JS = JSON.parse(json_str)
+write JS<span class="hljs-selector-class">.user_data</span><span class="hljs-selector-class">.id</span>
+<span class="hljs-comment">// 123</span>
+
+
+<span class="hljs-selector-tag">var</span> json_str = dict( user_data= dict( id=<span class="hljs-number">123</span>, name=<span class="hljs-string">'mohammed'</span> ) )
+<span class="hljs-selector-tag">var</span> JS = JSON.parse(json_str)
+write JS<span class="hljs-selector-class">.user_data</span><span class="hljs-selector-class">.id</span>
+<span class="hljs-comment">// 123</span>
+</code></pre><ul>
+<li><strong>JSON.unParse( )</strong> : unParse a parsed JSON</li>
+</ul>
+<pre><code>// JSON.unParse( data:parsed_json )
+// i will <span class="hljs-keyword">use</span> the <span class="hljs-keyword">json</span> <span class="hljs-keyword">var</span> that i write it up ( JS )
+<span class="hljs-keyword">var</span> un_parsed_JS = JSON.unParse( JS )
+// <span class="hljs-keyword">now</span> this <span class="hljs-keyword">var</span> <span class="hljs-keyword">is</span> a dict <span class="hljs-keyword">data</span>
+
+write <span class="hljs-keyword">get</span>(un_parsed_JS, <span class="hljs-string">'user_data'</span>)
+// {<span class="hljs-string">'id'</span>: <span class="hljs-number">123</span>, <span class="hljs-string">'name'</span>: <span class="hljs-string">'mohammed'</span>}
+</code></pre><h2 id="http">HTTP</h2>
+<p><strong>Create HTTP Requests Module</strong></p>
+<p><strong>Step 1</strong> : <strong>HTTP( )</strong> : create new session :</p>
+<pre><code><span class="hljs-selector-tag">var</span> session = HTTP()
+</code></pre><p><strong>Step 2</strong> : <strong>.URL( )</strong> : add URL :</p>
+<pre><code><span class="hljs-regexp">//</span> .URL( data:*string )
+session.URL(<span class="hljs-string">"https://api.ipify.org/"</span>)
+<span class="hljs-regexp">//</span> also it used like that
+<span class="hljs-regexp">//</span> .URL(<span class="hljs-string">'https://example.com'</span>,<span class="hljs-string">'path/to'</span>,<span class="hljs-string">'page/'</span>)
+</code></pre><p><strong>Step 3</strong> : <strong>.method( )</strong> : choice method :</p>
+<pre><code><span class="hljs-comment">// .method( data:string )</span>
+<span class="hljs-selector-tag">session</span><span class="hljs-selector-class">.method</span>(<span class="hljs-string">'get'</span>)
+<span class="hljs-comment">// Other Methods :</span>
+<span class="hljs-comment">// GET, POST, PUT, HEAD, PATCH, DELETE, OPTIONS</span>
+</code></pre><p><strong>Step 4</strong> : options :</p>
+<pre><code><span class="hljs-comment">// --Optional--</span>
+
+<span class="hljs-comment">// update header</span>
+<span class="hljs-selector-tag">session</span><span class="hljs-selector-class">.headers</span>( headers_dict )
+
+<span class="hljs-comment">// set auth</span>
+<span class="hljs-selector-tag">session</span><span class="hljs-selector-class">.auth</span>( auth_data )
+
+<span class="hljs-comment">// update cookies</span>
+<span class="hljs-selector-tag">session</span><span class="hljs-selector-class">.cookies</span>( cookies_dict )
+
+<span class="hljs-comment">// set output encoding</span>
+<span class="hljs-selector-tag">session</span><span class="hljs-selector-class">.encoding</span>(<span class="hljs-string">'utf-8'</span>)
+</code></pre><p><strong>Step 5</strong> : <strong>.send( )</strong> : send request :</p>
+<pre><code>// .<span class="hljs-built_in">send</span>( data:dict )
+var response = session.<span class="hljs-built_in">send</span>() // <span class="hljs-literal">or</span> session.<span class="hljs-built_in">send</span>( params_data )
+</code></pre><p><strong>HTTP Request Response</strong></p>
+<pre><code>response<span class="hljs-selector-class">.cookies</span>
+response<span class="hljs-selector-class">.headers</span>
+response<span class="hljs-selector-class">.text</span>
+response<span class="hljs-selector-class">.content</span>
+response<span class="hljs-selector-class">.code</span>
+response<span class="hljs-selector-class">.redirect</span>
+response.url
+</code></pre><h2 id="regex">Regex</h2>
+<p><strong>Use Regex to Get Data From Strings</strong></p>
+<ul>
+<li><strong>Regex( )</strong> : call the module and set the regex code</li>
+</ul>
+<pre><code>// Regex( <span class="hljs-name">data</span><span class="hljs-symbol">:string</span> )
+var reg = Regex('<span class="hljs-string">".*?"</span>')
+</code></pre><ul>
+<li><strong>Regex().isMatch( )</strong> : if regex match string</li>
+</ul>
+<pre><code><span class="hljs-comment">// .isMatch( data:string )</span>
+<span class="hljs-keyword">var</span> reg = Regex(<span class="hljs-string">'mohammed'</span>)
+<span class="hljs-keyword">write</span> reg.isMatch(<span class="hljs-string">'Hello my name is mohammed'</span>)
+<span class="hljs-comment">// True</span>
+</code></pre><ul>
+<li><strong>Regex().findAll( )</strong> : find all match</li>
+</ul>
+<pre><code><span class="hljs-comment">// .findAll( data:string )</span>
+var reg = Regex('z-[<span class="hljs-number">0</span><span class="hljs-number">-9</span>]')
+write reg.findAll('a<span class="hljs-number">-5</span> n<span class="hljs-number">-56</span> f<span class="hljs-number">-7</span> z<span class="hljs-number">-2</span> p<span class="hljs-number">-3</span> d<span class="hljs-number">-4</span> z<span class="hljs-number">-3</span>')
+<span class="hljs-comment">// ['z-2', 'z-3']</span>
+</code></pre><ul>
+<li><strong>Regex().indexStart( )\.indexEnd()</strong> : get the start\end of string index</li>
+</ul>
+<pre><code><span class="hljs-comment">// .indexStart( data:string )</span>
+<span class="hljs-comment">// .indexEnd( data:string )</span>
+<span class="hljs-keyword">var</span> reg = Regex(<span class="hljs-string">'ahmed'</span>)
+<span class="hljs-keyword">write</span> reg.indexStart(<span class="hljs-string">'ali ahmed'</span>)
+<span class="hljs-comment">// 4</span>
+<span class="hljs-keyword">write</span> reg.indexEnd(<span class="hljs-string">'ali ahmed'</span>)
+<span class="hljs-comment">// 9</span>
+
+<span class="hljs-comment">// this mean :</span>
+<span class="hljs-comment">// ali ahmed</span>
+<span class="hljs-comment">//     |   |</span>
+<span class="hljs-comment">//     4   9</span>
+</code></pre><ul>
+<li><strong>Regex().split( )</strong> : split all the values</li>
+</ul>
+<pre><code>// .<span class="hljs-keyword">split</span>( dat<span class="hljs-variable">a:string</span> )
+var <span class="hljs-keyword">reg</span> = Regex(<span class="hljs-string">','</span>)
+<span class="hljs-keyword">write</span> <span class="hljs-keyword">reg</span>.<span class="hljs-keyword">split</span>(<span class="hljs-string">'mohammed,ahmed,ali'</span>)
+// [<span class="hljs-string">'mohammed'</span>, <span class="hljs-string">'ahmed'</span>, <span class="hljs-string">'ali'</span>]
+</code></pre><ul>
+<li><strong>Regex().split( )</strong> : split values from (begin to <code>till</code>)</li>
+</ul>
+<pre><code>// .<span class="hljs-keyword">split</span>( dat<span class="hljs-variable">a:string</span>, till=<span class="hljs-keyword">int</span> )
+var <span class="hljs-keyword">reg</span> = Regex(<span class="hljs-string">','</span>)
+<span class="hljs-keyword">write</span> <span class="hljs-keyword">reg</span>.<span class="hljs-keyword">split</span>(<span class="hljs-string">'mohammed,ahmed,ali,sarah,abdallah'</span>, till=<span class="hljs-number">2</span>)
+// [<span class="hljs-string">'mohammed'</span>, <span class="hljs-string">'ahmed'</span>, <span class="hljs-string">'ali,sarah,abdallah'</span>]
+</code></pre><ul>
+<li><strong>Regex().replace( )</strong> : replace values</li>
+</ul>
+<pre><code>// .<span class="hljs-built_in">replace</span>( data:<span class="hljs-keyword">string</span>, data:<span class="hljs-keyword">string</span> )
+var reg = Regex(<span class="hljs-string">','</span>)
+<span class="hljs-built_in">write</span> reg.<span class="hljs-built_in">replace</span>(<span class="hljs-string">'mohammed,ahmed,ali,sarah,abdallah'</span>, <span class="hljs-string">' - '</span>)<span class="hljs-comment">
+// mohammed - ahmed - ali - sarah - abdallah</span>
+</code></pre><h2 id="system">System</h2>
+<p><strong>Dealing With The System</strong></p>
+<ul>
+<li><strong>System.argv</strong> : get argv data</li>
+</ul>
+<pre><code><span class="hljs-keyword">write</span> System.<span class="hljs-built_in">argv</span>
+</code></pre><ul>
+<li><strong>System.read( )</strong> : get input line</li>
+</ul>
+<pre><code><span class="hljs-keyword">write</span> <span class="hljs-string">'Write Any Thing :'</span>
+<span class="hljs-keyword">var</span> any_thing = System.read()
+</code></pre><ul>
+<li><strong>System.write.err( )\.out( )</strong> : write data and errors</li>
+</ul>
+<pre><code><span class="hljs-comment">// System.write.out( data:*string )</span>
+<span class="hljs-comment">// System.write.err( data:*string )</span>
+
+System<span class="hljs-selector-class">.write</span><span class="hljs-selector-class">.out</span>(<span class="hljs-string">'Hi there'</span>, <span class="hljs-string">' , my name is mohammed'</span>)
+System<span class="hljs-selector-class">.write</span><span class="hljs-selector-class">.err</span>(<span class="hljs-string">'Error'</span>)
+</code></pre><ul>
+<li><strong>System.exit( )</strong> : exit program</li>
+</ul>
+<pre><code><span class="hljs-regexp">//</span> System.<span class="hljs-keyword">exit</span>( data )
+System.<span class="hljs-keyword">exit</span>(<span class="hljs-string">'program has stoped.'</span>)
+</code></pre><ul>
+<li><strong>System.cmd( )</strong> : run commands</li>
+</ul>
+<pre><code>// System.<span class="hljs-built_in">cmd</span>( data:string )
+System.<span class="hljs-built_in">cmd</span>('<span class="hljs-built_in">echo</span> Hi Bro')
+</code></pre><ul>
+<li><strong>System.exec( )</strong> : run commands and get output</li>
+</ul>
+<pre><code><span class="hljs-comment">// System.exec( data:string )</span>
+<span class="hljs-selector-tag">var</span> cmd = System.exec(<span class="hljs-string">'echo Hi Bro'</span>)
+</code></pre><ul>
+<li><strong>System.path( )</strong> : get program path</li>
+</ul>
+<pre><code><span class="hljs-built_in">write</span> System.path()
+</code></pre><ul>
+<li><strong>System.informations( )</strong> : get system informations</li>
+</ul>
+<pre><code>var Sys = System.informations()
+<span class="hljs-comment">// dict data</span>
+<span class="hljs-built_in">write</span> <span class="hljs-built_in">get</span>(Sys,<span class="hljs-string">'system'</span>)
+<span class="hljs-built_in">write</span> <span class="hljs-built_in">get</span>(Sys,<span class="hljs-string">'node'</span>)
+<span class="hljs-built_in">write</span> <span class="hljs-built_in">get</span>(Sys,<span class="hljs-string">'release'</span>)
+<span class="hljs-built_in">write</span> <span class="hljs-built_in">get</span>(Sys,<span class="hljs-string">'version'</span>)
+<span class="hljs-built_in">write</span> <span class="hljs-built_in">get</span>(Sys,<span class="hljs-string">'machine'</span>)
+<span class="hljs-built_in">write</span> <span class="hljs-built_in">get</span>(Sys,<span class="hljs-string">'processor'</span>)
+</code></pre><h2 id="file">File</h2>
+<p><strong>Dealing With The Files</strong></p>
+<ul>
+<li><strong>File.Read( )</strong> : read file</li>
+</ul>
+<pre><code>// <span class="hljs-keyword">File</span>.Read( data:<span class="hljs-built_in">string</span>, utf_8=bool )
+var <span class="hljs-keyword">file</span> = <span class="hljs-keyword">File</span>.Read(<span class="hljs-symbol">'data</span>.txt')
+// add utf_8=<span class="hljs-literal">true</span> <span class="hljs-keyword">in</span> parameters <span class="hljs-keyword">to</span> set encoding <span class="hljs-keyword">to</span> utf-<span class="hljs-number">8</span>
+write <span class="hljs-keyword">file</span>.getText()
+<span class="hljs-keyword">file</span>.<span class="hljs-keyword">end</span>()
+</code></pre><ul>
+<li><strong>File.ReadBytes( )</strong> : read bytes file</li>
+</ul>
+<pre><code><span class="hljs-comment">// File.ReadBytes( data:string )</span>
+<span class="hljs-keyword">var</span> <span class="hljs-keyword">file</span> = <span class="hljs-keyword">File</span>.ReadBytes(<span class="hljs-string">'image.png'</span>)
+<span class="hljs-keyword">var</span> data = <span class="hljs-keyword">file</span>.get()
+<span class="hljs-keyword">file</span>.<span class="hljs-keyword">end</span>()
+</code></pre><ul>
+<li><strong>File.Write( )</strong> : write\overwrite new file</li>
+</ul>
+<pre><code>// <span class="hljs-keyword">File</span>.Write( data:<span class="hljs-built_in">string</span>, utf_8=bool )
+var <span class="hljs-keyword">file</span> = <span class="hljs-keyword">File</span>.Write(<span class="hljs-symbol">'data</span>.txt')
+// add utf_8=<span class="hljs-literal">true</span> <span class="hljs-keyword">in</span> parameters <span class="hljs-keyword">to</span> set encoding <span class="hljs-keyword">to</span> utf-<span class="hljs-number">8</span>
+<span class="hljs-keyword">file</span>.write(<span class="hljs-symbol">'data1</span>', <span class="hljs-symbol">'data2</span>', <span class="hljs-symbol">'data3</span>')
+<span class="hljs-keyword">file</span>.<span class="hljs-keyword">end</span>()
+</code></pre><ul>
+<li><strong>File.Add( )</strong> : add data to a file</li>
+</ul>
+<pre><code>// <span class="hljs-keyword">File</span>.Add( data:sring, utf_8=bool )
+var <span class="hljs-keyword">file</span> = <span class="hljs-keyword">File</span>.Add(<span class="hljs-symbol">'data</span>.txt')
+// add utf_8=<span class="hljs-literal">true</span> <span class="hljs-keyword">in</span> parameters <span class="hljs-keyword">to</span> set encoding <span class="hljs-keyword">to</span> utf-<span class="hljs-number">8</span>
+<span class="hljs-keyword">file</span>.write(<span class="hljs-symbol">'data4</span>', <span class="hljs-symbol">'data5</span>', <span class="hljs-symbol">'data6</span>')
+<span class="hljs-keyword">file</span>.<span class="hljs-keyword">end</span>()
+</code></pre><h2 id="time">Time</h2>
+<p><strong>Dealing With The Time</strong></p>
+<ul>
+<li><strong>Time.epoch( )</strong> : get time from the epoch to now with seconds</li>
+</ul>
+<pre><code><span class="hljs-keyword">Time</span>.epoch()
+</code></pre><ul>
+<li><strong>Time.aEpoch( )</strong> : get a time after epoch (use seconds)</li>
+</ul>
+<pre><code><span class="hljs-comment">// Time.aEpoch( data:string )</span>
+<span class="hljs-built_in">Time</span>.aEpoch(<span class="hljs-number">0</span>)      <span class="hljs-comment">// Wed Dec 31 16:00:00 1969</span>
+<span class="hljs-built_in">Time</span>.aEpoch(<span class="hljs-number">1000</span>)   <span class="hljs-comment">// Wed Dec 31 16:16:40 1969</span>
+</code></pre><ul>
+<li><strong>Time.aEpoch( )</strong> : get a time after epoch (get output as a obj)</li>
+</ul>
+<pre><code>// <span class="hljs-type">Time</span>.aEpoch( <span class="hljs-class"><span class="hljs-keyword">data</span>:string, obj=bool )</span>
+<span class="hljs-title">var</span> <span class="hljs-class"><span class="hljs-keyword">data</span> = <span class="hljs-type">Time</span>.aEpoch(1000, <span class="hljs-title">obj</span>=<span class="hljs-title">true</span>)</span>
+<span class="hljs-title">write</span> <span class="hljs-class"><span class="hljs-keyword">data</span>.year ,nl;</span>
+<span class="hljs-title">write</span> <span class="hljs-class"><span class="hljs-keyword">data</span>.mon ,nl;</span>
+<span class="hljs-title">write</span> <span class="hljs-class"><span class="hljs-keyword">data</span>.mday ,nl;</span>
+<span class="hljs-title">write</span> <span class="hljs-class"><span class="hljs-keyword">data</span>.hour ,nl;</span>
+<span class="hljs-title">write</span> <span class="hljs-class"><span class="hljs-keyword">data</span>.min ,nl;</span>
+<span class="hljs-title">write</span> <span class="hljs-class"><span class="hljs-keyword">data</span>.sec ,nl;</span>
+<span class="hljs-title">write</span> <span class="hljs-class"><span class="hljs-keyword">data</span>.wday ,nl;</span>
+<span class="hljs-title">write</span> <span class="hljs-class"><span class="hljs-keyword">data</span>.yday ,nl;</span>
+<span class="hljs-title">write</span> <span class="hljs-class"><span class="hljs-keyword">data</span>.isdst ,nl;</span>
+</code></pre><ul>
+<li><strong>Time.now( )</strong> : get the time now</li>
+</ul>
+<pre><code><span class="hljs-built_in">write</span> Time.now()
+<span class="hljs-comment">// Wed May 25 08:03:42 2022</span>
+</code></pre><ul>
+<li><strong>Time.now( )</strong> : get the time now (get output as a obj)</li>
+</ul>
+<pre><code>// <span class="hljs-type">Time</span>.now( obj=bool )
+<span class="hljs-title">var</span> <span class="hljs-class"><span class="hljs-keyword">data</span> = <span class="hljs-type">Time</span>.now(<span class="hljs-title">obj</span>=<span class="hljs-title">true</span>)</span>
+<span class="hljs-title">write</span> <span class="hljs-class"><span class="hljs-keyword">data</span>.year ,nl;</span>
+<span class="hljs-title">write</span> <span class="hljs-class"><span class="hljs-keyword">data</span>.mon ,nl;</span>
+<span class="hljs-title">write</span> <span class="hljs-class"><span class="hljs-keyword">data</span>.mday ,nl;</span>
+<span class="hljs-title">write</span> <span class="hljs-class"><span class="hljs-keyword">data</span>.hour ,nl;</span>
+<span class="hljs-title">write</span> <span class="hljs-class"><span class="hljs-keyword">data</span>.min ,nl;</span>
+<span class="hljs-title">write</span> <span class="hljs-class"><span class="hljs-keyword">data</span>.sec ,nl;</span>
+<span class="hljs-title">write</span> <span class="hljs-class"><span class="hljs-keyword">data</span>.wday ,nl;</span>
+<span class="hljs-title">write</span> <span class="hljs-class"><span class="hljs-keyword">data</span>.yday ,nl;</span>
+<span class="hljs-title">write</span> <span class="hljs-class"><span class="hljs-keyword">data</span>.isdst ,nl;</span>
+</code></pre><ul>
+<li><strong>Time.sleep( )</strong> : stop the program for some seconds</li>
+</ul>
+<pre><code>// Time.<span class="hljs-keyword">sleep</span>( dat<span class="hljs-variable">a:</span>(<span class="hljs-keyword">int</span>\float) )
+Time.<span class="hljs-keyword">sleep</span>(<span class="hljs-number">5</span>)  // <span class="hljs-keyword">stop</span> <span class="hljs-keyword">for</span> <span class="hljs-number">5</span> sec
+</code></pre><ul>
+<li><strong>Time.count( )</strong> : count time</li>
+</ul>
+<pre><code>var <span class="hljs-built_in">time</span> = <span class="hljs-built_in">Time</span>.count()
+<span class="hljs-built_in">time</span>.start()     <span class="hljs-comment">// start counting</span>
+<span class="hljs-built_in">Time</span>.<span class="hljs-built_in">sleep</span>(<span class="hljs-number">1.5</span>)  <span class="hljs-comment">// make any thing</span>
+<span class="hljs-built_in">time</span>.<span class="hljs-keyword">end</span>()       <span class="hljs-comment">// stop counter</span>
+
+write <span class="hljs-built_in">time</span>.get   <span class="hljs-comment">// get output</span>
+<span class="hljs-comment">// 0:00:01.511142</span>
+</code></pre><ul>
+<li><strong>Time.count( )</strong> : count time and get output as obj</li>
+</ul>
+<pre><code>// Time.count( data:int )
+var <span class="hljs-built_in">time</span> = Time.count(obj=<span class="hljs-number">1</span>)
+<span class="hljs-built_in">time</span>.<span class="hljs-built_in">start</span>()
+Time.sleep(<span class="hljs-number">1.5</span>)
+<span class="hljs-built_in">time</span>.<span class="hljs-keyword">end</span>()
+
+<span class="hljs-built_in">write</span> <span class="hljs-built_in">time</span>.days , nl
+<span class="hljs-built_in">write</span> <span class="hljs-built_in">time</span>.<span class="hljs-built_in">min</span> , nl
+<span class="hljs-built_in">write</span> <span class="hljs-built_in">time</span>.<span class="hljs-built_in">seconds</span> , nl
+<span class="hljs-built_in">write</span> <span class="hljs-built_in">time</span>.microseconds , nl
+<span class="hljs-built_in">write</span> <span class="hljs-built_in">time</span>.total_seconds , nl
+<span class="hljs-comment">
+// 0 </span><span class="hljs-comment">
+// -999999999 days, 0:00:00 </span><span class="hljs-comment">
+// 1</span><span class="hljs-comment">
+// 502204</span><span class="hljs-comment">
+// 1.502204</span>
+</code></pre><h2 id="math">Math</h2>
+<p><strong>Math Functions</strong></p>
+<p>Use the same functions of Python math lib (I&#39;m not a mathematician)</p>
+<pre><code>Math.<span class="hljs-built_in">cos</span>(<span class="hljs-number">1</span>)
+Math.<span class="hljs-built_in">sin</span>(<span class="hljs-number">5</span>)
+Math.<span class="hljs-built_in">tan</span>(<span class="hljs-number">10</span>)
+</code></pre><h2 id="keyboard">Keyboard</h2>
+<p><strong>Dealing With Keyboard</strong></p>
+<ul>
+<li><strong>Keyboard.wait( )</strong> : wait until the <code>&#39;a&#39;</code> key pressed</li>
+</ul>
+<pre><code>// Keyboard.<span class="hljs-built_in">wait</span>( data:<span class="hljs-keyword">string</span> )
+Keyboard.<span class="hljs-built_in">wait</span>(<span class="hljs-string">'a'</span>)
+</code></pre><ul>
+<li><strong>Keyboard.write( )</strong> : write somthing</li>
+</ul>
+<pre><code><span class="hljs-comment">// Keyboard.write( data:string )</span>
+<span class="hljs-built_in">Keyboard</span>.<span class="hljs-built_in">write</span>(<span class="hljs-string">'github.com/kagsa/kagsa'</span>)
+</code></pre><ul>
+<li><strong>Keyboard.newHotkey( )</strong> : create a new hotkey</li>
+</ul>
+<pre><code>// Keyboard.newHotkey( data:<span class="hljs-built_in">string</span> , data:function )
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">openGoogle</span> <span class="hljs-params">()</span> {</span>
+    System.cmd(<span class="hljs-string">"start www.google.com"</span>)
+}
+Keyboard.newHotkey(<span class="hljs-string">'ctrl + g'</span>, openGoogle)
+</code></pre><ul>
+<li><strong>Keyboard.record( )</strong> : record keys until <code>ESC</code> press</li>
+</ul>
+<pre><code>// Keyboard.<span class="hljs-keyword">record</span>( <span class="hljs-keyword">until</span>=<span class="hljs-built_in">string</span> )
+var data = Keyboard.<span class="hljs-keyword">record</span>(<span class="hljs-keyword">until</span>=<span class="hljs-symbol">'esc</span>')
+</code></pre><ul>
+<li><strong>Keyboard.record( ).get</strong> : get data from record</li>
+</ul>
+<pre><code><span class="hljs-class"><span class="hljs-keyword">data</span>.get</span>
+</code></pre><ul>
+<li><strong>Keyboard.record( ).playAll</strong> : play the record</li>
+</ul>
+<pre><code>// .playAll( speed=(<span class="hljs-built_in">int</span>\<span class="hljs-built_in">float</span>)  )
+<span class="hljs-keyword">data</span>.playAll(speed=<span class="hljs-number">0.2</span>) // defult speed : <span class="hljs-number">0.5</span>
+</code></pre><ul>
+<li><strong>Keyboard.press( )</strong> : press some keys</li>
+</ul>
+<pre><code><span class="hljs-comment">// Keyboard.press( data:string )</span>
+<span class="hljs-built_in">Keyboard</span>.<span class="hljs-built_in">press</span>(<span class="hljs-string">"ctrl + a, ctrl + c"</span>)
+</code></pre><h2 id="web">Web</h2>
+<p><strong>Frontend framework for kagsa</strong>,
+You can find every thing on <a href="http://github.com/kagsa/kagsa-web">kagsa/kagsa-web</a></p>
+
+        <center>
+        <br><br>
+        <style>
+          .btns{
+            border: 0;
+            background: none;
+            box-shadow: none;
+            border-radius: 0px;
+            background-color: #e1e3e5;
+            width: 20%;
+          }
+        </style>
+        <br><br>
+        <!--NEEDEDIT-->
+        <a href="exceptions.html"><button class="btns">Back</button></a>
+        <a href="libraries.html"><button class="btns">Next</button></a>
+        <br>
+        </center>
+    </div>
+  </div>
+  <!-- Content end --> 
+
+  <!-- Footer
+  ============================ -->
+  <footer id="footer" class="section bg-dark footer-text-light">
+    <div class="container">
+      <p class="text-center">KAGSA Programming Language - www.kagsa.org</p>
+      <p class="text-center">Copyright &copy; 2020 <a href="http://www.harnishdesign.net/idocs-one-page-documentation-html-template/">iDocs</a>. All Rights Reserved.</p>
+	  <p class="text-2 text-center mb-0">Template by <a class="btn-link" target="_blank" href="http://www.harnishdesign.net/">HarnishDesign</a>.</p>
+    </div>
+  </footer>
+  <!-- Footer end -->
+  
+</div>
+<!-- Document Wrapper end --> 
+
+<!-- Back To Top --> 
+<a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a> 
+
+<!-- JavaScript
+============================ -->
+<script src="assets/vendor/jquery/jquery.min.js"></script> 
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+<!-- Highlight JS -->
+<script src="assets/vendor/highlight.js/highlight.min.js"></script> 
+<!-- Easing --> 
+<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script> 
+<!-- Magnific Popup --> 
+<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script> 
+<!-- Custom Script -->
+<script src="assets/js/theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--NEEDEDIT-->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+  <link href="https://www.kagsa.org/favicon.png" rel="icon" />
+  <title>KAGSA Documents | Classes</title>
+
+
+  <!-- SEO Meta
+  ============================== -->
+  <!--NEEDEDIT-->
+  <meta name="keywords" content="class, classes, constructor, representation, string, Docs, docs, Documents, Documetation, kagsa.org, kagsa org, Kagsa, KAGSA, kagsa, kagsa programming language,kagsa lang, kg lang, Interpreted programming language,  kg, .kg, KG, .KG, kg extention">
+  <meta name="description" content="How to write a class and call it in KAGSA.">
+  <meta property="og:title" content="KAGSA Documents | Classes">
+  <meta property="og:image" content="https://www.kagsa.org/social.png">
+  <meta property="og:description" content="How to write a class and call it in KAGSA.">
+  <!-- Stylesheet
+  ============================== -->
+  <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendor/highlight.js/styles/github.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" />
+</head>
+
+<body data-spy="scroll" data-target=".idocs-navigation" data-offset="125">
+
+<!-- Preloader -->
+<div class="preloader">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+<!-- Preloader End --> 
+
+<!-- Document Wrapper   
+=============================== -->
+<div id="main-wrapper"> 
+  
+  <!-- Header
+  ============================ -->
+  <header id="header" class="sticky-top"> 
+    <!-- Navbar -->
+    <nav class="primary-menu navbar navbar-expand-lg bg-dark navbar-text-light navbar-dropdown-dark border-0">
+      <div class="container-fluid">
+        <!-- Sidebar Toggler -->
+		<button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
+		
+		<!-- Logo -->
+        <a class="logo ml-md-3" href="https://www.kagsa.org/" title="KAGSA Programming Language"> <img src="assets/logo.png" height="60" alt="KAGSA"/> </a> 
+        <!-- Logo End -->
+        
+		<!-- Navbar Toggler -->
+		<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#header-nav"><span></span><span></span><span></span></button>
+        
+		<div id="header-nav" class="collapse navbar-collapse justify-content-end">
+          <ul class="navbar-nav">
+            <li><a target="_blank" href="https://www.kagsa.org/download/">Download</a></li>
+            <li><a target="_blank" href="https://www.kagsa.org/docs/index.html">Documents</a></li>
+			      <link rel="stylesheet" href="file.css">
+            <li id="dropdown" class="nav-item1 nav-item-dropdown">
+              <a class="dropdown-trigger" id="social-text" href="#">Social</a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-menu-item">
+                  <a href="https://www.instagram.com/kagsa_org"><img src="../ig.png" class="sm-ico">&ensp; Instagram</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="https://www.twitter.com/kagsa_org"><img src="../tw.svg" class="sm-ico">&ensp; Twitter</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="https://discord.gg/q6ZmHU6DpM"><img src="../dc.png" class="sm-ico">&ensp; Discord</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="mailto:admin@kagsa.org"><img src="../ml.png" class="sm-ico">&ensp; Email</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="social-icons-twitter"><a data-toggle="tooltip"  href="http://github.com/kagsa/kagsa" target="_blank" title="" data-original-title="GitHub"><i> <img src="https://github.githubassets.com/favicons/favicon-dark.svg" alt="GitHub"> </i></a></li>
+          </ul>
+        </div>
+        <ul class="social-icons social-icons-sm ml-lg-2 mr-2">
+          
+        </ul>
+      </div>
+    </nav>
+    <!-- Navbar End --> 
+  </header>
+  <!-- Header End --> 
+  
+  <!-- Content
+  ============================ -->
+  <div id="content" role="main">
+    
+	<!-- Sidebar Navigation
+	============================ -->
+	<div class="idocs-navigation bg-light">
+      <ul class="nav flex-column "><!--NEEDEDIT-->
+        
+        
+        <li class="nav-item"><a class="nav-link active" href="#classes-in-kagsa">Classes in KAGSA</a>
+          <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link" href="#example">Example</a></li>
+            <li class="nav-item"><a class="nav-link" href="#constructor">Constructor</a></li>
+            <li class="nav-item"><a class="nav-link" href="#representation">Representation</a></li>
+            <li class="nav-item"><a class="nav-link" href="#string">String</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Docs Content
+	============================ -->
+    <div class="idocs-content">
+      <div class="container"> 
+        <h1 id="classes-in-kagsa">Classes in KAGSA</h1>
+<p>class is something like a function store, often used in libraries or in OOP.</p>
+<h2 id="example">Example</h2>
+<pre><code>class app {
+    <span class="hljs-keyword">func</span> say (text) {
+        write <span class="hljs-string">'App : %{text}\n'</span>
+    }
+    <span class="hljs-keyword">func</span> close () {
+        System.<span class="hljs-keyword">exit</span>(<span class="hljs-string">''</span>)
+    }
+}
+
+app.say(<span class="hljs-string">'Hello'</span>)
+app.say(<span class="hljs-string">'This is my App'</span>)
+app.say(<span class="hljs-string">'This app use the OOP'</span>)
+
+app.close()
+</code></pre><h3 id="output-">output :</h3>
+<pre><code><span class="hljs-keyword">App</span> : Hello
+<span class="hljs-keyword">App</span> : This is my <span class="hljs-keyword">App</span>      
+<span class="hljs-keyword">App</span> : This <span class="hljs-keyword">app</span> <span class="hljs-keyword">use</span> the OOP
+</code></pre><h2 id="constructor">Constructor</h2>
+<p>constructor func is the main function in the class, to be clear, take a look at this example.</p>
+<h3 id="example-">Example :</h3>
+<pre><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> </span>{
+    func <span class="hljs-meta">@constructor</span> (<span class="hljs-meta">@this</span>) {
+        write <span class="hljs-string">'Welcome To App\n'</span>
+        <span class="hljs-keyword">var</span> <span class="hljs-meta">@this</span>.<span class="hljs-built_in">num</span> = <span class="hljs-number">0</span>
+    }
+    func addOne (<span class="hljs-meta">@this</span>) {
+        <span class="hljs-meta">@this</span>.<span class="hljs-built_in">num</span>+=<span class="hljs-number">1</span>
+    }
+    func takeOne (<span class="hljs-meta">@this</span>) {
+        <span class="hljs-meta">@this</span>.<span class="hljs-built_in">num</span>-=<span class="hljs-number">1</span>
+    }
+}
+
+<span class="hljs-keyword">var</span> game = App()
+game.addOne()
+game.addOne()
+game.addOne()
+game.takeOne()
+
+write game.<span class="hljs-built_in">num</span>
+</code></pre><h3 id="output-">output :</h3>
+<pre><code>Welcome <span class="hljs-keyword">To</span> App
+<span class="hljs-number">2</span>
+</code></pre><p>To be clear, the constructor function is like a session, so if you use it this way:</p>
+<pre><code>var game1 = App()
+game1.<span class="hljs-keyword">addOne()
+</span>game1.<span class="hljs-keyword">addOne()
+</span>game1.<span class="hljs-keyword">addOne()
+</span>game1.takeOne()
+
+var game2 = App()
+game2.<span class="hljs-keyword">addOne()
+</span>game2.<span class="hljs-keyword">addOne()
+</span>game2.<span class="hljs-keyword">addOne()
+</span>game2.takeOne()
+</code></pre><p>Unlike the first example, <code>game1</code> will be different and independent of <code>game2</code> and you can find many benefits yourselves.</p>
+<p><strong>Ok good, but what does <code>@this</code> mean?</strong><br>
+It is a variable that can be used within classes. It has several benefits, including:</p>
+<ul>
+<li>The ability to manipulate its variables (ex: <code>@this.num</code>) from within all functions in the class.</li>
+<li>It can also be used to use variables outside the class</li>
+</ul>
+<h2 id="representation">Representation</h2>
+<p>It is just a function that gives a value to the class, so that if you print the class, this value will printed.</p>
+<h3 id="example-">Example :</h3>
+<pre><code>class Man {
+    <span class="hljs-function"><span class="hljs-keyword">func</span> @<span class="hljs-title">constructor</span> <span class="hljs-params">(@this,name,age)</span>{</span>
+        <span class="hljs-built_in">string</span> <span class="hljs-symbol">@this</span>.name = name
+        <span class="hljs-built_in">int</span> <span class="hljs-symbol">@this</span>.age = age
+    }
+    <span class="hljs-function"><span class="hljs-keyword">func</span> @<span class="hljs-title">repr</span> <span class="hljs-params">(@this)</span>{</span>
+        <span class="hljs-built_in">string</span> name = <span class="hljs-symbol">@this</span>.name
+        <span class="hljs-built_in">int</span> age  = <span class="hljs-symbol">@this</span>.age
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'&lt;Man Class name="%{name}" age=%{age}&gt;'</span>
+    }
+}
+
+write Man(<span class="hljs-string">'mohammed'</span>,<span class="hljs-number">14</span>) 
+// &lt;Man Class name=<span class="hljs-string">"mohammed"</span> age=<span class="hljs-number">14</span>&gt;
+</code></pre><h2 id="string">String</h2>
+<p>It works in the same way as the repr function, but the value written in the (return) must be string.</p>
+<p><strong>Note: If you find a <code>@string</code> function in the class, the <code>@repr</code> will be ignored.</strong></p>
+
+        <center>
+        <br><br>
+        <style>
+          .btns{
+            border: 0;
+            background: none;
+            box-shadow: none;
+            border-radius: 0px;
+            background-color: #e1e3e5;
+            width: 20%;
+          }
+        </style>
+        <br><br>
+        <!--NEEDEDIT-->
+        <a href="functions.html"><button class="btns">Back</button></a>
+        <a href="exceptions.html"><button class="btns">Next</button></a>
+        <br>
+        </center>
+    </div>
+  </div>
+  <!-- Content end --> 
+
+  <!-- Footer
+  ============================ -->
+  <footer id="footer" class="section bg-dark footer-text-light">
+    <div class="container">
+      <p class="text-center">KAGSA Programming Language - www.kagsa.org</p>
+      <p class="text-center">Copyright &copy; 2020 <a href="http://www.harnishdesign.net/idocs-one-page-documentation-html-template/">iDocs</a>. All Rights Reserved.</p>
+	  <p class="text-2 text-center mb-0">Template by <a class="btn-link" target="_blank" href="http://www.harnishdesign.net/">HarnishDesign</a>.</p>
+    </div>
+  </footer>
+  <!-- Footer end -->
+  
+</div>
+<!-- Document Wrapper end --> 
+
+<!-- Back To Top --> 
+<a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a> 
+
+<!-- JavaScript
+============================ -->
+<script src="assets/vendor/jquery/jquery.min.js"></script> 
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+<!-- Highlight JS -->
+<script src="assets/vendor/highlight.js/highlight.min.js"></script> 
+<!-- Easing --> 
+<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script> 
+<!-- Magnific Popup --> 
+<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script> 
+<!-- Custom Script -->
+<script src="assets/js/theme.js"></script>
+</body>
+</html>

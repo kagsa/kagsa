@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--NEEDEDIT-->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+  <link href="https://www.kagsa.org/favicon.png" rel="icon" />
+  <title>KAGSA Documents | Variables</title>
+
+
+  <!-- SEO Meta
+  ============================== -->
+  <!--NEEDEDIT-->
+  <meta name="keywords" content="var , variable, variables, define, Docs, docs, Documents, Documetation, kagsa.org, kagsa org, Kagsa, KAGSA, kagsa, kagsa programming language,kagsa lang, kg lang, Interpreted programming language,  kg, .kg, KG, .KG, kg extention">
+  <meta name="description" content="How to define variables in KAGSA and how to deal with them.">
+  <meta property="og:title" content="KAGSA Documents | Variables">
+  <meta property="og:image" content="https://www.kagsa.org/social.png">
+  <meta property="og:description" content="How to define variables in KAGSA and how to deal with them.">
+  <!-- Stylesheet
+  ============================== -->
+  <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendor/highlight.js/styles/github.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" />
+</head>
+
+<body data-spy="scroll" data-target=".idocs-navigation" data-offset="125">
+
+<!-- Preloader -->
+<div class="preloader">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+<!-- Preloader End --> 
+
+<!-- Document Wrapper   
+=============================== -->
+<div id="main-wrapper"> 
+  
+  <!-- Header
+  ============================ -->
+  <header id="header" class="sticky-top"> 
+    <!-- Navbar -->
+    <nav class="primary-menu navbar navbar-expand-lg bg-dark navbar-text-light navbar-dropdown-dark border-0">
+      <div class="container-fluid">
+        <!-- Sidebar Toggler -->
+		<button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
+		
+		<!-- Logo -->
+        <a class="logo ml-md-3" href="https://www.kagsa.org/" title="KAGSA Programming Language"> <img src="assets/logo.png" height="60" alt="KAGSA"/> </a> 
+        <!-- Logo End -->
+        
+		<!-- Navbar Toggler -->
+		<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#header-nav"><span></span><span></span><span></span></button>
+        
+		<div id="header-nav" class="collapse navbar-collapse justify-content-end">
+          <ul class="navbar-nav">
+            <li><a target="_blank" href="https://www.kagsa.org/download/">Download</a></li>
+            <li><a target="_blank" href="https://www.kagsa.org/docs/index.html">Documents</a></li>
+			      <link rel="stylesheet" href="file.css">
+            <li id="dropdown" class="nav-item1 nav-item-dropdown">
+              <a class="dropdown-trigger" id="social-text" href="#">Social</a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-menu-item">
+                  <a href="https://www.instagram.com/kagsa_org"><img src="../ig.png" class="sm-ico">&ensp; Instagram</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="https://www.twitter.com/kagsa_org"><img src="../tw.svg" class="sm-ico">&ensp; Twitter</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="https://discord.gg/q6ZmHU6DpM"><img src="../dc.png" class="sm-ico">&ensp; Discord</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="mailto:admin@kagsa.org"><img src="../ml.png" class="sm-ico">&ensp; Email</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="social-icons-twitter"><a data-toggle="tooltip"  href="http://github.com/kagsa/kagsa" target="_blank" title="" data-original-title="GitHub"><i> <img src="https://github.githubassets.com/favicons/favicon-dark.svg" alt="GitHub"> </i></a></li>
+          </ul>
+        </div>
+        <ul class="social-icons social-icons-sm ml-lg-2 mr-2">
+          
+        </ul>
+      </div>
+    </nav>
+    <!-- Navbar End --> 
+  </header>
+  <!-- Header End --> 
+  
+  <!-- Content
+  ============================ -->
+  <div id="content" role="main">
+    
+	<!-- Sidebar Navigation
+	============================ -->
+	<div class="idocs-navigation bg-light">
+      <ul class="nav flex-column "><!--NEEDEDIT-->
+        
+        
+        <li class="nav-item"><a class="nav-link active" href="#variables-in-kagsa">Variables in KAGSA</a>
+          <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link" href="#create">Create</a></li>
+            <li class="nav-item"><a class="nav-link" href="#variable-name">Variable Name</a></li>
+            <li class="nav-item"><a class="nav-link" href="#global">Global</a></li>
+            <li class="nav-item"><a class="nav-link" href="#delete">Delete</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Docs Content
+	============================ -->
+    <div class="idocs-content">
+      <div class="container"> 
+        
+        <h1 id="variables-in-kagsa">Variables in KAGSA</h1>
+<p>variable is a name saved in program memory and it have a name and value.</p>
+<h2 id="create">Create</h2>
+<p>in kagsa we use <code>var</code> keyword as the main way to <strong>create\edit</strong> variables, and use this syntax :<br>
+<code>var ID = ELEMENTS</code></p>
+<h3 id="examples-">Examples :</h3>
+<pre><code><span class="hljs-keyword">var</span> my_name = <span class="hljs-string">'Mohammed'</span>;
+<span class="hljs-keyword">var</span> this_year = <span class="hljs-number">2022</span>
+</code></pre><p>There is many another keywords to define a variable :</p>
+<ul>
+<li><strong>string</strong></li>
+</ul>
+<pre><code><span class="hljs-type">string</span> my_name = <span class="hljs-number">10</span>+<span class="hljs-number">10</span>
+<span class="hljs-comment">// value will be : "20"</span>
+<span class="hljs-comment">// the orginal value is 20 ,but string keyword change it to string</span>
+</code></pre><ul>
+<li><strong>int</strong></li>
+</ul>
+<pre><code><span class="hljs-keyword">int</span> num = <span class="hljs-string">"5"</span>
+// value will <span class="hljs-keyword">be</span> : <span class="hljs-number">5</span>
+// the orginal value <span class="hljs-keyword">is</span> <span class="hljs-string">"5"</span> ,but <span class="hljs-keyword">int</span> keyword <span class="hljs-keyword">change</span> it <span class="hljs-keyword">to</span> <span class="hljs-keyword">int</span>
+</code></pre><ul>
+<li><strong>float</strong></li>
+</ul>
+<pre><code><span class="hljs-type">float</span> num = <span class="hljs-number">5</span>
+<span class="hljs-comment">// value will be : 5.0</span>
+<span class="hljs-comment">// the orginal value is 5 ,but float keyword change it to float</span>
+</code></pre><ul>
+<li><strong>list</strong></li>
+</ul>
+<pre><code><span class="hljs-built_in">list</span> my_name = <span class="hljs-string">"ali"</span>
+<span class="hljs-comment">// value will be : ['a','l','i]</span>
+<span class="hljs-comment">// the orginal value is "ali" ,but list keyword change it to list</span>
+</code></pre><ul>
+<li><strong>dict</strong></li>
+</ul>
+<pre><code>dict data = <span class="hljs-string">'{"name":"ali"}'</span>
+// value will <span class="hljs-keyword">be</span> : {<span class="hljs-string">"name"</span>:<span class="hljs-string">"ali"</span>}
+// the orginal value <span class="hljs-keyword">is</span> <span class="hljs-string">"{"</span>name<span class="hljs-string">":"</span>ali<span class="hljs-string">"}"</span> ,but dict keyword <span class="hljs-keyword">change</span> it <span class="hljs-keyword">to</span> dict
+</code></pre><h2 id="variable-name">Variable Name</h2>
+<p>You can use <code>abc..</code> and <code>ABC..</code> and <code>_</code> and <code>_@$^~?</code> and <code>123..</code> to write the var name<br></p>
+<h3 id="examples-">Examples :</h3>
+<pre><code><span class="hljs-keyword">var</span> my_name = <span class="hljs-string">'Mohammed'</span>;
+</code></pre><pre><code><span class="hljs-selector-tag">var</span> <span class="hljs-selector-tag">i</span> = <span class="hljs-string">"ABC"</span>
+</code></pre><pre><code><span class="hljs-attribute">var</span> <span class="hljs-variable">$email</span> = <span class="hljs-string">"something<span class="hljs-variable">@kagsa</span>.org"</span>
+</code></pre><h2 id="global">Global</h2>
+<p>use <code>global</code> keyword to create a new global variable and use <code>var</code> to edit it.</p>
+<h3 id="example-">Example :</h3>
+<pre><code>// <span class="hljs-keyword">use</span> <span class="hljs-string">"global"</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">create</span>
+<span class="hljs-keyword">global</span> my_var
+// <span class="hljs-keyword">use</span> <span class="hljs-string">"var"</span> <span class="hljs-keyword">to</span> edit <span class="hljs-keyword">value</span>
+<span class="hljs-keyword">var</span> my_var = <span class="hljs-string">'This is Global Variable.'</span>
+</code></pre><h2 id="delete">Delete</h2>
+<p>use <code>delvar</code> keyword to delete any variable</p>
+<h3 id="example-">Example :</h3>
+<pre><code><span class="hljs-keyword">var</span> my_name = <span class="hljs-string">'Mohammed'</span>;
+delvar my_name
+<span class="hljs-comment">// Now The Variable (my_name) is Deleted.</span>
+</code></pre>
+
+        <center>
+        <br><br>
+        <style>
+          .btns{
+            border: 0;
+            background: none;
+            box-shadow: none;
+            border-radius: 0px;
+            background-color: #e1e3e5;
+            width: 20%;
+          }
+        </style>
+        <br><br>
+        <!--NEEDEDIT-->
+        <a href="index.html"><button class="btns" >Back</button></a>
+        <a href="io.html"><button class="btns">Next</button></a>
+        <br>
+        </center>
+    </div>
+  </div>
+  <!-- Content end --> 
+
+  <!-- Footer
+  ============================ -->
+  <footer id="footer" class="section bg-dark footer-text-light">
+    <div class="container">
+      <p class="text-center">KAGSA Programming Language - www.kagsa.org</p>
+      <p class="text-center">Copyright &copy; 2020 <a href="http://www.harnishdesign.net/idocs-one-page-documentation-html-template/">iDocs</a>. All Rights Reserved.</p>
+	  <p class="text-2 text-center mb-0">Template by <a class="btn-link" target="_blank" href="http://www.harnishdesign.net/">HarnishDesign</a>.</p>
+    </div>
+  </footer>
+  <!-- Footer end -->
+  
+</div>
+<!-- Document Wrapper end --> 
+
+<!-- Back To Top --> 
+<a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a> 
+
+<!-- JavaScript
+============================ -->
+<script src="assets/vendor/jquery/jquery.min.js"></script> 
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+<!-- Highlight JS -->
+<script src="assets/vendor/highlight.js/highlight.min.js"></script> 
+<!-- Easing --> 
+<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script> 
+<!-- Magnific Popup --> 
+<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script> 
+<!-- Custom Script -->
+<script src="assets/js/theme.js"></script>
+</body>
+</html>
