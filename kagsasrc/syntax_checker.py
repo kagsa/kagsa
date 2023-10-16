@@ -1,64 +1,54 @@
 import re
-def main (data):
-    opened_paren=0
+
+def main(data):
+    opened_paren = 0
     KEYS = ""
+    current_line = 1
+
     for d in data:
-        current_line = KEYS.count("\n")
-        # if The TYPE is End Line -> Close The Current Line & Open New One
-        # And Check if The Opened Paren == 0
         if d[0] == 'ENDLINE':
-            if d[1]!=';' :
-                KEYS+='.ENDLINE\n'
+            if d[1] != ';':
+                KEYS += '.ENDLINE\n'
             else:
-                KEYS+='.SEMICOLON'
+                KEYS += '.SEMICOLON'
             if opened_paren != 0:
-                raise SyntaxError(f'invalid syntax (<file>, line {current_line})\nLine ended without close the paren')
+                raise SyntaxError(
+                    f'invalid syntax (<file>, line {current_line})\nLine ended without closing the parenthesis')
             continue
-        
+
         if d[0] == 'COMMENT':
-            lines=d[1].count('\n')
+            lines = d[1].count('\n')
             data = '.ENDLINE\n' * lines
-            KEYS+=data
-        # if There a Open Paren Add 1 to ( opened_paren )
-        if d[0]=='LPAREN': # (
-            opened_paren+=1
-            KEYS+='.'+d[0]
+            KEYS += data
+
+        if d[0] == 'LPAREN':
+            opened_paren += 1
+            KEYS += '.' + d[0]
             continue
-        
-        # if There a Open Paren Minus 1 From ( opened_paren )
-        if d[0]=='RPAREN': # )
+
+        if d[0] == 'RPAREN':
             if opened_paren == 0:
-                raise SyntaxError(f'invalid syntax (<file>, line {current_line})\nLine ended without close the paren')
-            opened_paren-=1
-            KEYS+='.'+d[0]
+                raise SyntaxError(
+                    f'invalid syntax (<file>, line {current_line})\nLine ended without closing the parenthesis')
+            opened_paren -= 1
+            KEYS += '.' + d[0]
             continue
-        
-        # Add TYPE to a String With (.) Between Them
-        if (d[0]=='PLUS') or (d[0]=='MINUS') or (d[0]=='TIMES') or (d[0]=='DIVIDE') :
-            KEYS+='.MATH'
-        if (d[0]=='KEYWORD' and d[1]=='input'):
-            KEYS+='.INPUT'
-        if (d[0]=='STRING' and d[1].startswith('``')):
-            KEYS+='.'+d[0]
-            #current_line+=(d[1].count('\n'))
-            #for i in range(1,d[1].count('\n')+1):
-            #    lines[str(1)]=''
-            lines=d[1].count('\n')
-            data = '.ENDLINE\n' * lines
-            KEYS+='.'+data
-        else:
-            KEYS+='.'+d[0]
-    
-    WrongsSyntax=[
+
+        KEYS += '.' + d[0]
+
+        if d[0] == 'ENDLINE':
+            current_line += 1
+
+    WrongsSyntax = [
         r'KEYWORD.KEYWORD',
         r'MATH.KEYWORD',
-        r'ASSING.KEYWORD',
+        r'ASSIGN.KEYWORD',
         r'INT.KEYWORD',
         r'STRING.KEYWORD',
         r'FLOAT.KEYWORD',
         r'CO.KEYWORD',
         r'COMA.KEYWORD',
-        r'KEYWORD.ASSING',
+        r'KEYWORD.ASSIGN',
         r'KEYWORD.MATH',
         r'STRING.MATH.INT',
         r'INT.MATH.STRING',
@@ -87,13 +77,12 @@ def main (data):
         r'LCPAREN.[\n-\.ENDLINE-ENDLINE]*.RCPAREN',
         r'LCPAREN.ENDLINE.RCPAREN'
     ]
-    # Checking The Wrong Syntax
-    #print(KEYS)
+
     for w in WrongsSyntax:
-        searchForError=re.findall(w,KEYS)
-        if len(searchForError) > 0:
-            #print(w)
-            line = KEYS[  0 :  KEYS.find(searchForError[0])   ].count('\n') + 1
-            raise SyntaxError(f'invalid syntax (<file>, line {line})\nError code : {w.lower()}')
+        search_for_error = re.findall(w, KEYS)
+        if len(search_for_error) > 0:
+            line = KEYS[:KEYS.find(search_for_error[0])].count('\n') + 1
+            raise SyntaxError(
+                f'invalid syntax (<file>, line {line})\nError code: {w.lower()}')
 
     return 1
