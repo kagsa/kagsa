@@ -1,32 +1,40 @@
-#
+import os
+import re
+import sys
+import zipfile
+import requests
+import traceback
 
 class أ_K_A_G_S_A:
     f_i_l_e = '[KAGSA-FILE]'
-    if f_i_l_e!='[stdin]':
-        x = open(f_i_l_e,'r')
+    if f_i_l_e != '[stdin]':
+        x = open(f_i_l_e, 'r')
         c_o_d_e = x.read()
         x.close()
-    else: c_o_d_e = ''
+    else:
+        c_o_d_e = ''
     v_e_r_s_i_o_n = '1.1.1'
-    def l_a_t_e_s_t () :
+
+    def l_a_t_e_s_t():
         try:
             req = requests.get('https://github.com/kagsa/kagsa/releases/latest').text
-            req = re.findall(r'<title>(.*?)</title>',req)[0]
-            return re.findall(r'\d+\.\d+\.\d+',req)[0]
+            req = re.findall(r'<title>(.*?)</title>', req)[0]
+            return re.findall(r'\d+\.\d+\.\d+', req)[0]
         except:
             return ''
 
-    
 
-class g_e_t_E_r_r_o_r ():
-    def __init__ (self) :
-        self.t_e_x_t     = ''
+class g_e_t_E_r_r_o_r:
+    def __init__(self):
+        self.t_e_x_t = ''
         self.l_i_n_e_n_o = ''
-        self.l_i_n_e     = ''
-        self.t_y_p_e     = ''
-        self.f_i_l_e     = '[KAGSA-FILE]'
-        try:    errGet = globals()['ERROR']
-        except: errGet = locals()['ERROR']
+        self.l_i_n_e = ''
+        self.t_y_p_e = ''
+        self.f_i_l_e = '[KAGSA-FILE]'
+        try:
+            errGet = globals()['ERROR']
+        except:
+            errGet = locals()['ERROR']
 
         if self.f_i_l_e == '[stdin]':
             self.l_i_n_e_n_o = 1
@@ -45,9 +53,9 @@ class g_e_t_E_r_r_o_r ():
             tb_filetype = 'kg'
         # form a library
         elif 'kgtmp' in tb_filename:
-            self.f_i_l_e = tb_filename.split(os.sep)[-1].replace('_main.py','')
-            self.f_i_l_e = self.f_i_l_e.replace('__','ة').replace('_','').replace('ة','_')
-            self.f_i_l_e+= '.kgl'
+            self.f_i_l_e = tb_filename.split(os.sep)[-1].replace('_main.py', '')
+            self.f_i_l_e = self.f_i_l_e.replace('__', 'ة').replace('_', '').replace('ة', '_')
+            self.f_i_l_e += '.kgl'
         # something else
         else:
             data_founded = False
@@ -55,179 +63,165 @@ class g_e_t_E_r_r_o_r ():
                 tb_fn, tb_lno, tb_f, _ = ttb
                 if (tb_fn == '<string>'):
                     tb_filename, tb_lineno, tb_func, _ = ttb
-                    data_founded =True
+                    data_founded = True
                     break
-            if not(data_founded):
-                tb_lineno = int(re.findall(r', line (\d+)',str(errGet))[0])
+            if not (data_founded):
+                tb_lineno = int(re.findall(r', line (\d+)', str(errGet))[0])
             self.f_i_l_e = KAGSA_FILE
             tb_filetype = 'kg'
-        
+
         try:
             if tb_filetype == 'kg':
-                tb_lineno = KAGSA_CODES.split('\n')[tb_lineno-1]
-                tb_lineno = int(re.findall(r'    # line (\d+)',tb_lineno)[-1])
-                x = open(KAGSA_FILE,'r')
+                tb_lineno = KAGSA_CODES.split('\n')[tb_lineno - 1]
+                tb_lineno = int(re.findall(r'    # line (\d+)', tb_lineno)[-1])
+                x = open(KAGSA_FILE, 'r')
                 file_lines = x.read().split('\n')
                 x.close()
-                file_lines_no = len( file_lines )
+                file_lines_no = len(file_lines)
             else:
                 x = open(tb_filename, 'r')
                 file_lines = x.read().split('\n')
                 x.close()
-                file_lines_no = len( file_lines )
-            #
-            #
-            #
+                file_lines_no = len(file_lines)
             if (tb_lineno == file_lines_no) or (tb_lineno < file_lines_no):
-                self.l_i_n_e = file_lines[tb_lineno-1].strip()
-                self.l_i_n_e_n_o   = tb_lineno
+                self.l_i_n_e = file_lines[tb_lineno - 1].strip()
+                self.l_i_n_e_n_o = tb_lineno
             else:
-                self.l_i_n_e       = '?'
-                self.l_i_n_e_n_o   ='?'
+                self.l_i_n_e = '?'
+                self.l_i_n_e_n_o = '?'
         except:
-            self.l_i_n_e       = '?'
-            self.l_i_n_e_n_o   = '?'
-        
-
-        E = errors(errGet, get_value_back=True)
-        self.t_e_x_t = E[1]
-        self.t_y_p_e = E[0]
+            self.l_i_n_e = '?'
+            self.l_i_n_e_n_o = '?'
 
 
-
-
-
-
-class IncludeError (Exception):
+class IncludeError(Exception):
     pass
 
-def INCLUDE (lib):
+
+def INCLUDE(lib):
     try:
         # check if input is string
-        if not(lib.__class__.__name__ == 'str') :
-            raise IncludeError('library must be string')
+        if not (lib.__class__.__name__ == 'str'):
+            raise IncludeError('library must be a string')
         # check if input is .kgl file
-        if not(lib.endswith('.kgl')):
-            raise IncludeError('libarary must be ".kgl" file')
-        if len(re.findall(r'[a-zA-Z_][a-zA-Z0-9_]*\.kgl|[a-zA-Z_]\.kgl', lib)) < 1 :
-            raise IncludeError('filename must be writted as this syntax "[a-zA-Z_][a-zA-Z0-9_]*\.kgl|[a-zA-Z_]\.kgl"')
-        if not(re.findall(r'[a-zA-Z_][a-zA-Z0-9_]*\.kgl|[a-zA-Z_]\.kgl', lib)[0] == lib):
-            raise IncludeError('filename must be writted as this syntax "[a-zA-Z_][a-zA-Z0-9_]*\.kgl|[a-zA-Z_]\.kgl"')
+        if not (lib.endswith('.kgl')):
+            raise IncludeError('library must be a ".kgl" file')
+        if len(re.findall(r'[a-zA-Z_][a-zA-Z0-9_]*\.kgl|[a-zA-Z_]\.kgl', lib)) < 1:
+            raise IncludeError('filename must be written in this syntax "[a-zA-Z_][a-zA-Z0-9_]*\.kgl|[a-zA-Z_]\.kgl"')
+        if not (re.findall(r'[a-zA-Z_][a-zA-Z0-9_]*\.kgl|[a-zA-Z_]\.kgl', lib)[0] == lib):
+            raise IncludeError('filename must be written in this syntax "[a-zA-Z_][a-zA-Z0-9_]*\.kgl|[a-zA-Z_]\.kgl"')
         # try open file
         try:
             open(lib)
         except:
-            Paths.getFile('libs' + os.sep + lib,'r')
+            Paths.getFile('libs' + os.sep + lib, 'r')
         if os.sep in lib:
             lib_name = lib.split(os.sep)[-1]
-        lib_name = lib.replace('.kgl','')
+        lib_name = lib.replace('.kgl', '')
         # parse lib_name
-        if (len(lib_name)>2) or (len(lib_name)==2):
-            lib_name='_'.join(list(lib_name))
-        if lib_name[0] in '1234567890' :
-            lib_name='_'+lib_name
+        if (len(lib_name) > 2) or (len(lib_name) == 2):
+            lib_name = '_'.join(list(lib_name))
+        if lib_name[0] in '1234567890':
+            lib_name = '_' + lib_name
         # end parse
         # read it :
-
         # get "main.py"
         try:
-            archive = zipfile.ZipFile(lib,'r')
+            archive = zipfile.ZipFile(lib, 'r')
         except:
-            archive = zipfile.ZipFile(Paths.__path__() + os.sep + 'libs' + os.sep + lib,'r')
+            archive = zipfile.ZipFile(Paths.__path__() + os.sep + 'libs' + os.sep + lib, 'r')
         try:
             KAGSA_TEMP = Paths.__path__() + os.sep + 'temp' + os.sep
             # write python library
-            py_file = open(f'{KAGSA_TEMP}{lib_name}_main.py','wb')
+            py_file = open(f'{KAGSA_TEMP}{lib_name}_main.py', 'wb')
             py_file.write(archive.read('main.py'))
             py_file.close()
             # write the kg file
             kg_file_name = [ff for ff in archive.namelist() if ff.endswith('.kg')]
-            kg_file = open(f'{KAGSA_TEMP}{kg_file_name[0]}','wb')
+            kg_file = open(f'{KAGSA_TEMP}{kg_file_name[0]}', 'wb')
             kg_file.write(archive.read(kg_file_name[0]))
             kg_file.close()
         except:
             KAGSA_TEMP = Paths.__path__() + os.sep
             # write python library
-            py_file = open(f'{KAGSA_TEMP}{lib_name}_main.py','wb')
+            py_file = open(f'{KAGSA_TEMP}{lib_name}_main.py', 'wb')
             py_file.write(archive.read('main.py'))
             py_file.close()
             # write the kg file
             kg_file_name = [ff for ff in archive.namelist() if ff.endswith('.kg')]
-            kg_file = open(f'{KAGSA_TEMP}{kg_file_name[0]}','wb')
+            kg_file = open(f'{KAGSA_TEMP}{kg_file_name[0]}', 'wb')
             kg_file.write(archive.read(kg_file_name[0]))
             kg_file.close()
         # import it
         global exec_scope
         exec_scope = {}
-        #sys.path.insert(1, KAGSA_TEMP[0:-1])
+        # sys.path.insert(1, KAGSA_TEMP[0:-1])
         try:
-            exec(f'import {lib_name}_main',exec_scope)
-            exec(f'def send_to_globals () :\n\tglobal {lib_name}\n\t{lib_name} = exec_scope["{lib_name}_main"]',globals())
+            exec(f'import {lib_name}_main', exec_scope)
+            exec(f'def send_to_globals () :\n\tglobal {lib_name}\n\t{lib_name} = exec_scope["{lib_name}_main"]', globals())
             send_to_globals()
         except Exception as e:
             raise IncludeError(str(e))
     except FileNotFoundError:
         raise IncludeError(f'"{lib}" is not defined')
 
-def to_list (data):
+
+def to_list(data):
     d = []
     for i in data:
         d.append(i)
     return d
 
-class JumpingError (Exception):
+
+class JumpingError(Exception):
     pass
 
-def JUMP (lineno):
+
+def JUMP(lineno):
     lines = KAGSA_CODES
     lines_dict = {}
     data_founded = 0
     data = ''
-    
+
     # Create a dict with all lines -> {'2','print("hi")    # line 2'}
-    last=''
+    last = ''
     for j in lines.split('\n'):
-        no = re.findall(r'    # line (\d+)',j)[0]
-        if no == last.replace('_',''):
-            lines_dict[last+'_'] = j
-            last = last+'_'
+        no = re.findall(r'    # line (\d+)', j)[0]
+        if no == last.replace('_', ''):
+            lines_dict[last + '_'] = j
+            last = last + '_'
         else:
             lines_dict[no] = j
             last = no
-        #print(last)
 
     if str(lineno) in lines_dict.keys():
-        k,v = to_list(lines_dict.keys()), to_list(lines_dict.values())
-        data_founded=1
-        data = v[ k.index(str(lineno)) : ]
+        k, v = to_list(lines_dict.keys()), to_list(lines_dict.values())
+        data_founded = 1
+        data = v[k.index(str(lineno)):]
     else:
         up_ = int(lineno)
         down_ = int(lineno)
         while True:
-            up_+=1
-            down_-=1
+            up_ += 1
+            down_ -= 1
             if str(up_) in lines_dict:
-                k,v = to_list(lines_dict.keys()), to_list(lines_dict.values())
-                data_founded=1
-                data = v[ k.index(str(up_)) : ]
+                k, v = to_list(lines_dict.keys()), to_list(lines_dict.values())
+                data_founded = 1
+                data = v[k.index(str(up_)):]
                 break
             if down_ > 0:
                 if str(down_) in lines_dict:
-                    k,v = to_list(lines_dict.keys()), to_list(lines_dict.values())
-                    data_founded=1
-                    data = v[ k.index(str(down_))+1 : ]
+                    k, v = to_list(lines_dict.keys()), to_list(lines_dict.values())
+                    data_founded = 1
+                    data = v[k.index(str(down_)) + 1:]
                     break
 
-
     if data[0].startswith('\t'):
-        tabs = re.findall(r'(\t+).*?',data[0])[0].count('\t')
-        x=0
-        for j in range(1, tabs+1):
-            data.insert(x , ("\t" * x) + 'for _jump_ in [1]:')
-            x+=1
+        tabs = re.findall(r'(\t+).*?', data[0])[0].count('\t')
+        x = 0
+        for j in range(1, tabs + 1):
+            data.insert(x, ("\t" * x) + 'for _jump_ in [1]:')
+            x += 1
 
-    #print('\n'.join(data))
-    #input()
-    exec('\n'.join(data),globals())
+    exec('\n'.join(data), globals())
     sys.exit(0)
-
