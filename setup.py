@@ -6,14 +6,11 @@ __author__ = "KAGSA PROGRAMMING LANGUAGE"
 __author_email__ = "admin@kagsa.org"
 __date__ = "2023-6-6"
 
+with open("README.md", "r", encoding="utf-8") as readme_file:
+    long_description = readme_file.read()
 
-readme = open("README.md", "r", encoding="utf-8")
-long_description =  readme.read()
-reqFile=open("requirements.txt", "r")
-requirements = reqFile.read().split('\n')
-
-readme.close()
-reqFile.close()
+with open("requirements.txt", "r") as req_file:
+    requirements = req_file.read().splitlines()
 
 setup(
     name=__name__,
@@ -26,11 +23,11 @@ setup(
     author_email=__author_email__,
 
     project_urls={
-      'Source': 'https://github.com/kagsa/kagsa',
-      'Report Bugs': 'https://github.com/kagsa/kagsa/issues',
-      'Download': 'https://pypi.org/project/kagsa/#files',
-      'Documentation': 'https://github.com/kagsa/kagsa/blob/master/README.md',
-      'Website' : 'https://www.kagsa.org/'
+        'Source': 'https://github.com/kagsa/kagsa',
+        'Report Bugs': 'https://github.com/kagsa/kagsa/issues',
+        'Download': 'https://pypi.org/project/kagsa/#files',
+        'Documentation': 'https://github.com/kagsa/kagsa/blob/master/README.md',
+        'Website': 'https://www.kagsa.org/'
     },
 
     license='MIT',
@@ -38,20 +35,20 @@ setup(
     keywords=[
         'programming', 'language', 'programming language',
         'kagsa', 'lang', 'kg', 'KG', 'KAGSA'
-       ],
+    ],
 
     packages=find_packages(),
 
     include_package_data=True,
 
-    package_data={'' : ['built_modules.py','errors.py','methods.py','parse_id.py','parse_string.py','parser.py']},
+    package_data={'': ['built_modules.py', 'errors.py', 'methods.py', 'parse_id.py', 'parse_string.py', 'parser.py']},
 
-    install_requires= requirements,
+    install_requires=requirements,
 
     entry_points={
         'console_scripts': [
-                "kagsa=kagsasrc.__main__:main",
-                "kg=kagsasrc.__main__:main"
+            "kagsa=kagsasrc.__main__:main",
+            "kg=kagsasrc.__main__:main"
         ]
-	}
+    }
 )
